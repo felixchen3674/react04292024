@@ -1,5 +1,6 @@
 # Loom Recording Link:
-Link: this is the link
+
+Link: 
 
 # Homework: Answer Questions
 
@@ -7,42 +8,40 @@ Link: this is the link
 
 Answer:
 
-### Client vs Server Difference
+### Client vs Server difference
 
 Answer:
 
-### What is CDN and why do we need it?
+### What is CDN and why do we need it
 
+keywords: performance / initial load time
+<br>
 Answer:
 
-### Performance / Initial Load Time
+### what are restful APIs
 
+keywords: CRUD: get, post, delete, update
+<br>
 Answer:
 
-### What are RESTful APIs?
+### what are some status codes
 
+keywords: 200, 401, 403, 404
+<br>
 Answer:
 
-### CRUD: GET, POST, DELETE, UPDATE
+### What is semantic HTML? Give examples
 
+keywords: add meaning to tags / easier for developers & screen readers to understand
+<br>
 Answer:
 
-### What are some status codes? (200, 401, 403, 404)
+### what are local storage vs session storage vs cookies
 
+keywords: size / duration / cookie: communication between client & server
+<br>
 Answer:
 
-### What is semantic HTML? Give examples.
-
-Answer:
-
-### Add meaning to tags: making it easier for developers and screen readers to understand.
-
-Answer:
-
-### What are local storage vs session storage vs cookies?
-
-Answer:
-
-### What is accessibility and why is it important?
+### What is accessibility and why is it important
 
 Answer:

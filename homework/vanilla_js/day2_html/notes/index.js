@@ -1,5 +1,1 @@
-// this is just play around
-
-// odijqhbvoqicnqwocpqwjchopqwj
-
-//experienmetn
+//example notes / play around / scratch paper
