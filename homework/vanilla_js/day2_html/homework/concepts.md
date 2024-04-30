@@ -2,11 +2,13 @@
 
 Link:https://www.loom.com/share/77a7bec4c60a4455a7a93eaec5f7ba1c
 
+
 # Homework: Answer Questions
 
 ### IP Address
 
 Answer: Internet Protocol Address helps each computer find each other.
+
 
 ### Client vs Server Difference
 
@@ -26,35 +28,55 @@ CDN can enhance the peformance of web services by decreasing initial load time f
 
 ### What are RESTful APIs?
 
+### Client vs Server difference
+
+
 REST stands for Representational State Transfer, managing create, read, update, and delete operations. RESTful APIs are APIs that follow the REST architectural style.
 
 Answer:
 
-### CRUD: GET, POST, DELETE, UPDATE
+### What is CDN and why do we need it
+
 
 Answer:GET:Retrieves data from the server
 POST: Submit data to the server
 UPDATE:Update data already on the server
 DELETE: Deletes data from the server
 
-### What are some status codes? (200, 401, 403, 404)
+keywords: performance / initial load time
+<br>
+Answer:
 
+
+### what are restful APIs
+
+keywords: CRUD: get, post, delete, update
+<br>
 Answer:
 200:Ok, indicating the request was successful.
 401:Unauthorized, indicating that authentication is required for access
 403:Forbidden, indicating that the server understood the request but refuse to authorize it
 404:Not found, indicating the server couldn't find the requested resource.
 
-### What is semantic HTML? Give examples.
+### what are some status codes
+
 
 Answer: A semantic element describes its meaning to both browser and the developer.
 Like header element, footer element and etc.
 
-### Add meaning to tags: making it easier for developers and screen readers to understand.
-
+keywords: 200, 401, 403, 404
+<br>
 Answer:
 
-### What are local storage vs session storage vs cookies?
+
+### What is semantic HTML? Give examples
+
+keywords: add meaning to tags / easier for developers & screen readers to understand
+<br>
+Answer:
+
+### what are local storage vs session storage vs cookies
+
 
 Answer:![local storage vs session storage vs cookie](image.png)
 **Cookies**:
@@ -72,6 +94,11 @@ Capacity: Up to 5 megabytes.
 Session-Limited: Data is cleared once the session or tab is closed.
 Isolation: Data is not shared across tabs or windows even on the same site.
 
-### What is accessibility and why is it important?
+keywords: size / duration / cookie: communication between client & server
+<br>
+Answer:
+
+
+### What is accessibility and why is it important
 
 Answer:Accessibility refers to the design and creation of websites and tools that are usable by people with disabilities. Ignoring accessibility can lead to lawsuits, as demonstrated by real-world examples like the Domino's Pizza case

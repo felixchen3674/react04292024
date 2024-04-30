@@ -1,3 +1,4 @@
+
 //GetElementById()
 const title = document.getElementById('main-heading');
 console.log(title);
@@ -100,3 +101,6 @@ console.log(localStorage.getItem('isLoggedIn'));
 localStorage.removeItem('isLoggedIn');
 sessionStorage.setItem('name', 'Li');
 document.cookie = 'name=zhe;expires=' + new Date(2024, 4, 29).toUTCString();
+
+//example notes / play around / scratch paper
+
