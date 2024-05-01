@@ -7,20 +7,21 @@ Link:https://www.loom.com/share/77a7bec4c60a4455a7a93eaec5f7ba1c
 
 ### IP Address
 
-Answer: IP address stands for Internet protocal address, it is a sequence of number
-that is assigned to devices that help identify them. 
+Answer: IP address stands for Internet protocol address, it is a sequence of number
+that is assigned to devices that help identify them. ip addresses match to domain names
 
 
 ### Client vs Server Difference
 
 Answer: Server stores the data that we need, client is the web browser where all the
-information is rendered. 
+information is rendered. Client sends request to server, server response to client's request
 
 ### What is CDN and why do we need it?
 
 Answer: CDN(content delivery network) is designed for speeding up delivery of 
-static HTML content globally.vCDN can bring content closer to users by using 
-hundreds of PoP (point of presence)to improve web service performance.
+static HTML content globally.CDN can bring content closer to users by using 
+hundreds of PoP (point of presence)to improve web service performance. Store content
+in CDN to boost performance and initial loading time.
 
 
 ### Performance / Initial Load Time
@@ -45,11 +46,14 @@ Answer:
 401: Unauthorized
 403: Forbidden
 404: Not found
+500: server problem
 
 
 ### What is semantic HTML? Give examples
 
-Answer: Describe the content meaning to both the browser and developer. 
+Answer: Describe the content meaning to both the browser and developer. Add meanings
+to tags, help the developers and help with people with reading issue (someone who
+needs a screen reader). 
 <header> <nav> <section> <article> <aside> etc.
 
 ### what are local storage vs session storage vs cookies
