@@ -1,0 +1,101 @@
+.container {
+    background-color: rgb(146, 144, 144);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    color: rgb(146, 144, 144);
+}
+
+.register {
+    max-width: 800px;
+    width: 60%;
+    height: 50%;
+    background-color: white;
+    margin: 0 auto;
+}
+
+.header {
+    height: 20%;
+}
+
+.title {
+    height: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 2vw;
+}
+
+.title .title-left {
+    width: 40%;
+    border: 1px solid rgb(116, 114, 114);
+    height: 0;
+}
+
+.title .title-right {
+    width: 40%;
+    border: 1px solid rgb(116, 114, 114);
+    height: 0;
+}
+
+.header .message {
+    text-align: center;
+}
+
+.form-group input, .form-group1 input {
+    padding: 10px;
+    width: 80%;  /* Ensures that the width is consistent across all inputs */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;  /* Adds space between the inputs */
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;  /* Ensure that form-group takes the full width */
+}
+
+.form-group1 {
+    display: flex;
+    justify-content: space-around;  /* This will space out the First Name and Last Name inputs */
+}
+
+.form-group1 input {
+    width: 30%;
+}
+
+.agreement {
+    display: flex;
+}
+
+.agreement input {
+    margin-left: 11%;
+}
+
+.agreement .point {
+    color: green;
+}
+
+.submit {
+    display: flex;
+    justify-content: center;  /* Aligns children (button) horizontally in the center */
+    margin-top: 2%;
+}
+
+button {
+    background-color: #5c67f2;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 80%;
+    margin-top: 10px;
+    margin: 0 auto;
+}
+
+button:hover {
+    background-color: #5058cc;
+}
