@@ -1,0 +1,15 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: 100px 100px 100px;
+    justify-content: center;
+    grid-column-gap: 20px;
+}
+
+.box {
+    height: 50px;
+    width: 50px;
+    padding: 20px;
+    border: 15px solid black;
+    background-color: aquamarine;
+    margin-right: 10px; /* 设置右侧间距为 10px */
+}

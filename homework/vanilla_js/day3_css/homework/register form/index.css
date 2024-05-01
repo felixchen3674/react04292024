@@ -1,0 +1,45 @@
+body {
+    background-color:cadetblue
+}
+
+.form-container {
+    display: grid;
+    background-color:azure;
+    margin: 20px;
+    grid-template-columns: 165px 165px;
+    justify-content: center;
+    grid-gap: 15px;
+    padding: 20px;
+}
+
+.form-item-1 {
+    grid-column: 1 / -1;
+    justify-self: center;
+}
+
+.form-item-2 {
+    grid-column: 1 / -1;
+    justify-self: center;
+}
+
+.form-item-5 {
+    grid-column: 1 / -1;
+}
+
+.form-item-6 {
+    grid-column: 1 / -1;
+}
+
+.form-item-7 {
+    grid-column: 1 / -1;
+}
+
+.form-item-8 {
+    grid-column: 1 / -1;
+}
+
+.form-item-9 {
+    grid-column: 1 / -1;
+    background-color: cadetblue;
+    color:aliceblue
+}
