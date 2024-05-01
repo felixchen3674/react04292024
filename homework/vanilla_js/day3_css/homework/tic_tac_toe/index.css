@@ -1,0 +1,37 @@
+.line {
+    display: flex;
+    height: 33vh;
+    width: 100%;
+}
+
+.outer_box {
+    height: 100%;
+    width: 33.33%;
+    background-color: darkblue;
+    border: 0.5px solid red;
+    display: flex;
+    align-items: center;
+}
+
+.inner_box {
+    height:80%;
+    width:80%;
+    background-color: aqua;
+    margin: 0  auto;
+}
+
+.line .outer_box:nth-child(1) {
+    border-left: 0;
+}
+
+.line:nth-child(1)  .outer_box {
+    border-top: 0;
+}
+
+.line .outer_box:nth-child(3) {
+    border-right: 0;
+}
+
+.line:nth-child(3) .outer_box {
+    border-bottom: 0;
+}
