@@ -1,0 +1,28 @@
+#todoContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: CENTER;
+  padding: 30vh;
+}
+
+li {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+}
+ul {
+  padding-left: 0;
+}
+fieldset {
+  display: FLEX;
+  flex-direction: COLUMN;
+  border-radius: 10%;
+  height: 300px;
+  width: 300px;
+}
+fieldset > div {
+  display: FLEX;
+  justify-content: CENTER;
+  align-items: CENTER;
+}
