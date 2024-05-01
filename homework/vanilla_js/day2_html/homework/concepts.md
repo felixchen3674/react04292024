@@ -2,13 +2,11 @@
 
 Link:https://www.loom.com/share/77a7bec4c60a4455a7a93eaec5f7ba1c
 
-
 # Homework: Answer Questions
 
 ### IP Address
 
 Answer: Internet Protocol Address helps each computer find each other.
-
 
 ### Client vs Server Difference
 
@@ -30,13 +28,11 @@ CDN can enhance the peformance of web services by decreasing initial load time f
 
 ### Client vs Server difference
 
-
 REST stands for Representational State Transfer, managing create, read, update, and delete operations. RESTful APIs are APIs that follow the REST architectural style.
 
 Answer:
 
 ### What is CDN and why do we need it
-
 
 Answer:GET:Retrieves data from the server
 POST: Submit data to the server
@@ -46,7 +42,6 @@ DELETE: Deletes data from the server
 keywords: performance / initial load time
 <br>
 Answer:
-
 
 ### what are restful APIs
 
@@ -60,14 +55,12 @@ Answer:
 
 ### what are some status codes
 
-
 Answer: A semantic element describes its meaning to both browser and the developer.
 Like header element, footer element and etc.
 
 keywords: 200, 401, 403, 404
 <br>
 Answer:
-
 
 ### What is semantic HTML? Give examples
 
@@ -76,7 +69,6 @@ keywords: add meaning to tags / easier for developers & screen readers to unders
 Answer:
 
 ### what are local storage vs session storage vs cookies
-
 
 Answer:![local storage vs session storage vs cookie](image.png)
 **Cookies**:
@@ -97,7 +89,6 @@ Isolation: Data is not shared across tabs or windows even on the same site.
 keywords: size / duration / cookie: communication between client & server
 <br>
 Answer:
-
 
 ### What is accessibility and why is it important
 
