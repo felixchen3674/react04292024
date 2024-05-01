@@ -18,16 +18,14 @@ npm install
 
 ### STEP 4 For the current day's folder
 1. homework
-* Answer concept questions in concepts.md, put your loom recording link there too
+* Answer concept questions
 * Do the homework, run the following command in root directory to run test (if any)
     *    ```npm run test```
 * If there is a project homework, put your project in this folder
     
 2. notes
-* Your play-around code (scratch paper, however you want)
-    * I should be able to tell you watched the lectures seriously and tried to follow along,
-    just like how a student's scratch paper shows that he took the exam seriously
-* Or you can put screenshots in this folder  
+* Your play-around code (scratch paper)
+* Or you can put screenshots  
 
 ### STEP 5 Submitting homework
 1. Use `git add .` to stage your changes
