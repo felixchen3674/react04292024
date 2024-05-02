@@ -1,0 +1,194 @@
+/* .blue{
+    color: violet
+}
+
+h3{
+    color: green
+}
+
+.box{
+    height: 100px;
+    width: 100px;
+    padding: 20px;
+    margin: 50px;
+    border: 10px solid black;
+    background-color: red;
+} */
+
+.flexbox-container{
+    display: flex;
+    /* flex-wrap: wrap; */
+    /*it allows to wrap if the space is not enough*/
+    /* justify-content: center; */
+     /*this allows how it will be aligned based on MAIN AXIS*/
+    /* align-items: flex-start; */
+     /*this allows how it will be aligned based on CROSS AXIS*/
+    /* align-content: flex-start; */
+    /*this decides which way the content will start*/
+    /* flex-direction:  column; */
+    /* this changes the AXIS. if column, it will change the main axis to cross axis. */
+
+}
+
+/* .flexbox-item{
+    width: 200px;
+    margin: 10px;
+    border: 3px solid #333;
+    background-color: #dfdfdf;
+}
+
+.flexbox-item-1{
+    min-height: 100px;
+}
+.flexbox-item-2{
+    min-height: 200px;
+}
+.flexbox-item-3{
+    min-height: 300px;
+} */
+/* *, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html, body {
+    background-color: #333;
+    height: 100%;
+    margin: 0;
+}
+
+.grid-container {
+    position: relative;
+    padding: 20px;
+    width: 100%;
+}
+  
+.grid-item {
+    position: relative;
+    font-size: 25px;
+    padding: 20px;
+    padding-top: 50px;
+    background-color: #379AD6;
+    color: #222;
+    border: 1px solid white;
+} */
+
+/* .grid-container{
+    display: grid;
+    grid-template-columns: 200px 250px;
+    grid-auto-rows: minmax(150px, auto); */
+    /* grid-template-rows: 200px;
+    grid-row-gap: 20px;
+    grid-column-gap: 10px; */
+    /* grid-gap: 20px; */
+    /* grid-template-areas: 
+    "header header"
+    "sidebar content"
+    "sidebar content"; */
+    /* justify-content: space-around;
+    align-content: stretch;
+    height: 100vh; */
+    /* justify-items: stretch;
+    align-items: stretch;
+ } */
+
+/* .grid-item-1{
+    align-self: start;
+    justify-self: center;
+} */
+/* .grid-item-1{
+    grid-area: header;
+    grid-column-start: 1;
+    grid-column-end: -1;
+    grid-column: 1/-1;
+}
+
+.grid-item-2{
+    grid-area: sidebar;
+    grid-row: span 2;
+}
+.grid-item-3{
+    grid-area: content;
+    grid-row: span 2;
+} */
+
+/* body{
+    color: red;
+}
+.title{
+    font-size: 6rem;
+}
+.subtitle{
+    font-size: 4rem;
+} */
+
+/* @media (max-width: 500px) {
+    body{
+        color: blue;
+    }
+} */
+
+/* @media (orientation: landscape) and (max-width: 500px){
+    .subtitle{
+        color: green;
+    }
+} */
+
+body, html{
+    margin: 0;
+    height: 100vh;
+}
+
+body{
+    display: grid;
+    place-content: center;
+    height: 100vh;
+    background-color: beige;
+}
+
+.card{
+    padding: 0 5em;
+}
+
+.card__img{
+    display: block;
+    height: 100px;
+    width: 100%;
+    background-color: rgb(179, 48, 70);
+}
+
+.card__content{
+    padding: 1.5em;
+    background-color: white;
+}
+.card__list{
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.card__item{
+    padding: 0.3em 0.5em;
+    margin-right: 0.5em;
+    background-color: gray;
+    border-radius: 0.3em;
+    font-size: 0.85em
+}
+
+.card__item--active{
+    background-color: #d4d4d4;
+    font-weight: bold;
+}
+
+.card__link{
+    background: #2c8973;
+    color: white;
+    text-decoration: none;
+    padding: 0.5em 1em;
+    border-radius: 0.5em;
+    display: inline-block;
+    margin-top: 0.5em;
+}
+.card__link:hover{
+    background: #267764;
+}

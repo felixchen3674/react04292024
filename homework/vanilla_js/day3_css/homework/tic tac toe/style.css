@@ -1,0 +1,30 @@
+/* Could not figure out how to remove the outer border(red) 
+and show black on the padding for each box */
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+ }
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    width: 300px;
+    border: 10px solid black;
+}
+  
+  .container__box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    background-color: green; 
+    border: 1px solid red; 
+    padding: 10px;
+    height: 100px;
+}
+
