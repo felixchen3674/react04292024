@@ -1,0 +1,16 @@
+* {
+  box-sizing: border-box;
+}
+
+h1 {
+  color: red;
+}
+
+.title {
+  width: 100px;
+  color: blue;
+  padding: 10px;
+  border: 1px solid black;
+}
+
+
