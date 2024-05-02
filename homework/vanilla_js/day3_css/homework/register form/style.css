@@ -46,10 +46,14 @@ h1 {
 
 h4 {
     text-align: center;
-    color: rgb(208, 203, 203);
+    color: rgb(199, 197, 197);
 }
 
 label a {
     color: #5bb74f;
     text-decoration: none; /* No underline */
+}
+
+label {
+    color: rgb(199, 197, 197);
 }
