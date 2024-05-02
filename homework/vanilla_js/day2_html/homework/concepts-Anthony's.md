@@ -2,10 +2,10 @@
 Link: 
 
 # Homework: Answer Questions
-
+Day 2 Loom recording of homework
 ### IP Address
 
-Answer: It is a address that used to communicate across networks
+Answer: It is a address that used to communicate across networks and help computers find each other.
 
 ### Client vs Server Difference
 
@@ -15,39 +15,46 @@ Server: This is where all the information is stored, such as images, or videos, 
 
 ### What is CDN and why do we need it?
 
-Answer:Content Delivery Network. It brings service close to user
+Answer:Content Delivery Network. It brings service close to user using servers known as PoP or Edge server. We need CDNs because it speeds up the loading time from end user and for security reasons. If one server fails, there are multiple servers that could be redirected to so it users could seamlessly access the requested data and due to its sheer size of the server network, it prevents attacks from hackers.
 
 ### Performance / Initial Load Time
 
-Answer: Performance or Initial Load Time in coding refers to how quickly a website or app loads and becomes usable when someone first opens it. 
+Answer: Performance or Initial Load Time refers to how quickly a website or app loads and becomes usable when someone first opens it. 
 
 **We can set up a CDN to shorten the loading time
 
 ### What are RESTful APIs?
 
 Answer:
+stands for 
 REpresentation
 State
 Transfer
+It is an interface that two computer systems use to exchange information securely over the internet.
 
-fancy way of saying server responds to create read update delete
+**fancy way of saying server responds to create read update delete
 
 ### CRUD: GET, POST, DELETE, UPDATE
 
 Answer:
-Get : if no ID, it gets entire resource
-Post : create new resource / Acts on the entire resource
-Put : update the resource
-Delete: deletes the resource
+Create, Read, Update, Delete
 
+Create = Post : create new resource / Acts on the entire resource
+Read = Get : if no ID, it gets entire resource
+Update = Put : update the resource
+Delete = Delete: deletes the resource
+it is the four basic operations a software application should be able to perform
+
+in HTTP
 **API: Application programming interface, point of contact or communicates with each other. Somewhat a 'Robot that lets you talk between let's say server and client(you)'
 
 ### What are some status codes? (200, 401, 403, 404)
 
 Answer:
 200: OK
-401: unauthorized
-403: lack permission to access some parts of the website
+201: OK created (POSTed)
+401: unauthorized or request lacks valid authentication credentials
+403: server understands the request but refuses to fulfill it
 404: not found
 
 ### What is semantic HTML? Give examples.
