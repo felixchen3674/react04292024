@@ -1,4 +1,4 @@
-function combineObjects(obj1, obj2) {
+export function combineObjects(obj1, obj2) {
   // Combine the objects
   // if the objects have the same key, use the value from obj2
   // Example 1: const obj1 = {name: 'Alice', age: 25};
@@ -9,7 +9,7 @@ function combineObjects(obj1, obj2) {
   // Expected output: {name: 'John', age: 21}
 }
 
-function changeValueOf(obj, key, value) {
+export function changeValueOf(obj, key, value) {
   // Change the value of the key in the object
   // Example 1: const obj = {name: 'Alice', age: 25};
   // changeValueOf(obj, 'age', 21);
@@ -19,7 +19,7 @@ function changeValueOf(obj, key, value) {
   // Expected output: {name: 'Alice', age: 25, job: 'teacher'}
 }
 
-function cancelExpiredEvents(events) {
+export function cancelExpiredEvents(events) {
   // Cancel the expired events
   // Example: const events = [
   //   event1: {name: 'Birthday Party', date: '2020-01-01', isCanceled: false},
@@ -29,7 +29,7 @@ function cancelExpiredEvents(events) {
   // Expected output: // an array of events, but event1 and event2 are canceled, event3 is not canceled
 }
 
-function findEventByType(events, type) {
+export function findEventByType(events, type) {
   // Find the event by type
   // Example: const events = [
   //   event1: {name: 'Birthday Party', type: 'private'},
