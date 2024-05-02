@@ -14,12 +14,13 @@ import {
 } from "./arrays";
 
 describe("Arrays", () => {
-  describe("findNumsFromStr", () => {
-    it("should return an array of numbers that are in the string", () => {
-      const str = "I have 2 apples and 3 pineapples";
-      expect(findNumsFromStr(str)).toEqual([2, 3]);
-      const str2 = "12 is my favorite number, not 1";
-      expect(findNumsFromStr(str2)).toEqual([12, 1]);
+  describe("checkIfStringIsNumber", () => {
+    it("should return a boolean indicating if the str is a number", () => {
+      expect(checkIfStringIsNumber("1")).toEqual(true);
+      expect(checkIfStringIsNumber("12")).toEqual(true);
+      expect(checkIfStringIsNumber("a")).toEqual(false);
+      expect(checkIfStringIsNumber("a1")).toEqual(false);
+      expect(checkIfStringIsNumber("1a")).toEqual(false);
     });
 
     it("should return an empty array if no numbers are in the string", () => {

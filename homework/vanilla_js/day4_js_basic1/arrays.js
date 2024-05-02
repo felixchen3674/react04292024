@@ -1,11 +1,11 @@
 // Do not use prototype methods
 
 // Data types & numsays
-export function findNumsFromStr(str) {
+export function checkIfStringIsNumber(str) {
   //   Write a function that takes a string as an argument and
-  //   returns an array of numbers that are in that string.
-  //   Example: const str = 'I have 2 apples and 3 pineapples';
-  //   Expected output: [2, 3]
+  //   returns a boolean indicating if the str is a number
+  //   Example:
+  //   '1' -> true, "a" -> false, "1a" -> false
 }
 
 export function findAvgOfNums(arr) {
