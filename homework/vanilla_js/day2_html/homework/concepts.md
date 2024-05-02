@@ -1,8 +1,3 @@
-# Loom Recording Link:
-
-
-
-
 # Homework: Answer Questions
 
 ### IP Address
