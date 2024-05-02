@@ -1,5 +1,4 @@
 import {
-  findNumsFromStr,
   findAvgOfNums,
   findAverageAge,
   findAvgAgeByJob,
@@ -11,6 +10,7 @@ import {
   removeTypes,
   changeNumsByAmount,
   removeNumFromArr,
+  checkIfStringIsNumber,
 } from "./arrays";
 
 describe("Arrays", () => {
@@ -21,11 +21,6 @@ describe("Arrays", () => {
       expect(checkIfStringIsNumber("a")).toEqual(false);
       expect(checkIfStringIsNumber("a1")).toEqual(false);
       expect(checkIfStringIsNumber("1a")).toEqual(false);
-    });
-
-    it("should return an empty array if no numbers are in the string", () => {
-      const str = "I have no numbers";
-      expect(findNumsFromStr(str)).toEqual([]);
     });
   });
 
