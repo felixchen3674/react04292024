@@ -1,0 +1,101 @@
+/* simple selector */
+h3 {
+  background-color: red;
+}
+.h1 {
+  background-color: bisque;
+}
+#h2 {
+  background-color: blue;
+}
+
+/* combinator selector */
+h3.h3 {
+  background-color: aquamarine;
+}
+
+div p {
+  background-color: azure;
+}
+
+h4,
+h5 {
+  background-color: blueviolet;
+}
+.flexbox-container {
+  display: flex;
+  /* flex-wrap: wrap; */
+  /* justify-content: center; horizonal align */
+  /* align-items: flex-start; vertical-align: ; */
+  align-items: flex-start;
+}
+.flexbox-container div {
+  border: solid black;
+  width: 200px;
+  margin: 10px;
+}
+.flexbox-1 {
+  min-height: 100px;
+  background-color: red;
+  flex-shrink: 0;
+  /* no shrink when reduce the px; */
+}
+.flexbox-2 {
+  min-height: 200px;
+  background-color: yellow;
+  flex-grow: 1;
+  /* take up the full width available */
+  align-self: center;
+  /* self alignment */
+}
+.flexbox-3 {
+  min-height: 300px;
+  background-color: blue;
+  flex-grow: 2;
+  /* take up the space double than the other with flex-grow */
+}
+
+.grid-container {
+  display: grid;
+  /* grid-template-columns: 2fr 1fr; */
+  /* grid-template-columns: repeat(4, 100px); */
+  /* grid-template-rows: 200px 100px; */
+  /* grid-auto-rows: 150px; */
+  grid-auto-rows: minmax(100px, auto);
+  /* gap: 20px; */
+  column-gap: 20px;
+  row-gap: 10px;
+  grid-template-areas:
+    "b b a a a"
+    "b b c c c"
+    "d d e e .";
+}
+.grid-box1 {
+  grid-area: a;
+}
+.grid-box2 {
+  grid-area: b;
+}
+.grid-box3 {
+  grid-area: c;
+}
+.grid-box4 {
+  grid-area: d;
+}
+.grid-box5 {
+  grid-area: e;
+}
+.grid-container div {
+  border: solid black;
+  background-color: cadetblue;
+}
+
+body {
+  background-color: white;
+}
+/* order matter because of specifity */
+@media all and (max-width: 700px) {
+  body {
+    background-color: aqua;
+  }
+}

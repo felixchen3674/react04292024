@@ -1,0 +1,78 @@
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  background-color: cornflowerblue;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  background-color: lightgray;
+  align-items: center;
+  padding: 50px;
+  width: 30%;
+  margin: 10px;
+}
+
+#nameContainer {
+  display: flex;
+}
+
+.otherContainer {
+  display: flex;
+  flex-direction: column;
+  width: 68%;
+}
+input {
+  margin-bottom: 5px;
+}
+.box {
+  display: flex;
+  justify-content: center;
+  background-color: black;
+}
+.grid-container {
+  display: grid;
+  background-color: red;
+  width: 500px;
+  height: 500px;
+  gap: 1px;
+  grid-template-areas:
+    "a b c"
+    "d e f"
+    "g h i";
+}
+.grid-box1 {
+  grid-area: a;
+}
+.grid-box2 {
+  grid-area: b;
+}
+.grid-box3 {
+  grid-area: c;
+}
+.grid-box4 {
+  grid-area: d;
+}
+.grid-box5 {
+  grid-area: e;
+}
+.grid-box6 {
+  grid-area: f;
+}
+.grid-box7 {
+  grid-area: g;
+}
+.grid-box8 {
+  grid-area: h;
+}
+.grid-box9 {
+  grid-area: i;
+}
+
+.grid-container div {
+  background-color: aquamarine;
+  border: 10px solid seagreen;
+}
