@@ -16,18 +16,21 @@ export function combineObjects(obj1, obj2) {
 }
 
 export function changeValueOf(obj, key, value) {
+  // update the obj in place, do not return a new obj
   // Change the value of the key in the object
   // Example 1: const obj = {name: 'Alice', age: 25};
   // changeValueOf(obj, 'age', 21);
-  // Expected output: {name: 'Alice', age: 21}
+  // Expected obj: {name: 'Alice', age: 21}
   // Example 2: const obj = {name: 'Alice', age: 25};
   // changeValueOf(obj, 'job', 'teacher');
-  // Expected output: {name: 'Alice', age: 25, job: 'teacher'}
+  // Expected obj: {name: 'Alice', age: 25, job: 'teacher'}
   obj[key] = value;
   return obj;
 }
 
 export function cancelExpiredEvents(events) {
+  // update the events in place, do not return a new obj
+
   // Cancel the expired events
   // Example: const events = [
   //   event1: {name: 'Birthday Party', date: '2020-01-01', isCanceled: false},
