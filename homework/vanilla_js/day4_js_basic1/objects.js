@@ -1,4 +1,12 @@
 export function combineObjects(obj1, obj2) {
+  let res = {};
+  for (let key in obj1) {
+    res[key] = obj1[key];
+  }
+  for (let key in obj2) {
+    res[key] = obj2[key];
+  }
+  return res;
   // Combine the objects
   // if the objects have the same key, use the value from obj2
   // Example 1: const obj1 = {name: 'Alice', age: 25};
@@ -10,6 +18,7 @@ export function combineObjects(obj1, obj2) {
 }
 
 export function changeValueOf(obj, key, value) {
+  return (obj[key] = value);
   // update the obj in place, do not return a new obj
   // Change the value of the key in the object
   // Example 1: const obj = {name: 'Alice', age: 25};
@@ -21,8 +30,15 @@ export function changeValueOf(obj, key, value) {
 }
 
 export function cancelExpiredEvents(events) {
+  const currentDate = new Date();
+  for (let i = 0; i < events.length; i++) {
+    const event = events[i];
+    const eventDate = new Date(event.date);
+    if (eventDate < currentDate) {
+      event.isCanceled = true;
+    }
+  }
   // update the events in place, do not return a new obj
-
   // Cancel the expired events
   // Example: const events = [
   //   event1: {name: 'Birthday Party', date: '2020-01-01', isCanceled: false},
@@ -33,6 +49,11 @@ export function cancelExpiredEvents(events) {
 }
 
 export function findEventByType(events, type) {
+  if (events.length === 0) {
+    return [];
+  }
+  const foundEvents = events.filter((event) => event.type === type);
+  return foundEvents;
   // Find the event by type
   // Example: const events = [
   //   event1: {name: 'Birthday Party', type: 'private'},
