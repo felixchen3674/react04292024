@@ -93,3 +93,12 @@ Coercion
     ** ex) 0 == false   will show true
     === does not converts any sides to same data type and compare
     **only use == when comparing null value and undefined value
+
+
+
+Comparison 
+    const a = true && "value"
+    in this case, a would be "value" because && (AND operator) needs both values to be TRUE to be true. and since both value is true in this case, the last 'calculation' is "value"
+
+    const b = true || "value"
+    in this case, a would be true

@@ -23,6 +23,10 @@ let and const cannot be hoisted even if it's not declaring variable but making a
 
 Var could technically be hoisted but in a different way.  This is because when variable is declared using var, it will be hoisted to the top of the code with empty variable showing undefined.
 
+       ******** execution context: where code is running
+       ******** call stack
+       ********lexical scoping
+
 ## Data Types
 - **What is reference type vs primitive type**
   - *reference: stored in memory, passed by reference*
@@ -46,6 +50,9 @@ Var could technically be hoisted but in a different way.  This is because when v
 - **What is type coercion**
   - *change of one type to another*
   - *examples: 1 + “1” to “11”, etc*
+  Answer:
+  Type conversion is where one manually change the type
+  Type coercion
 
 ## Comparison Operators
 - **Difference between == vs ===, which one should we use**
@@ -60,3 +67,8 @@ Var could technically be hoisted but in a different way.  This is because when v
   === does recognize the type of data and compare. It does not converts any sides to same data type and compare
 
   **only use == when comparing null value and undefined value
+
+
+
+
+          *******parameter in a function is using let

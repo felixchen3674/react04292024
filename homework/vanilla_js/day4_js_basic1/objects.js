@@ -23,11 +23,8 @@ export function changeValueOf(obj, key, value) {
   // Example 2: const obj = {name: 'Alice', age: 25};
   // changeValueOf(obj, 'job', 'teacher');
   // Expected output: {name: 'Alice', age: 25, job: 'teacher'}
-  const newObj = { ...obj };
-
-  newObj[key] = value;
-
-  return newObj;
+  obj[key] = value;
+  return obj;
 }
 
 export function cancelExpiredEvents(events) {
@@ -37,15 +34,14 @@ export function cancelExpiredEvents(events) {
   //   event2: {name: 'New Year Party', date: '2021-01-01', isCanceled: false},
   //   event3: {name: 'Christmas Party', date: '2024-12-25', isCanceled: false}
   // ];
-  // Expected output: // an array of events, but event1 and event2 are canceled, event3 is not canceled
+  // Expected output: 
+  // an array of events, but event1 and event2 are canceled, event3 is not canceled
   const toDay = new Date();
-  const okEvents = [];
 
   for (let event of events) {
     const eventDate = new Date(event.date);
-
     if (eventDate <= toDay) {
-      okEvents.push(event);
+      event.isCanceled = true;
     }
   }
   return events;

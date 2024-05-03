@@ -28,7 +28,7 @@ export function findAvgOfNums(arr) {
       count++
     }
   }
-  return sumOfNumber / count;
+  return  count === 0 ? 0 : sumOfNumber / count;
 }
 
 export function findAverageAge(people) {
@@ -45,7 +45,7 @@ export function findAverageAge(people) {
       count++
     }
   }
-  return sumOfAge/count
+  return count === 0 ? 0 : sumOfAge / count;
 }
 
 export function findAvgAgeByJob(people, job) {
@@ -63,7 +63,7 @@ export function findAvgAgeByJob(people, job) {
       count++;
     }
   }
-  return sumOfAge / count;
+  return count === 0 ? 0 : sumOfAge / count;
 }
 
 export function findMaxNum(arr) {
@@ -71,9 +71,12 @@ export function findMaxNum(arr) {
   //   returns the maximum number in that array.
   //   Do not use Math.max
   //   Example: const arr = [1, 2, 3, 4, 5];
+  if (arr.length === 0) {
+    return 0;
+  }
   let curMax = arr[0];
 
-  for(let i = 0; i < arr.length; i++){
+  for(let i = 1; i < arr.length; i++){
     if(arr[i] > curMax){
       curMax = arr[i];
     }
@@ -104,7 +107,7 @@ export function findSumOfEvenNums(arr) {
   //   Expected output: [2, 4]
   const evenNum = []
 
-  for (let num of arr){
+  for (const num of arr){
     if(num % 2 === 0){
       evenNum.push(num);
     }
@@ -155,7 +158,7 @@ export function removeTypes(arr, typeToRemove) {
   // Expected output: [1, 3, 5]
   const updatedArr = [];
 
-  for (let item of arr){
+  for (const item of arr){
     if(typeof item !== typeToRemove){
       updatedArr.push(item);
     }
@@ -172,7 +175,7 @@ export function changeNumsByAmount(nums, amount, operator) {
   // Expected output: [3, 4, 5, 6, 7]
   const updatedNum = [];
 
-  for (let num of nums){
+  for (const num of nums){
     if(operator === "+"){
       updatedNum.push(num+amount);
     }else if (operator === "-"){
@@ -196,7 +199,7 @@ export function removeNumFromArr(nums, num) {
   // Expected output: [1, 2, 4, 5]
   const updatedNum = [];
 
-  for(let item of nums){
+  for(const item of nums){
     if(item !== num){
       updatedNum.push(item);
     }
