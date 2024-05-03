@@ -175,3 +175,9 @@ for (const num of numbers) {
   //   continue
 }
 
+const person3 = {
+  name: "Jack",
+};
+
+const variableee = "name";
+// console.log(person3["name"]);
