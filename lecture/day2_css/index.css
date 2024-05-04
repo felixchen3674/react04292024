@@ -1,0 +1,41 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+}
+
+h1 {
+  color: red;
+}
+
+.title {
+  width: 10rem;
+  color: blue;
+  padding: 10px;
+  border: 1px solid black;
+  font-size: 2rem;
+}
+
+.container {
+  font-size: 4rem;
+}
+
+.para {
+  font-size: 2em;
+}
+
+.grid {
+  display: grid;
+  border: 1px solid black;
+  grid-template-columns: 1fr 2fr 2fr 1fr;
+}
+
+.box {
+  width: 4rem;
+  height: 4rem;
+  border: 1px solid black;
+}
+
+/* 1rem = root font size(by default 16px) */
