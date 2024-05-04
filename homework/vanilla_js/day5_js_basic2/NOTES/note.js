@@ -145,7 +145,7 @@ const items = [
         // console.log(includesTwo)
         // console.log(array1.includes(2))
 
-//Deconstruction
+//Destruction
 
     //Old or original way Array
     const arr = ["anthony", "shin", "30"];
@@ -153,7 +153,7 @@ const items = [
     const last = arr[1];
     const age = arr[2];
 
-    //Deconstructive Array
+    //Destructive Array
     const arr2 = ["anthony", "shin", "30"];
     const [first1, last1, age1] = arr2
         // if you want to skip an index : empty value with comma
@@ -292,6 +292,28 @@ const items = [
     const personThree = {...personOne, ...personTwo}
     // console.log(personThree)
 
+// ***********difference between Object and Array's destructure**********
+
+const myUser = {
+    password: "1234",
+    username: "john1234",
+    isActive: true,
+}
+const  {password, username} = myUser;
+// order does not matter but key has to match.
+//below is same.
+//const  {password, username} = myUser;
+//const  {username, password} = myUser;
+
+const numbersAnthony = [1,2,3,4,5];
+const [a1,b1,c1,d1,e1] = numbersAnthony
+//order matters!! but name(or the key) does not matter.
+
+//*********************************************** */
+
+/**********you could use ...rest to separate 
+the sensitive info when managing user info*/
+
 //Shallow copy vs Deep copy
 
     //Primitives are immutable
@@ -368,7 +390,7 @@ const items = [
         name: 'John Doe',
         address: {
           street: '123 Main St',
-          city: 'Anytown',
+          city: 'losAngeles',
           zipcode: '12345'
         },
         // Uncomment the line below to see the effect of optional chaining with undefined property

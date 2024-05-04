@@ -17,8 +17,7 @@
   Hoisting is where function is pulled to the top of the file so it could be recognized first.
 - **How let / const / var / function hoist differently**
 Answer: 
-functions can be hoisted but not arrow functions
-
+**functions can be hoisted but not arrow functions
 let and const cannot be hoisted even if it's not declaring variable but making a function.
 
 Var could technically be hoisted but in a different way.  This is because when variable is declared using var, it will be hoisted to the top of the code with empty variable showing undefined.
@@ -37,14 +36,13 @@ Var could technically be hoisted but in a different way.  This is because when v
         number: simply a number
         string: cluster of letters wrapped with '' or ""
         boolean: true or false
-        bigint: big number (add n at the end of the number)
-        symbol
+        bigint: big number (add n at the end of the number) symbol
         undefined: it is there, but nothing is initialized
         null: there is nothing.
     But non-primitive data types such as array, objects, functions are references to a data
     Reference meaning a reference to a data storage.
 
-    this is why we could technically change const when the value is non-primitive as it will store the reference to the data storage and we are changing the value inside the data storage.
+    this is why we could technically change const when the value is non-primitive as it will store the reference to the data storage and we are changing the value inside the data storage not the reference..
 
 ## Type Coercion
 - **What is type coercion**

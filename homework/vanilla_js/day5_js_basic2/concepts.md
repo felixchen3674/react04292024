@@ -21,6 +21,8 @@
 - **What is destructure**
 Answer:
 It allows you to extract values from arrays or objects and assign them to variables in a concise way.
+---mention rest operator
+---difference between array and obj destructure
 
 ## Object Copying Methods
 
