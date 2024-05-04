@@ -6,6 +6,7 @@ export function myMap(arr, cb) {
   // Example: const arr = [1, 2, 3, 4, 5];
   // myMap(arr, num => num * 2);
   // Expected output: [2, 4, 6, 8, 10]
+  return arr.map(cb);
 }
 
 export function myFilter(arr, cb) {
@@ -14,6 +15,7 @@ export function myFilter(arr, cb) {
   // Example: const arr = [1, 2, 3, 4, 5];
   // myFilter(arr, num => num % 2 === 0);
   // Expected output: [2, 4]
+  return arr.filter(cb);
 }
 
 export function myConcat(arr1, arr2) {
@@ -23,6 +25,7 @@ export function myConcat(arr1, arr2) {
   // const arr2 = [4, 5, 6];
   // myConcat(arr1, arr2);
   // Expected output: [1, 2, 3, 4, 5, 6]
+  return [...arr1, ...arr2];
 }
 
 export function myFind(arr, cb) {
@@ -31,6 +34,7 @@ export function myFind(arr, cb) {
   // Example: const arr = [1, 2, 3, 4, 5];
   // myFind(arr, num => num % 2 === 0);
   // Expected output: 2
+  return arr.find(cb);
 }
 
 export function myEvery(arr, cb) {
@@ -39,6 +43,7 @@ export function myEvery(arr, cb) {
   // Example: const arr = [1, 2, 3, 4, 5];
   // myEvery(arr, num => num > 0);
   // Expected output: true
+  return arr.every(cb);
 }
 
 export function mySome(arr, cb) {
@@ -47,6 +52,7 @@ export function mySome(arr, cb) {
   // Example: const arr = [1, 2, 3, 4, 5];
   // mySome(arr, num => num % 2 === 0);
   // Expected output: true
+  return arr.some(cb);
 }
 
 export function myIncludes(arr, val) {
@@ -55,6 +61,7 @@ export function myIncludes(arr, val) {
   // Example: const arr = [1, 2, 3, 4, 5];
   // myIncludes(arr, 3);
   // Expected output: true
+  return arr.includes(val);
 }
 
 export function myJoin(arr, separator) {
@@ -63,6 +70,7 @@ export function myJoin(arr, separator) {
   // Example: const arr = [1, 2, 3, 4, 5];
   // myJoin(arr, '-');
   // Expected output: '1-2-3-4-5'
+  return arr.join(separator);
 }
 
 export function myPush(arr, val) {
@@ -71,6 +79,7 @@ export function myPush(arr, val) {
   // Example: const arr = [1, 2, 3, 4, 5];
   // myPush(arr, 6);
   // Expected output: [1, 2, 3, 4, 5, 6]
+  return arr.push(val);
 }
 
 export function myReverse1(arr) {
@@ -79,10 +88,12 @@ export function myReverse1(arr) {
   // Example: const arr = [1, 2, 3, 4, 5];
   // myReverse(arr);
   // Expected output: [5, 4, 3, 2, 1]
+  return [...arr].reverse();
 }
 
 export function myReverse2(arr) {
   // Same as above but this time returns the original array reference reversed.
+  return arr.reverse();
 }
 
 // Challenges
@@ -92,6 +103,7 @@ export  function myReduce(arr, cb, initial) {
   // Example: const arr = [1, 2, 3, 4, 5];
   // myReduce(arr, (acc, num) => acc + num, 0);
   // Expected output: 15
+  return arr.reduce(cb, initial);
 }
 
 export function mySort(arr, cb) {
@@ -100,6 +112,7 @@ export function mySort(arr, cb) {
   // Example: const arr = [1, 2, 3, 4, 5];
   // mySort(arr, (a, b) => a - b);
   // Expected output: [1, 2, 3, 4, 5]
+  return [...arr].sort(cb);
 }
 
 export function mySlice(arr, start, end) {
@@ -108,4 +121,5 @@ export function mySlice(arr, start, end) {
   // Example: const arr = [1, 2, 3, 4, 5];
   // mySlice(arr, 1, 3);
   // Expected output: [2, 3]
+  return arr.slice(start, end);
 }
