@@ -7,6 +7,8 @@ export function combineObjects(obj1, obj2) {
   // Example 2: const obj1 = {name: 'Alice', age: 25};
   // const obj2 = {name: 'John', age: 21};
   // Expected output: {name: 'John', age: 21}
+  const combined = { ...obj1, ...obj2 };
+  return combined;
 }
 
 export function changeValueOf(obj, key, value) {
@@ -22,7 +24,6 @@ export function changeValueOf(obj, key, value) {
 
 export function cancelExpiredEvents(events) {
   // update the events in place, do not return a new obj
-
   // Cancel the expired events
   // Example: const events = [
   //   event1: {name: 'Birthday Party', date: '2020-01-01', isCanceled: false},

@@ -86,7 +86,7 @@ export function myReverse2(arr) {
 }
 
 // Challenges
-export  function myReduce(arr, cb, initial) {
+export function myReduce(arr, cb, initial) {
   // Write a function that takes an array, a callback and an initial value as arguments
   // and returns a single value.
   // Example: const arr = [1, 2, 3, 4, 5];
