@@ -63,9 +63,9 @@
 
 //Mutable and Immutable
 //Primitives are immutable
-let myName = 'Dave';
-myName[0] = 'W'; //Nope!
-console.log(myName);
+// let myName = 'Dave';
+// myName[0] = 'W'; //Nope!
+// console.log(myName);
 
 //Reassignment is not the same as immuable
 
@@ -77,10 +77,17 @@ console.log(myName);
 // };
 // console.log(addToScoreHistory(arr, 5));
 
-const aArray = [1, 32, 43, 32];
-const bArray = aArray;
-const cArray = [...aArray];
-const dArray = Object.assign([], aArray);
-console.log(aArray === bArray);
-console.log(aArray === cArray);
-console.log(dArray === aArray);
+// const aArray = [1, 32, 43, 32];
+// const bArray = aArray;
+// const cArray = [...aArray];
+// const dArray = Object.assign([], aArray);
+// console.log(aArray === bArray);
+// console.log(aArray === cArray);
+// console.log(dArray === aArray);
+
+const people = [{ name: 'just' }, { name: 'bob' }];
+const peopleCopy = [...people];
+
+peopleCopy[0].name = 'pop';
+console.log(people);
+console.log(peopleCopy);

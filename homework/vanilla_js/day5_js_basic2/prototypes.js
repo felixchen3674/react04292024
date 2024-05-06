@@ -6,6 +6,11 @@ export function myMap(arr, cb) {
   // Example: const arr = [1, 2, 3, 4, 5];
   // myMap(arr, num => num * 2);
   // Expected output: [2, 4, 6, 8, 10]
+  const newArr = [];
+  for (const num of arr) {
+    newArr.push(cb(num));
+  }
+  return newArr;
 }
 
 export function myFilter(arr, cb) {
@@ -14,6 +19,13 @@ export function myFilter(arr, cb) {
   // Example: const arr = [1, 2, 3, 4, 5];
   // myFilter(arr, num => num % 2 === 0);
   // Expected output: [2, 4]
+  const newArr = [];
+  for (const num of arr) {
+    if (cb(num)) {
+      newArr.push(num);
+    }
+  }
+  return newArr;
 }
 
 export function myConcat(arr1, arr2) {
@@ -23,6 +35,7 @@ export function myConcat(arr1, arr2) {
   // const arr2 = [4, 5, 6];
   // myConcat(arr1, arr2);
   // Expected output: [1, 2, 3, 4, 5, 6]
+  return [...arr1, ...arr2];
 }
 
 export function myFind(arr, cb) {
@@ -31,6 +44,10 @@ export function myFind(arr, cb) {
   // Example: const arr = [1, 2, 3, 4, 5];
   // myFind(arr, num => num % 2 === 0);
   // Expected output: 2
+  for (const num of arr) {
+    if (cb(num)) return num;
+  }
+  return null;
 }
 
 export function myEvery(arr, cb) {
@@ -39,6 +56,10 @@ export function myEvery(arr, cb) {
   // Example: const arr = [1, 2, 3, 4, 5];
   // myEvery(arr, num => num > 0);
   // Expected output: true
+  for (const num of arr) {
+    if (!cb(num)) return false;
+  }
+  return true;
 }
 
 export function mySome(arr, cb) {
@@ -47,6 +68,10 @@ export function mySome(arr, cb) {
   // Example: const arr = [1, 2, 3, 4, 5];
   // mySome(arr, num => num % 2 === 0);
   // Expected output: true
+  for (const num of arr) {
+    if (cb(num)) return true;
+  }
+  return false;
 }
 
 export function myIncludes(arr, val) {
@@ -55,6 +80,10 @@ export function myIncludes(arr, val) {
   // Example: const arr = [1, 2, 3, 4, 5];
   // myIncludes(arr, 3);
   // Expected output: true
+  for (const num of arr) {
+    if (num === val) return true;
+  }
+  return false;
 }
 
 export function myJoin(arr, separator) {
@@ -63,6 +92,12 @@ export function myJoin(arr, separator) {
   // Example: const arr = [1, 2, 3, 4, 5];
   // myJoin(arr, '-');
   // Expected output: '1-2-3-4-5'
+  if (!arr.length) return '';
+  let res = String(arr[0]);
+  for (let i = 1; i < arr.length; i++) {
+    res += separator + String(arr[i]);
+  }
+  return res;
 }
 
 export function myPush(arr, val) {
@@ -71,6 +106,8 @@ export function myPush(arr, val) {
   // Example: const arr = [1, 2, 3, 4, 5];
   // myPush(arr, 6);
   // Expected output: [1, 2, 3, 4, 5, 6]
+  arr[arr.length] = val;
+  return arr;
 }
 
 export function myReverse1(arr) {
@@ -79,10 +116,16 @@ export function myReverse1(arr) {
   // Example: const arr = [1, 2, 3, 4, 5];
   // myReverse(arr);
   // Expected output: [5, 4, 3, 2, 1]
+  const newArr = [];
+  for (let i = arr.length - 1; i >= 0; i--) {
+    newArr.push(arr[i]);
+  }
+  return newArr;
 }
 
 export function myReverse2(arr) {
   // Same as above but this time returns the original array reference reversed.
+  return arr.reverse();
 }
 
 // Challenges
@@ -92,6 +135,11 @@ export function myReduce(arr, cb, initial) {
   // Example: const arr = [1, 2, 3, 4, 5];
   // myReduce(arr, (acc, num) => acc + num, 0);
   // Expected output: 15
+  let acc = initial;
+  for (const num of arr) {
+    acc = cb(acc, num);
+  }
+  return acc;
 }
 
 export function mySort(arr, cb) {
@@ -100,6 +148,8 @@ export function mySort(arr, cb) {
   // Example: const arr = [1, 2, 3, 4, 5];
   // mySort(arr, (a, b) => a - b);
   // Expected output: [1, 2, 3, 4, 5]
+  let newArr = [...arr];
+  return newArr.sort(cb);
 }
 
 export function mySlice(arr, start, end) {
@@ -108,4 +158,29 @@ export function mySlice(arr, start, end) {
   // Example: const arr = [1, 2, 3, 4, 5];
   // mySlice(arr, 1, 3);
   // Expected output: [2, 3]
+  let length = arr.length;
+  start = start || 0;
+  end = end || length;
+
+  if (start < 0) {
+    start += length;
+    start = Math.max(start, 0); // Ensures start is not less than 0
+  }
+
+  if (end < 0) {
+    end += length;
+  }
+
+  // If the adjusted end is less than start, return an empty array
+  if (end < start) {
+    return [];
+  }
+
+  // Create the new array
+  let result = [];
+  for (let i = start; i < end && i < length; i++) {
+    result.push(arr[i]);
+  }
+
+  return result;
 }
