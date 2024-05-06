@@ -29,3 +29,4 @@ unpack values from arrays or objects into distinct values.
 - **Explain how to do both:**
   - _shallow: spread operator_ : let shallowCopy = {...obj}
   - _deep: 3rd party library: lodash_ : let deepCopy = obj.cloneDeep(obj);
+  - use Json.stringfy() and then Json.parse()
