@@ -31,11 +31,32 @@ export const TOPPINGS = {
 };
 
 export default class Pizza {
-  constructor(size, toppingCodes) {}
+  constructor(size, toppingCodes) {
+    this.size = size;
+    this.toppingCodes = toppingCodes;
+  }
 
-  getBaseCost() {}
+  getBaseCost() {
+    return BASE_PRICE[this.size] || 0;
+  }
 
-  getTotalCost() {}
+  getTotalCost() {
+    const baseCost = this.getBaseCost();
+    let totalToppingCost = 0;
+    for (const code of this.toppingCodes) {
+      const topping = TOPPINGS[code];
+      if (topping) {
+        totalToppingCost += topping.cost;
+      }
+    }
+    return baseCost + totalToppingCost;
+  }
 
-  getDescription() {}
+  getDescription() {
+    const sizeName = this.size;
+    const toppings = this.toppingCodes
+      .map((code) => TOPPINGS[code].name)
+      .join(", ");
+    return `A ${sizeName} pizza with ${toppings}.`;
+  }
 }
