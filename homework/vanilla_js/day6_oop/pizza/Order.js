@@ -10,14 +10,25 @@
 export default class Order {
   constructor() {
     this.pizzas = [];
-    this.status = "pending";
+    this.status = 'pending';
   }
 
-  addPizza(pizza) {}
+  addPizza(pizza) {
+    this.pizzas.push(pizza);
+  }
 
-  removePizza(index) {}
+  removePizza(index) {
+    if (index < 0 || index >= this.pizzas.length) {
+      throw new Error('Invalid index.');
+    }
+    this.pizzas.splice(index, 1);
+  }
 
-  getTotalCost() {}
+  getTotalCost() {
+    return this.pizzas.reduce((acc, pizza) => acc + pizza.getTotalCost(), 0);
+  }
 
-  updateStatus(newStatus) {}
+  updateStatus(newStatus) {
+    this.status = newStatus;
+  }
 }
