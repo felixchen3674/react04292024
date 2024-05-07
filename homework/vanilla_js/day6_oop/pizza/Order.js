@@ -13,11 +13,21 @@ export default class Order {
     this.status = "pending";
   }
 
-  addPizza(pizza) {}
+  addPizza(pizza) {
+    this.pizzas.push(pizza);
+  }
 
-  removePizza(index) {}
+  removePizza(index) {
+    if(index < this.pizzas.length && index >=0){
+      this.pizzas.splice(index, 1)
+    }
+  }
 
-  getTotalCost() {}
+  getTotalCost() {
+    return this.pizzas.reduce((total, pizza) => total + pizza.getTotalCost(), 0);
+  }
 
-  updateStatus(newStatus) {}
+  updateStatus(newStatus) {
+    this.status = newStatus;
+  }
 }

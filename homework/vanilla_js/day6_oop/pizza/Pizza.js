@@ -31,11 +31,46 @@ export const TOPPINGS = {
 };
 
 export default class Pizza {
-  constructor(size, toppingCodes) {}
+  constructor(size, toppingCodes) {
+    this.size = size;
+    this.toppingCodes = toppingCodes;
+  }
 
-  getBaseCost() {}
+  getBaseCost() {
+    return BASE_PRICE[this.size]
+  }
+// MDN property accessors
+// const person1 = {};
+// person1['firstname'] = 'Mario';
+// person1['lastname'] = 'Rossi';
 
-  getTotalCost() {}
+// console.log(person1.firstname);
+// // Expected output: "Mario"
+// console.log(person1['lastname']);
+// // Expected output: "Rossi"
 
-  getDescription() {}
+// const person2 = {
+//   firstname: 'John',
+//   lastname: 'Doe',
+// };
+// console.log(person2['lastname']);
+// Expected output: "Doe"
+
+  getTotalCost() {
+    const baseCost = this.getBaseCost()
+    const toppingCost = this.toppingCodes.reduce((accumulator, code) =>{
+      const topping = TOPPINGS[code]?.cost || 0;
+      return accumulator + topping;
+    }, 0)
+    return baseCost + toppingCost;
+  }
+
+  //    pizza2 = new Pizza("large", ["cheese", "tomato", "pepperoni"]);
+  //                                     SIZE ,     toppingCodes
+  //                                                    'code', 'code', 'code'
+
+  getDescription() {
+    const toppings = this.toppingCodes.map(code => TOPPINGS[code].name).join(', ');
+    return `A ${this.size} pizza with ${toppings}.`;
+  }
 }
