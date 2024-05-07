@@ -13,6 +13,13 @@
     <div class="box">A</div>
     <div class="box">A</div>
 
-    <script src="./index.js"></script>
+    <!-- <script src="./index.js"></script> -->
+    <script>
+      const boxes = document.getElementsByClassName("box");
+      console.log(boxes);
+
+      // map is not defined because it's not a prototype method of nodelist / htmlcollections
+      // const modifiedBoxes = boxes.map((box) => box);
+    </script>
   </body>
 </html>
