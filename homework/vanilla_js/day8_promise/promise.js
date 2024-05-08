@@ -5,7 +5,7 @@ export const fetchPosts = async () => {
   .then(response => response.json())
   .catch(error => {
     console.error("Error fetching posts:", error);
-    throw error; // Propagate the error to the caller
+    throw error;
   });
 };
 
@@ -16,7 +16,7 @@ export const fetchPostById = async (id) => {
   .then(response => response.json())
   .catch(error => {
     console.error("Error fetching posts:", error);
-    throw error; // Propagate the error to the caller
+    throw error;
   });
 };
 
