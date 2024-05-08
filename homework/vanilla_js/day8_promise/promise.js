@@ -1,6 +1,9 @@
 export const fetchPosts = async () => {
   //fetch posts from "https://jsonplaceholder.typicode.com/posts"
   //return the posts
+  const data = await fetch("https://jsonplaceholder.typicode.com/posts");
+  const json = await data.json();
+  return json;
 };
 
 export const fetchPostById = async (id) => {
