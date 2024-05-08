@@ -12,6 +12,11 @@ export function createGreeting(greeting) {
         return `${greeting} ${name}`;
     }
 }
+export function createGreeting(greeting) {
+    return function sayHello(name) {
+        return `${greeting} ${name}`;
+    }
+}
 
 // Exercise 2: Counter
 // Write a function createCounter() that initializes a counter to 0 and returns an object with two methods:
@@ -23,6 +28,23 @@ export function createGreeting(greeting) {
 // console.log(counter.increment());  // Outputs: 1
 // console.log(counter.increment());  // Outputs: 2
 // console.log(counter.getValue());  // Outputs: 2
+export function createCounter() {
+    let counter = 0;
+
+    function increment() {
+        counter += 1;
+        return counter;
+    }
+
+    function getValue() {
+        return counter;
+    }
+    
+    return {
+        increment,
+        getValue
+    };
+}
 export function createCounter() {
     let counter = 0;
 
@@ -68,6 +90,23 @@ export function functionStore() {
         run
     };
 }
+export function functionStore() {
+    const functions = {};
+    function store (key, fn) {
+        functions[key] = fn;
+    }
+
+    function run(key, ...args) {
+        if (functions[key]) {
+            return functions[key](...args);
+        }
+    }
+
+    return {
+        store, 
+        run
+    };
+}
 
 // Exercise 4: Private Variables
 // Write a function createPerson(name) that creates private variables and provides methods
@@ -78,6 +117,23 @@ export function functionStore() {
 // console.log(person.getName());  // Outputs: "Alice"
 // person.setName("Bob");
 // console.log(person.getName());  // Outputs: "Bob"
+export function createPerson(name) {
+    let privateName = name;
+
+    function getName() {
+        return privateName;
+    }
+
+    function setName(newName) {
+        privateName = newName;
+        return privateName;
+    }
+
+    return {
+        getName,
+        setName
+    };
+}
 export function createPerson(name) {
     let privateName = name;
 
@@ -122,6 +178,16 @@ export function createLimitedCallFunction(fn, limit) {
         }
     }
 }
+export function createLimitedCallFunction(fn, limit) {
+    let call = 0;
+
+    return function () {
+        if (call < limit) {
+            call++;
+            return fn();
+        }
+    }
+}
 
 // Exercise 6: Rate Limiter
 // Implement a function createRateLimiter(limit, interval) that limits how often a
@@ -156,5 +222,7 @@ export function createRateLimiter(fn, limit, interval) {
             return fn();
         }
     }
+    
+    
 
 }
