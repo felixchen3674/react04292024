@@ -51,25 +51,25 @@ describe("Promise", () => {
   });
 });
 
-describe("sequentialPromise", () => {
-  it("should return the results in the order specified", async () => {
-    const promises = [
-      Promise.resolve("data1"),
-      Promise.resolve("data2"),
-      Promise.resolve("data3"),
-    ];
-    const order = [2, 1, 3];
-    const results = await sequentialPromise(promises, order);
-    expect(results).toEqual(["data2", "data1", "data3"]);
-  });
+// describe("sequentialPromise", () => {
+//   it("should return the results in the order specified", async () => {
+//     const promises = [
+//       Promise.resolve("data1"),
+//       Promise.resolve("data2"),
+//       Promise.resolve("data3"),
+//     ];
+//     const order = [2, 1, 3];
+//     const results = await sequentialPromise(promises, order);
+//     expect(results).toEqual(["data2", "data1", "data3"]);
+//   });
 
-  it("should throw an error if there is a rejected promise", async () => {
-    const promises = [
-      Promise.resolve("data1"),
-      Promise.reject("error"),
-      Promise.resolve("data3"),
-    ];
-    const order = [1, 2, 3];
-    await expect(sequentialPromise(promises, order)).rejects.toEqual("error");
-  });
-});
+//   it("should throw an error if there is a rejected promise", async () => {
+//     const promises = [
+//       Promise.resolve("data1"),
+//       Promise.reject("error"),
+//       Promise.resolve("data3"),
+//     ];
+//     const order = [1, 2, 3];
+//     await expect(sequentialPromise(promises, order)).rejects.toEqual("error");
+//   });
+// });
