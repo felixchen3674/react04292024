@@ -34,3 +34,5 @@ npm install
 
 ## Getting updates 
 Use `git pull` to get updates from the main branch
+git fetch origin main
+git merge origin/main
