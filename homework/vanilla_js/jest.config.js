@@ -8,5 +8,6 @@ module.exports = {
     // "**/vanilla_js/day6_oop/**/*.test.(js|ts)",
     // "**/vanilla_js/day7_functions/**/*.test.(js|ts)",
     "**/vanilla_js/day8_promise/**/*.test.(js|ts)",
+
   ],
 };
