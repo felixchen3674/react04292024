@@ -1,11 +1,25 @@
 export const fetchPosts = async () => {
   //fetch posts from "https://jsonplaceholder.typicode.com/posts"
   //return the posts
+  try {
+    const res = await fetch('https://jsonplaceholder.typicode.com/posts');
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 export const fetchPostById = async (id) => {
   //fetch a post by id from "https://jsonplaceholder.typicode.com/posts/${id}"
   //return the post
+  try {
+    const res = await fetch(`https://jsonplaceholder.typicode.com/posts${id}`);
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 export const sequentialPromise = async (promises, order) => {

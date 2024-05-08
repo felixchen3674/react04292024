@@ -1,32 +1,50 @@
 export const users = [
   {
-    name: "Leanne Graham",
-    username: "Bret",
-    email: "leanne.graham@email.com",
-    password: "1drowssapencoded",
+    name: 'Leanne Graham',
+    username: 'Bret',
+    email: 'leanne.graham@email.com',
+    password: '1drowssapencoded',
   },
   {
-    name: "Ervin Howell",
-    username: "Antonette",
-    email: "ervin.howell@email.com",
-    password: "2drowssapencoded",
+    name: 'Ervin Howell',
+    username: 'Antonette',
+    email: 'ervin.howell@email.com',
+    password: '2drowssapencoded',
   },
 ];
 
 export const encodePassword = (password) => {
   // encode the password by reversing it and add "encoded" at the end
   // for example, "password1" => "1drowssapencoded"
+  let encodePassword = '';
+  for (let i = password.length - 1; i >= 0; i--) {
+    encodePassword += password[i];
+  }
+  return encodePassword + 'encoded';
 };
 
 export const decodePassword = (encrypted) => {
   // decode the password
   // for example, "1drowssapencoded" => "password1"
+  const decodePassword = '';
+  for (let i = encrypted.length - 1 - 8; i >= 0; i--) {
+    decodePassword += encrypted[i];
+  }
+  return decodePassword;
 };
 
 export const getUserByEmail = async (email) => {
   // fetch a user by email
   // should throw an error with message "User not found" if the user is not found
   // e.g. { name: "Leanne Graham", username: "Bret", email: "leanne.graham@email.com", password: "1drowssapencoded" }
+  return new Promise((resovled, rejected) => {
+    const user = users.find((user) => user.email === email);
+    if (!user) {
+      return rejected(new Error('User not found'));
+    } else {
+      resovled(user);
+    }
+  });
 };
 
 export const verifyPassword = async (password, encrypted) => {
