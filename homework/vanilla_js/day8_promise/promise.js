@@ -1,26 +1,37 @@
 export const fetchPosts = async () => {
   //fetch posts from "https://jsonplaceholder.typicode.com/posts"
-  // return the posts
-
-  const res = await fetch("https://jsonplaceholder.typicode.com/posts");
-  const data = await res.json();
-  return data;
+  //return the posts
+  const url = `https://jsonplaceholder.typicode.com/posts`;
+  try {
+    const response = fetch(url);
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    const post = (await response).json();
+    return post;
+  }
+  catch (error) {
+    console.error('Error fetching post:', error);
+      throw error; 
+  }
 };
-
-// fetch("https://jsonplaceholder.typicode.com/posts")
-//   .then((res) => res.json())
-//   .then((data) => {
-//     console.log("data", data);
-//   });
 
 export const fetchPostById = async (id) => {
   //fetch a post by id from "https://jsonplaceholder.typicode.com/posts/${id}"
   //return the post
+  const url = `https://jsonplaceholder.typicode.com/posts/${id}`;
+  try {
+      const response = await fetch(url);
+      if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      const post = await response.json();
+      return post;
+  } catch (error) {
+      console.error('Error fetching post:', error);
+      throw error;
+  }
 
-  const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
-  const data = await res.json();
-
-  return data;
 };
 
 export const sequentialPromise = async (promises, order) => {
