@@ -51,4 +51,22 @@ export const login = async (email, password) => {
   // e.g. { name: "Leanne Graham", username: "Bret", email: "leanne.graham@email.com", token: "token" }
   // should return the error message if the login is unsuccessful
   // e.g. "User not found", "Invalid password"
+  try {
+    const user = await getUserByEmail(email);
+    await verifyPassword(password, user.password);
+    const { password: _, ...userWithoutPassword } = user;
+    //underscore :
+    //The underscore (_) is commonly used as a placeholder or a convention to indicate that 
+    //a variable is being ignored or its value is not relevant in a particular context. 
+    //It's often used in scenarios like destructuring assignments where you want to exclude a specific property.
+    //In the context of object destructuring, using _ as a variable name indicates that you're ignoring the value assigned to it.
+
+    // Hash (#):
+    // symbol is used in JavaScript as a prefix for private class fields and methods. 
+    //It's used to define private members in classes, which are accessible only within the class itself and not from outside the class or its instances.
+    return { ...userWithoutPassword, token: "token" };
+  } 
+  catch (error) {
+    return error.message;
+  }
 };

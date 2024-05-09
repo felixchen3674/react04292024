@@ -57,14 +57,41 @@ btn.addEventListener("click", () => {
 //Promise
 
 //async functions
-function orderPizza(callback) {
-    setTimeout(() => {
-        const pizza = 'best Pizza'
-        callback(pizza)
-    }, 2000);
+// function orderPizza(callback) {
+//     setTimeout(() => {
+//         const pizza = 'best Pizza'
+//         callback(pizza)
+//     }, 2000);
+// }
+// function pizzaReady(pizza){
+//     console.log(`eat your ${pizza}`)
+// }
+// orderPizza(pizzaReady);
+// console.log('call me')
+
+const p = new Promise((resolve,error) => {
+    setTimeout(()=>{
+        resolve('resolved value')
+        reject('rejected error')
+    }, 2000)
+})
+p.then((data)=>{
+    console.log(data);
+})
+async function foo(){
+    const data = await p;
+    console.log(data);
+    console.log("sync")
 }
-function pizzaReady(pizza){
-    console.log(`eat your ${pizza}`)
-}
-orderPizza(pizzaReady);
-console.log('call me')
+foo()
+
+const c = Promise.resolve(5).then((value)=>{
+    console.log(value)
+    return 4
+}).then((number)=>{
+    console.log(number)
+}).then((number)=>{
+    console.log(number)
+})
+
+console.log(c)
