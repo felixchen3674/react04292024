@@ -1,25 +1,26 @@
 export const fetchPosts = async () => {
   //fetch posts from "https://jsonplaceholder.typicode.com/posts"
-  //return the posts
-  try {
-    const res = await fetch('https://jsonplaceholder.typicode.com/posts');
-    const data = await res.json();
-    return data;
-  } catch (error) {
-    console.error(error);
-  }
+  // return the posts
+
+  const res = await fetch('https://jsonplaceholder.typicode.com/posts');
+  const data = await res.json();
+  return data;
 };
+
+// fetch("https://jsonplaceholder.typicode.com/posts")
+//   .then((res) => res.json())
+//   .then((data) => {
+//     console.log("data", data);
+//   });
 
 export const fetchPostById = async (id) => {
   //fetch a post by id from "https://jsonplaceholder.typicode.com/posts/${id}"
   //return the post
-  try {
-    const res = await fetch(`https://jsonplaceholder.typicode.com/posts${id}`);
-    const data = await res.json();
-    return data;
-  } catch (error) {
-    console.error(error);
-  }
+
+  const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
+  const data = await res.json();
+
+  return data;
 };
 
 export const sequentialPromise = async (promises, order) => {
