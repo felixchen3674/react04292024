@@ -1,7 +1,7 @@
 // Do not use prototype methods
 
 // Data types & numsays
-export function checkIfStringIsNumber(str) {
+export function checkIfStringIsNumber(str: string): boolean {
   const regex = /^[-+]?\d*\.?\d+$/;
   return regex.test(str);
 
@@ -11,14 +11,18 @@ export function checkIfStringIsNumber(str) {
   //   '1' -> true, "a" -> false, "1a" -> false
 }
 
-export function findAvgOfNums(arr) {
+export function findAvgOfNums(arr: (number | string)[]): number {
   const newarray = arr.filter((item) => typeof item === "number");
+  // const newarray:number[] = [];
+  // for(let i =0; i<arr.length;i++){
+  //   if(typeof arr[i])
+  // }
   if (newarray.length === 0) {
     return 0;
   }
   let sum = 0;
   for (const num of newarray) {
-    sum += num;
+    sum += Number(num);
   }
   return sum / newarray.length;
   //   Write a function that takes an array of numbers and strings as an

@@ -1,5 +1,3 @@
-import { message } from "antd";
-
 export const users = [
   {
     name: "Leanne Graham",
@@ -69,25 +67,38 @@ export const verifyPassword = async (password, encrypted) => {
 export const login = async (email, password) => {
   try {
     const user = await getUserByEmail(email);
-    if (!user) {
-      throw new Error("User not found");
-    } else {
-      const check = await verifyPassword(password, user.password);
-      if (!check) {
-        throw new Error("Invalid password");
-      } else {
-        const userWithoutPassword = {
-          name: user.name,
-          username: user.username,
-          email: user.email,
-          token: "token",
-        };
-        return userWithoutPassword;
-      }
-    }
-  } catch (error) {
-    return error.message;
+    const check = await verifyPassword(password, user.password);
+    const obj = {
+      name: user.name,
+      username: user.username,
+      email: user.email,
+      token: "token",
+    };
+    return obj;
+  } catch (err) {
+    return err.message;
   }
+  // try {
+  //   const user = await getUserByEmail(email);
+  //   if (!user) {
+  //     throw new Error("User not found");
+  //   } else {
+  //     const check = await verifyPassword(password, user.password);
+  //     if (!check) {
+  //       throw new Error("Invalid password");
+  //     } else {
+  //       const userWithoutPassword = {
+  //         name: user.name,
+  //         username: user.username,
+  //         email: user.email,
+  //         token: "token",
+  //       };
+  //       return userWithoutPassword;
+  //     }
+  //   }
+  // } catch (error) {
+  //   return error.message;
+  // }
 };
 // login the user with email and password
 // should return the user and token if the login is successful
