@@ -13,7 +13,7 @@ export const fetchPosts = async () => {
 //     console.log("data", data);
 //   });
 
-export const fetchPostById = async (id) => {
+export const fetchPostById = async (id:string) => {
   //fetch a post by id from "https://jsonplaceholder.typicode.com/posts/${id}"
   //return the post
 
@@ -31,4 +31,5 @@ export const sequentialPromise = async (promises, order) => {
   //order = [2,1,3]
   //promises = ["data1", "data2", "data3"]
   //results = ["data2", "data1", "data3"]
+  
 };
