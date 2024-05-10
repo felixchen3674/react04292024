@@ -1,19 +1,25 @@
 export const fetchPosts = async () => {
   //fetch posts from "https://jsonplaceholder.typicode.com/posts"
   //return the posts
-  const data = await fetch("https://jsonplaceholder.typicode.com/posts");
-  const json = await data.json();
-  return json;
+  try {
+    const response = await fetch("https://jsonplaceholder.typicode.com/posts");
+    const posts = await response.json();
+    return posts;
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export const fetchPostById = async (id) => {
   //fetch a post by id from "https://jsonplaceholder.typicode.com/posts/${id}"
   //return the post
-
-  const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
-  const data = await res.json();
-
-  return data;
+  try {
+    const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
+    const post = await response.json();
+    return post;
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export const sequentialPromise = async (promises, order) => {
@@ -24,18 +30,14 @@ export const sequentialPromise = async (promises, order) => {
   //order = [2,1,3]
   //promises = ["data1", "data2", "data3"]
   //results = ["data2", "data1", "data3"]
-  let results = [];
-  let orderResults = new Array(order.length);
-  for (let i = 0; i < promises.length; i++) {
+  const results = [];
+  for (let i = 0; i < order.length; i++) {
     try {
-      const result = await promises[order[i] - 1]();
+      const result = await promises[order[i] - 1];
       results.push(result);
     } catch (error) {
-      throw new Error(`Promise at position ${order[i]} failed with error: ${error}`)
+      throw 'error'
     }
   }
-  order.forEach((position, index) => {
-    orderResults[index] = results[position - 1];
-  })
-  return orderResults;
+  return results
 };
