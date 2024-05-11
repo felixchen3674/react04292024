@@ -1,9 +1,11 @@
 // reinvent the wheel: prototype methods
 
-import res from "express/lib/response";
+export function myMap<ElementType, ElementType2>(
+  arr: ElementType[],
+  cb: (item: ElementType) => ElementType2
+): ElementType2[] {
+  const res: ElementType2[] = [];
 
-export function myMap(arr, cb) {
-  const res = [];
   for (const item of arr) {
     res.push(cb(item));
   }
@@ -15,8 +17,11 @@ export function myMap(arr, cb) {
   // Expected output: [2, 4, 6, 8, 10]
 }
 
-export function myFilter(arr, cb) {
-  const res = [];
+export function myFilter<ElementType>(
+  arr: ElementType[],
+  cb: (item: ElementType) => boolean
+): ElementType[] {
+  const res: ElementType[] = [];
   for (const item of arr) {
     if (cb(item)) {
       res.push(item);
@@ -30,7 +35,10 @@ export function myFilter(arr, cb) {
   // Expected output: [2, 4]
 }
 
-export function myConcat(arr1, arr2) {
+export function myConcat<ElementType, ElementType2>(
+  arr1: ElementType[],
+  arr2: ElementType2[]
+): (ElementType | ElementType2)[] {
   return [...arr1, ...arr2];
   // Write a function that takes two arrays as arguments
   // and returns a new array with the elements of both arrays.
@@ -40,7 +48,10 @@ export function myConcat(arr1, arr2) {
   // Expected output: [1, 2, 3, 4, 5, 6]
 }
 
-export function myFind(arr, cb) {
+export function myFind<ElementType>(
+  arr: ElementType[],
+  cb: (item: ElementType) => boolean
+): ElementType | undefined {
   for (const item of arr) {
     if (cb(item)) {
       return item;
@@ -54,7 +65,7 @@ export function myFind(arr, cb) {
   // Expected output: 2
 }
 
-export function myEvery(arr, cb) {
+export function myEvery<T>(arr: T[], cb: (item: T) => boolean): boolean {
   for (const item of arr) {
     if (!cb(item)) {
       return false;
@@ -68,7 +79,7 @@ export function myEvery(arr, cb) {
   // Expected output: true
 }
 
-export function mySome(arr, cb) {
+export function mySome<T>(arr: T[], cb: (item: T) => boolean): boolean {
   for (const item of arr) {
     if (cb(item)) {
       return true;
@@ -82,7 +93,7 @@ export function mySome(arr, cb) {
   // Expected output: true
 }
 
-export function myIncludes(arr, val) {
+export function myIncludes<T>(arr: T[], val: T): boolean {
   for (const item of arr) {
     if (item === val) {
       return true;
@@ -96,9 +107,9 @@ export function myIncludes(arr, val) {
   // Expected output: true
 }
 
-export function myJoin(arr, separator) {
+export function myJoin<T>(arr: T[], separator: string): string {
   if (arr.length <= 1) {
-    return arr;
+    return arr.toString();
   }
   let res = arr[0] + "";
   for (let i = 1; i < arr.length; i++) {
@@ -112,7 +123,7 @@ export function myJoin(arr, separator) {
   // Expected output: '1-2-3-4-5'
 }
 
-export function myPush(arr, val) {
+export function myPush<T>(arr: T[], val: T): T[] {
   arr[arr.length] = val; // Add the value to the end of the array
   return arr;
   // Write a function that takes an array and a value as arguments
@@ -122,11 +133,11 @@ export function myPush(arr, val) {
   // Expected output: [1, 2, 3, 4, 5, 6]
 }
 
-export function myReverse1(arr) {
+export function myReverse1<T>(arr: T[]): T[] {
   if (arr.length <= 1) {
     return arr;
   }
-  const res = [];
+  const res: T[] = [];
   for (let i = arr.length - 1; i >= 0; i--) {
     res.push(arr[i]);
   }
@@ -138,7 +149,7 @@ export function myReverse1(arr) {
   // Expected output: [5, 4, 3, 2, 1]
 }
 
-export function myReverse2(arr) {
+export function myReverse2<T>(arr: T[]): T[] {
   if (arr.length <= 1) {
     return arr;
   }
@@ -156,7 +167,11 @@ export function myReverse2(arr) {
 }
 
 // Challenges
-export function myReduce(arr, cb, initial) {
+export function myReduce(
+  arr: number[],
+  cb: (acc: number, item: number) => number,
+  initial: number
+) {
   if (arr.length === 0) {
     return initial;
   }
@@ -172,10 +187,13 @@ export function myReduce(arr, cb, initial) {
   // Expected output: 15
 }
 
-export function mySort(arr, cb) {
+export function mySort(
+  arr: number[],
+  cb: (item1: number, item2: number) => number
+): number[] {
   for (let i = 0; i < arr.length; i++) {
-    for (let j = 0; j < arr.length; j++) {
-      if (cb(arr[i], arr[j]) < 0) {
+    for (let j = i + 1; j < arr.length; j++) {
+      if (cb(arr[i], arr[j]) > 0) {
         const tem = arr[i];
         arr[i] = arr[j];
         arr[j] = tem;
@@ -191,8 +209,8 @@ export function mySort(arr, cb) {
   // Expected output: [1, 2, 3, 4, 5]
 }
 
-export function mySlice(arr, start, end) {
-  const res = [];
+export function mySlice<T>(arr: T[], start: number, end: number) {
+  const res: T[] = [];
   if (arr.length === 0) {
     return arr;
   }

@@ -15,13 +15,21 @@
 //   g: { cost: 0.86, name: "green pepper" },
 // };
 
-export const BASE_PRICE = {
+type BasePrice = Record<string, number>;
+
+export const BASE_PRICE: BasePrice = {
   small: 6.5,
   medium: 7.5,
   large: 8.5,
 };
 
-export const TOPPINGS = {
+type Data = {
+  cost: number;
+  name: string;
+};
+type Toppings = Record<string, Data>;
+
+export const TOPPINGS: Toppings = {
   p: { cost: 1.5, name: "pepperoni" },
   g: { cost: 0.86, name: "green pepper" },
   o: { cost: 0.5, name: "onion" },
@@ -31,20 +39,22 @@ export const TOPPINGS = {
 };
 
 export default class Pizza {
-  constructor(size, toppingCodes) {
-    this.size = size;
-    this.toppingCodes = toppingCodes;
+  private size: string;
+  private toppingCodes: string[];
+  constructor(pizzaSize: string, toppingName: string[]) {
+    this.size = pizzaSize;
+    this.toppingCodes = toppingName;
   }
 
-  getBaseCost() {
+  getBaseCost(): number {
     return BASE_PRICE[this.size] || 0;
   }
 
-  getTotalCost() {
+  getTotalCost(): number {
     const baseCost = this.getBaseCost();
-    let totalToppingCost = 0;
+    let totalToppingCost: number = 0;
     for (const code of this.toppingCodes) {
-      const topping = TOPPINGS[code];
+      const topping: Data = TOPPINGS[code];
       if (topping) {
         totalToppingCost += topping.cost;
       }
@@ -52,11 +62,11 @@ export default class Pizza {
     return baseCost + totalToppingCost;
   }
 
-  getDescription() {
+  getDescription(): string {
     const sizeName = this.size;
-    const toppings = this.toppingCodes
+    const toppingString: string = this.toppingCodes
       .map((code) => TOPPINGS[code].name)
       .join(", ");
-    return `A ${sizeName} pizza with ${toppings}.`;
+    return `A ${sizeName} pizza with ${toppingString}.`;
   }
 }

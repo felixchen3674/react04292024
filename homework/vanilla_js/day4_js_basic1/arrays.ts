@@ -31,7 +31,11 @@ export function findAvgOfNums(arr: (number | string)[]): number {
   //   Expected output: 3
 }
 
-export function findAverageAge(people) {
+type People = {
+  name: string;
+  age: number;
+};
+export function findAverageAge(people: People[]): number {
   if (Object.keys(people).length === 0) {
     return 0;
   }
@@ -46,8 +50,14 @@ export function findAverageAge(people) {
   //   Example: const people = [{name: 'John', age: 21}, {name: 'Alice', age: 25}];
 }
 
-export function findAvgAgeByJob(people, job) {
-  if (Object.keys(people).length === 0) {
+interface people2 {
+  name: string;
+  age: number;
+  job: string;
+}
+
+export function findAvgAgeByJob(people: people2[], job: string): number {
+  if (people.length === 0) {
     return 0;
   }
 
@@ -56,7 +66,8 @@ export function findAvgAgeByJob(people, job) {
   arr.forEach((item) => {
     sum += item.age;
   });
-  return sum === 0 ? 0 : sum / Object.keys(arr).length;
+  // return sum === 0 ? 0 : sum / arr.length;
+  return sum === 0 ? 0 : sum / arr.length;
 
   //   Write a function that takes an array of people objects as an argument and
   //   returns the average age of people with the same job.
@@ -65,7 +76,7 @@ export function findAvgAgeByJob(people, job) {
   //   Expected output: 23 (teacher)
 }
 
-export function findMaxNum(arr) {
+export function findMaxNum(arr: number[]): number {
   if (arr.length === 0) {
     return 0;
   }
@@ -82,7 +93,7 @@ export function findMaxNum(arr) {
   //   Example: const arr = [1, 2, 3, 4, 5];
 }
 
-export function findLongestWord(str) {
+export function findLongestWord(str: string): string {
   if (str.length === 0) {
     return "";
   }
@@ -100,7 +111,7 @@ export function findLongestWord(str) {
   //   Example: const str = 'I love JavaScript';
 }
 
-export function findSumOfEvenNums(arr) {
+export function findSumOfEvenNums(arr: number[]): number[] {
   if (arr.length == 0) {
     return [];
   }
@@ -112,7 +123,7 @@ export function findSumOfEvenNums(arr) {
 }
 
 // reference types
-export function bubbleSortArr1(num) {
+export function bubbleSortArr1(num: number[]): number[] {
   // Write a function that takes an array of numbers as an argument and
   // returns a new sorted array using the bubble sort algorithm.
   // Do not use Array.prototype.sort
@@ -134,7 +145,7 @@ export function bubbleSortArr1(num) {
   return arr;
 }
 
-export function bubbleSortArr2(num) {
+export function bubbleSortArr2(num: number[]): number[] {
   if (num.length <= 1) {
     return num;
   }
@@ -151,11 +162,15 @@ export function bubbleSortArr2(num) {
   // Same as above but this time returns the original array reference sorted.
 }
 
-export function removeTypes(arr, typeToRemove) {
+export function removeTypes(
+  arr: (number | string)[],
+  typeToRemove: string
+): (number | string)[] {
   if (arr.length === 0) {
-    return arr;
+    return [];
   }
   const res = arr.filter((item) => typeof item !== typeToRemove);
+
   return res;
   // Write a function that takes an array of mixed types and a type as arguments
   // and returns a new array without the specified type.
@@ -165,7 +180,11 @@ export function removeTypes(arr, typeToRemove) {
 }
 
 // reinvent the wheel: prototype methods
-export function changeNumsByAmount(nums, amount, operator) {
+export function changeNumsByAmount(
+  nums: number[],
+  amount: number,
+  operator: string
+): number[] {
   if (operator === "+") {
     return nums.map((num) => num + amount);
   } else if (operator === "-") {
@@ -185,7 +204,7 @@ export function changeNumsByAmount(nums, amount, operator) {
   // Expected output: [3, 4, 5, 6, 7]
 }
 
-export function removeNumFromArr(nums, num) {
+export function removeNumFromArr(nums: number[], num: number): number[] {
   if (nums.length === 0) {
     return nums;
   }

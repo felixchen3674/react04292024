@@ -1,5 +1,8 @@
-export function combineObjects(obj1, obj2) {
-  let res = {};
+type Object = {
+  [key: string]: any;
+};
+export function combineObjects(obj1: Object, obj2: Object): Object {
+  let res: Object = {};
   for (let key in obj1) {
     res[key] = obj1[key];
   }
@@ -17,7 +20,7 @@ export function combineObjects(obj1, obj2) {
   // Expected output: {name: 'John', age: 21}
 }
 
-export function changeValueOf(obj, key, value) {
+export function changeValueOf(obj: Object, key: string, value: any): Object {
   return (obj[key] = value);
   // update the obj in place, do not return a new obj
   // Change the value of the key in the object
@@ -28,8 +31,12 @@ export function changeValueOf(obj, key, value) {
   // changeValueOf(obj, 'job', 'teacher');
   // Expected obj: {name: 'Alice', age: 25, job: 'teacher'}
 }
-
-export function cancelExpiredEvents(events) {
+interface event {
+  name: string;
+  date: string;
+  isCanceled: boolean;
+}
+export function cancelExpiredEvents(events: event[]) {
   const currentDate = new Date();
   for (let i = 0; i < events.length; i++) {
     const event = events[i];
@@ -47,8 +54,11 @@ export function cancelExpiredEvents(events) {
   // ];
   // Expected events: // an array of events, but event1 and event2 are canceled, event3 is not canceled
 }
-
-export function findEventByType(events, type) {
+interface event2 {
+  name: string;
+  type: string;
+}
+export function findEventByType(events: event2[], type: string): event2[] {
   if (events.length === 0) {
     return [];
   }

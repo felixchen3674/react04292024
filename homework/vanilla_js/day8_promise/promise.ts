@@ -20,7 +20,7 @@ export const fetchPosts = async () => {
 //     console.log("data", data);
 //   });
 
-export const fetchPostById = async (id) => {
+export const fetchPostById = async (id: string) => {
   try {
     const response = await fetch(
       `https://jsonplaceholder.typicode.com/posts/${id}`
@@ -40,7 +40,10 @@ export const fetchPostById = async (id) => {
   return data;
 };
 
-export const sequentialPromise = async (promises, order) => {
+export const sequentialPromise = async <T>(
+  promises: Promise<T>[],
+  order: number[]
+) => {
   const results = [];
   for (const idx of order) {
     try {

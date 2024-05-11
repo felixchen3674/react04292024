@@ -7,24 +7,28 @@
 // - pizzas: an array of Pizza instances.
 // - status: a string representing the status of the order. Default value is "pending".
 
+import Pizza from "./Pizza";
+
 export default class Order {
+  private pizzas: Pizza[];
+  public status: string;
   constructor() {
     this.pizzas = [];
     this.status = "pending";
   }
 
-  addPizza(pizza) {
+  addPizza(pizza: Pizza) {
     this.pizzas.push(pizza);
   }
 
-  removePizza(index) {
+  removePizza(index: number) {
     if (this.pizzas.length === 0 || index >= this.pizzas.length) {
       return;
     }
-    return this.pizzas.splice(index, 1);
+    this.pizzas.splice(index, 1);
   }
 
-  getTotalCost() {
+  getTotalCost(): number {
     let totalCost = 0;
     for (const pizza of this.pizzas) {
       totalCost += pizza.getTotalCost();
@@ -32,7 +36,7 @@ export default class Order {
     return totalCost;
   }
 
-  updateStatus(newStatus) {
+  updateStatus(newStatus: string) {
     this.status = newStatus;
   }
 }

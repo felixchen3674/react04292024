@@ -265,3 +265,12 @@ const respons5: ApiResponse4 = {
   },
   isError: false,
 };
+
+//index signature
+// for define unknown key of object ,we can use index signature to define it as any;
+
+type Obj = {
+  [key: string]: any;
+  // key will be string type and value will be any
+  //with this method, you only need to define once and it will include all the key in the object
+};

@@ -7,9 +7,9 @@
 // console.log(sayHello("Alice"));  // Outputs: "Hello Alice"
 // const sayHi = createGreeting("Hi");
 // console.log(sayHi("Bob"));  // Outputs: "Hi Bob"
-export function createGreeting(greeting) {
-  return function (arg) {
-    return greeting + " " + arg;
+export function createGreeting(greeting: string) {
+  return function (name: string) {
+    return `${greeting} ${name}`;
   };
 }
 
@@ -23,8 +23,12 @@ export function createGreeting(greeting) {
 // console.log(counter.increment());  // Outputs: 1
 // console.log(counter.increment());  // Outputs: 2
 // console.log(counter.getValue());  // Outputs: 2
-export function createCounter() {
-  let counter = 0;
+type Object = {
+  getValue: () => number;
+  increment: () => number;
+};
+export function createCounter(): Object {
+  let counter: number = 0;
   return {
     getValue: function () {
       return counter;
@@ -46,8 +50,16 @@ export function createCounter() {
 // let store = functionStore();
 // store.store("add", (a, b) => a + b);
 // console.log(store.run("add", 5, 7)); // Outputs: 12
-export function functionStore() {
-  let obj = {};
+interface Store<T> {
+  store: (name: string, cb: (...args: T[]) => T) => void;
+  run: (name: string, ...arg: T[]) => T | undefined;
+}
+type Object1<T> = {
+  [key: string]: (...args: T[]) => T;
+};
+
+export function functionStore(): Store<number> {
+  let obj: Object1<number> = {};
   return {
     store: function (key, fn) {
       obj[key] = fn;
@@ -71,13 +83,17 @@ export function functionStore() {
 // console.log(person.getName());  // Outputs: "Alice"
 // person.setName("Bob");
 // console.log(person.getName());  // Outputs: "Bob"
-export function createPerson(name) {
+interface Person {
+  getName: () => string;
+  setName: (name: string) => string;
+}
+export function createPerson(name: string): Person {
   let storeName = name;
   return {
     getName: function () {
       return storeName;
     },
-    setName: function (newName) {
+    setName: function (newName: string) {
       storeName = newName;
       return storeName;
     },
@@ -100,14 +116,14 @@ export function createPerson(name) {
 // limitedHello(); // Outputs: "Hello!"
 // limitedHello(); // No output, subsequent calls are ignored
 
-export function createLimitedCallFunction(fn, limit) {
+export function createLimitedCallFunction(fn: () => string, limit: number) {
   let times = limit;
-  return function (...args) {
+  return function () {
     if (times <= 0) {
       return;
     } else {
       times--;
-      fn.call(this, ...args);
+      fn();
     }
   };
 }
@@ -128,11 +144,15 @@ export function createLimitedCallFunction(fn, limit) {
 // limitedLog("World"); // "World" is logged
 // limitedLog("Again"); // This call is ignored
 
-export function createRateLimiter(fn, limit, interval) {
+export function createRateLimiter(
+  fn: (message: string) => void,
+  limit: number,
+  interval: number
+) {
   let call = 0;
-  return function (...args) {
+  return function (name: string) {
     if (call < limit) {
-      fn.call(this, ...args);
+      fn(name);
       call++;
       setTimeout(() => {
         call = 0;
