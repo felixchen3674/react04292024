@@ -1,0 +1,25 @@
+#present {
+    width: 930px;
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+}
+
+#present li {
+    display: flex;
+    align-items: center;
+    padding: 5px 0;
+    font-size: 16px;
+    justify-content: space-between;
+}
+
+#present li input {
+    margin-right: 10px;
+}
+
+#present li button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #333;
+}
