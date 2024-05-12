@@ -21,6 +21,7 @@ export const BASE_PRICE = {
   large: 8.5,
 };
 
+// Define available toppings with their costs and names
 export const TOPPINGS = {
   p: { cost: 1.5, name: 'pepperoni' },
   g: { cost: 0.86, name: 'green pepper' },
@@ -30,18 +31,28 @@ export const TOPPINGS = {
   c: { cost: 0.77, name: 'cheese' },
 };
 
+// Type definitions for sizes and toppings
+type Size = 'small' | 'medium' | 'large';
+type ToppingCode = keyof typeof TOPPINGS;
+type ToppingCodes = ToppingCode[];
+
+// Pizza class
 export default class Pizza {
-  constructor(size, toppingCodes) {
+  private size: Size;
+  private toppingCodes: ToppingCodes;
+
+  constructor(size: Size, toppingCodes: ToppingCodes) {
     this.size = size;
     this.toppingCodes = toppingCodes;
   }
 
-  getBaseCost() {
-    const sizeCosts = { small: 6.5, medium: 7.5, large: 8.5 };
-    return sizeCosts[this.size.toLowerCase()] || 0;
+  // Get the base cost of the pizza based on its size
+  getBaseCost(): number {
+    return BASE_PRICE[this.size];
   }
 
-  getTotalCost() {
+  // Calculate the total cost by adding the base cost and the cost of all toppings
+  getTotalCost(): number {
     const baseCost = this.getBaseCost();
     const toppingsCost = this.toppingCodes.reduce((total, code) => {
       return total + (TOPPINGS[code] ? TOPPINGS[code].cost : 0);
@@ -49,7 +60,8 @@ export default class Pizza {
     return baseCost + toppingsCost;
   }
 
-  getDescription() {
+  // Provide a description of the pizza based on its size and chosen toppings
+  getDescription(): string {
     const toppingsDescription = this.toppingCodes
       .map((code) => (TOPPINGS[code] ? TOPPINGS[code].name : 'unknown'))
       .join(', ');

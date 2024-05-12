@@ -1,8 +1,23 @@
-export function destructurePerson1() {
+type Person = {
+  name: string;
+  age: number;
+  job: string;
+  address?: Address;
+  gender?: string;
+  salary?: number;
+  hobby?: string;
+  favFood?: string;
+};
+type Address = {
+  city: string;
+  country: string;
+};
+
+export function destructurePerson1(): string {
   // log the name, age, and job of person1, using string literal
   // hint: `${}`
   // expected output: "Alice is 25 years old and is a teacher"
-  const person = {
+  const person: Person = {
     name: 'Alice',
     age: 25,
     job: 'teacher',
@@ -12,7 +27,7 @@ export function destructurePerson1() {
   return `${name} is ${age} years old and is a ${job}`;
 }
 
-export function destructurePerson2() {
+export function destructurePerson2(): string {
   // log the name, age, and city of person2, using string literal
   // expected output: "John is 21 years old and lives in New York"
   const person = {
@@ -36,11 +51,11 @@ export function destructurePerson2() {
 export function destructurePerson3() {
   // descture but change the variable names
 
-  const name = 'NAME ALREADY EXIST';
+  const name: string = 'NAME ALREADY EXIST';
   // if you do const {name} = person,
   // there'd be an error because name already exists
 
-  const person = {
+  const person: Person = {
     name: 'Alice',
     age: 25,
     job: 'teacher',
@@ -52,7 +67,7 @@ export function destructurePerson3() {
 }
 
 export function destructurePerson4() {
-  const person = {
+  const person: Person = {
     name: 'Alice',
     age: 25,
     job: 'teacher',
@@ -71,24 +86,24 @@ export function destructurePerson4() {
 export function destructureArray1() {
   // destructure and get the first and last elements of the array
   // expected output: "1 5"
-  const arr = [1, 2, 3, 4, 5];
+  const arr: number[] = [1, 2, 3, 4, 5];
   // Write your code here
   const [first, , , , last] = arr;
   return [first, last];
 }
 
-export function destructureArray2() {
+export function destructureArray2(): void {
   const methods = [
-    function () {
+    () => {
       return 'GET';
     },
-    function () {
+    () => {
       return 'POST';
     },
-    function () {
+    () => {
       return 'PUT';
     },
-    function () {
+    () => {
       return 'DELETE';
     },
   ];
@@ -102,15 +117,15 @@ export function destructureArray2() {
   deleteMethod();
 }
 
-export function destructureArray3() {
-  const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+export function destructureArray3(): void {
+  const arr: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   // destructure the first 3 elements, and use rest operator to get the rest of the elements
   // Write your code here
   const [first, second, third, ...rest] = arr;
 }
 
-export function spreadObj() {
-  const person = {
+export function spreadObj(): void {
+  const person: Person = {
     name: 'Alice',
     age: 25,
     job: 'teacher',
@@ -135,17 +150,17 @@ export function spreadObj() {
   const person4 = { ...person, ...additionalInfo };
 }
 
-export function spreadArr() {
-  const arr1 = [1, 2, 3];
-  const arr2 = [4, 5, 6];
+export function spreadArr(): void {
+  const arr1: number[] = [1, 2, 3];
+  const arr2: number[] = [4, 5, 6];
   // 1. use spread operator to create a new array that combines arr1 and arr2
-  const arr3 = [...arr1, ...arr2];
+  const arr3: number[] = [...arr1, ...arr2];
 
   // 2. use spread operator to create a new array that combines arr1 and arr2, but add a new element, 7
   // expected arr4: [1, 2, 3, 4, 5, 6, 7]
-  const arr4 = [...arr1, ...arr2, 7];
+  const arr4: number[] = [...arr1, ...arr2, 7];
 
   // 3. combine arr1 and arr2, but add a new element, 0, at the beginning
   // expected arr5: [0, 1, 2, 3, 4, 5, 6]
-  const arr5 = [0, ...arr1, ...arr2];
+  const arr5: number[] = [0, ...arr1, ...arr2];
 }

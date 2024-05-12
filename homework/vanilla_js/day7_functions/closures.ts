@@ -7,8 +7,8 @@
 // console.log(sayHello("Alice"));  // Outputs: "Hello Alice"
 // const sayHi = createGreeting("Hi");
 // console.log(sayHi("Bob"));  // Outputs: "Hi Bob"
-export function createGreeting(greeting) {
-  return function (name) {
+export function createGreeting(greeting: string) {
+  return function (name: string): string {
     return `${greeting} ${name}`;
   };
 }
@@ -24,17 +24,17 @@ export function createGreeting(greeting) {
 // console.log(counter.increment());  // Outputs: 2
 // console.log(counter.getValue());  // Outputs: 2
 export function createCounter() {
-  let value = 0;
+  let value: number = 0;
   return {
-    increment: function () {
+    increment: (): number => {
       value += 1;
       return value;
     },
-    decrement: function () {
+    decrement: (): number => {
       value -= 1;
       return value;
     },
-    getValue: function () {
+    getValue: (): number => {
       return value;
     },
   };
@@ -50,13 +50,14 @@ export function createCounter() {
 // let store = functionStore();
 // store.store("add", (a, b) => a + b);
 // console.log(store.run("add", 5, 7)); // Outputs: 12
+export type StoredFunction = (...args: any[]) => any;
 export function functionStore() {
   const store = {};
   return {
-    store(key, fn) {
+    store: (key: string, fn: StoredFunction): void => {
       store[key] = fn;
     },
-    run(key, ...args) {
+    run: (key: string, ...args: any[]) => {
       const fn = store[key];
       return fn(...args);
     },
@@ -72,13 +73,17 @@ export function functionStore() {
 // console.log(person.getName());  // Outputs: "Alice"
 // person.setName("Bob");
 // console.log(person.getName());  // Outputs: "Bob"
-export function createPerson(name) {
-  let personName = name;
+type CreatePersonFun = {
+  getName: () => string;
+  setName: (newName: string) => void;
+};
+export function createPerson(name: string): CreatePersonFun {
+  let personName: string = name; //Private variable, accessible only within the closure.
   return {
-    getName() {
+    getName: (): string => {
       return personName;
     },
-    setName(newName) {
+    setName: (newName: string): void => {
       personName = newName;
     },
   };
@@ -100,13 +105,15 @@ export function createPerson(name) {
 // limitedHello(); // Outputs: "Hello!"
 // limitedHello(); // No output, subsequent calls are ignored
 
-export function createLimitedCallFunction(fn, limit) {
-  let callCount = 0;
-
-  return function (...args) {
-    if (callCount < limit) {
-      callCount += 1;
-      return fn(...args);
+export function createLimitedCallFunction(
+  fn: () => void,
+  limit: number
+): () => void {
+  let count = 0; // Track the number of calls
+  return () => {
+    if (count < limit) {
+      count++; // Increment first to ensure the count is increased before potentially exiting.
+      fn(); // Execute the passed function
     }
   };
 }
@@ -127,19 +134,27 @@ export function createLimitedCallFunction(fn, limit) {
 // limitedLog("World"); // "World" is logged
 // limitedLog("Again"); // This call is ignored
 
-export function createRateLimiter(fn, limit, interval) {
-  const callTimestamps = [];
+type CallbackFunction = (...args: any[]) => void;
 
-  return function (...args) {
+export function createRateLimiter(
+  fn: CallbackFunction,
+  limit: number,
+  interval: number
+): (...args: any[]) => void {
+  const callTimestamps: number[] = []; // Stores timestamps of each call
+
+  return (...args: any[]) => {
     const now = Date.now();
 
+    // Remove timestamps outside of the current interval
     while (callTimestamps.length > 0 && now - callTimestamps[0] >= interval) {
       callTimestamps.shift();
     }
 
+    // Only proceed if the limit of calls within the current interval has not been reached
     if (callTimestamps.length < limit) {
       callTimestamps.push(now);
-      fn(...args);
+      fn(...args); // Call the function with provided arguments
     }
   };
 }
