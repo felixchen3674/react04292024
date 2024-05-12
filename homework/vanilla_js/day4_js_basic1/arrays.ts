@@ -1,7 +1,7 @@
 // Do not use prototype methods
 
 // Data types & numsays
-export function checkIfStringIsNumber(str) {
+export function checkIfStringIsNumber(str: string): boolean {
   // //   Write a function that takes a string as an argument and
   // //   returns a boolean indicating if the str is a number
   // //   Example:
@@ -16,13 +16,13 @@ export function checkIfStringIsNumber(str) {
   return regex.test(str);
 }
 
-export function findAvgOfNums(arr) {
+export function findAvgOfNums(arr: (string | number)[]): number {
   //   Write a function that takes an array of numbers and strings as an
   //   argument and returns the average of all the numbers.
   //   Example: const arr = [1, '2', 3, '4', 5];
   //   Expected output: 3
-  let total = 0;
-  let count = 0; // Counter for the number of numeric entries
+  let total: number = 0;
+  let count: number = 0; // Counter for the number of numeric entries
 
   arr.forEach((element) => {
     // Check if element is a number or can be converted to a number
@@ -36,7 +36,13 @@ export function findAvgOfNums(arr) {
   return count > 0 ? total / count : 0;
 }
 
-export function findAverageAge(people) {
+type Person = {
+  name: string;
+  age: number;
+  job?: string;
+};
+
+export function findAverageAge(people: Person[]): number {
   //   Write a function that takes an array of people objects as an argument and
   //   returns the average age of all the people.
   //   Do not use prototype methods
@@ -44,22 +50,22 @@ export function findAverageAge(people) {
   if (people.length === 0) {
     return 0; // Return 0 immediately if the array is empty
   }
-  let total = 0;
+  let total: number = 0;
   people.forEach((element) => {
     total += element.age;
   });
   return total / people.length;
 }
 
-export function findAvgAgeByJob(people, job) {
+export function findAvgAgeByJob(people: Person[], job: string): number {
   //   Write a function that takes an array of people objects as an argument and
   //   returns the average age of people with the same job.
   //   Do not use prototype methods
   //   Example: const people = [{name: 'John', age: 21, job: 'teacher'}, {name: 'Alice', age: 25, job: 'teacher'}];
   //   Expected output: 23 (teacher)
 
-  let count = 0,
-    total = 0;
+  let count: number = 0,
+    total: number = 0;
   for (const person of people) {
     if (person.job === job) {
       count++;
@@ -69,13 +75,13 @@ export function findAvgAgeByJob(people, job) {
   return count === 0 ? 0 : total / count;
 }
 
-export function findMaxNum(arr) {
+export function findMaxNum(arr: number[]): number {
   //   Write a function that takes an array of numbers as an argument and
   //   returns the maximum number in that array.
   //   Do not use Math.max
   //   Example: const arr = [1, 2, 3, 4, 5];
   if (!arr.length) return 0;
-  let max = -Infinity;
+  let max: number = -Infinity;
   for (const num of arr) {
     if (max < num) {
       max = num;
@@ -84,12 +90,12 @@ export function findMaxNum(arr) {
   return max;
 }
 
-export function findLongestWord(str) {
+export function findLongestWord(str: string): string {
   //   Write a function that takes a string as an argument and
   //   returns the longest word in that string.
   //   Hint: You can use String.prototype.split
   //   Example: const str = 'I love JavaScript';
-  const strArr = str.split(' ');
+  const strArr: string[] = str.split(' ');
   let max = 0,
     longest = '';
   for (const word of strArr) {
@@ -101,12 +107,12 @@ export function findLongestWord(str) {
   return longest;
 }
 
-export function findSumOfEvenNums(arr) {
+export function findSumOfEvenNums(arr: number[]): number[] {
   //   Write a function that takes an array of numbers as an argument and
   //   returns an array of only the even numbers.
   //   Example: const arr = [1, 2, 3, 4, 5];
   //   Expected output: [2, 4]
-  const res = [];
+  const res: number[] = [];
   for (const num of arr) {
     if (num % 2 === 0) res.push(num);
   }
@@ -114,7 +120,7 @@ export function findSumOfEvenNums(arr) {
 }
 
 // reference types
-export function bubbleSortArr1(num) {
+export function bubbleSortArr1(num: number[]): number[] {
   // Write a function that takes an array of numbers as an argument and
   // returns a new sorted array using the bubble sort algorithm.
   // Do not use Array.prototype.sort
@@ -131,7 +137,7 @@ export function bubbleSortArr1(num) {
   return res;
 }
 
-export function bubbleSortArr2(num) {
+export function bubbleSortArr2(num: number[]): number[] {
   // Same as above but this time returns the original array reference sorted.
   for (let i = 0; i < num.length - 1; i++) {
     for (let j = 0; j < num.length - i - 1; j++) {
@@ -143,13 +149,13 @@ export function bubbleSortArr2(num) {
   return num;
 }
 
-export function removeTypes(arr, typeToRemove) {
+export function removeTypes(arr: (string | number)[], typeToRemove: string) {
   // Write a function that takes an array of mixed types and a type as arguments
   // and returns a new array without the specified type.
   // Example: const arr = [1, '2', 3, '4', 5];
   // removeTypes(arr, 'string');
   // Expected output: [1, 3, 5]
-  const newArr = [];
+  const newArr: (string | number)[] = [];
   for (const ele of arr) {
     if (typeof ele !== typeToRemove) {
       newArr.push(ele);
@@ -159,13 +165,17 @@ export function removeTypes(arr, typeToRemove) {
 }
 
 // reinvent the wheel: prototype methods
-export function changeNumsByAmount(nums, amount, operator) {
+export function changeNumsByAmount(
+  nums: number[],
+  amount: number,
+  operator: string
+): number[] {
   // Write a function that takes an array of numbers, an amount and an operator as arguments
   // and returns a new array with the numbers changed by the amount and operator.
   // Example: const nums = [1, 2, 3, 4, 5];
   // changeNumsByAmount(nums, 2, '+');
   // Expected output: [3, 4, 5, 6, 7]
-  let modifiedNums = [];
+  let modifiedNums: number[] = [];
 
   for (let i = 0; i < nums.length; i++) {
     // Apply the operation based on the provided operator
@@ -186,13 +196,13 @@ export function changeNumsByAmount(nums, amount, operator) {
   return modifiedNums;
 }
 
-export function removeNumFromArr(nums, num) {
+export function removeNumFromArr(nums: number[], num: number) {
   // Write a function that takes an array of numbers and a number as arguments
   // and returns a new array without the specified number.
   // Example: const nums = [1, 2, 3, 3, 3, 4, 5];
   // removeNumFromArr(nums, 3);
   // Expected output: [1, 2, 4, 5]
-  const modifiedNums = [];
+  const modifiedNums: number[] = [];
   for (const n of nums) {
     if (n !== num) modifiedNums.push(n);
   }

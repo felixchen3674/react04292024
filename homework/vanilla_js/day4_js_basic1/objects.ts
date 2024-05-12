@@ -1,4 +1,8 @@
-export function combineObjects(obj1, obj2) {
+type Person = {
+  name: string;
+  age: number;
+};
+export function combineObjects(obj1: Person, obj2: any) {
   // Combine the objects
   // if the objects have the same key, use the value from obj2
   // Example 1: const obj1 = {name: 'Alice', age: 25};
@@ -11,7 +15,7 @@ export function combineObjects(obj1, obj2) {
   return combined;
 }
 
-export function changeValueOf(obj, key, value) {
+export function changeValueOf(obj: Person, key: string, value: string): void {
   // update the obj in place, do not return a new obj
   // Change the value of the key in the object
   // Example 1: const obj = {name: 'Alice', age: 25};
@@ -23,7 +27,7 @@ export function changeValueOf(obj, key, value) {
   obj[key] = value;
 }
 
-export function cancelExpiredEvents(events) {
+export function cancelExpiredEvents(events: any[]): void {
   // update the events in place, do not return a new obj
   // Cancel the expired events
   // Example: const events = [
@@ -40,7 +44,7 @@ export function cancelExpiredEvents(events) {
   }
 }
 
-export function findEventByType(events, type) {
+export function findEventByType(events: any[], type: string) {
   // Find the event by type
   // Example: const events = [
   //   event1: {name: 'Birthday Party', type: 'private'},
@@ -49,7 +53,7 @@ export function findEventByType(events, type) {
   // ];
   // findEventByType(events, 'private');
   // Expected output: [{name: 'Birthday Party', type: 'private'}, {name: 'Christmas Party', type: 'private'}]
-  const privateEvents = [];
+  const privateEvents: any[] = [];
   for (const event of events) {
     if (event.type === type) {
       privateEvents.push(event);

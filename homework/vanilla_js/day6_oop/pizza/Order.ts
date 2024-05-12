@@ -7,28 +7,35 @@
 // - pizzas: an array of Pizza instances.
 // - status: a string representing the status of the order. Default value is "pending".
 
+type Pizza = {
+  getTotalCost(): number; // Assume each Pizza object has a method to return its total cost
+};
+type OrderStatus = 'pending' | 'confirmed' | 'delivered' | 'canceled';
+
 export default class Order {
+  private pizzas: Pizza[];
+  private status: OrderStatus;
   constructor() {
     this.pizzas = [];
     this.status = 'pending';
   }
 
-  addPizza(pizza) {
+  addPizza(pizza: Pizza): void {
     this.pizzas.push(pizza);
   }
 
-  removePizza(index) {
+  removePizza(index: number): void {
     if (index < 0 || index >= this.pizzas.length) {
       throw new Error('Invalid index.');
     }
     this.pizzas.splice(index, 1);
   }
 
-  getTotalCost() {
+  getTotalCost(): number {
     return this.pizzas.reduce((acc, pizza) => acc + pizza.getTotalCost(), 0);
   }
 
-  updateStatus(newStatus) {
+  updateStatus(newStatus: OrderStatus) {
     this.status = newStatus;
   }
 }
