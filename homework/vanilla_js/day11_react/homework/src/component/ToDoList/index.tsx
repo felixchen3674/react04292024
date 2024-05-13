@@ -20,7 +20,9 @@ export default function ToDoList() {
         id: Date.now(), // or some other unique identifier
         text: userInput.current.value
       };
+      console.log('state before add item', state);
       setState(prevState => [...prevState, newItem]);
+      console.log('state after add item', state);
       userInput.current.value = '';
     }
   }
