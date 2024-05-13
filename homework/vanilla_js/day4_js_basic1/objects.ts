@@ -1,4 +1,10 @@
-export function combineObjects(obj1, obj2) {
+interface Event {
+  name: string;
+  date?: string;
+  isCanceled?: boolean;
+  type?: string;
+}
+export function combineObjects<T extends Record<string, any>>(obj1: T, obj2: T): T {
   // Combine the objects
   // if the objects have the same key, use the value from obj2
   // Example 1: const obj1 = {name: 'Alice', age: 25};
@@ -15,7 +21,7 @@ export function combineObjects(obj1, obj2) {
   return combinedObj;
 }
 
-export function changeValueOf(obj, key, value) {
+export function changeValueOf(obj: Record<string, any>, key: string, value: any): void {
   // update the obj in place, do not return a new obj
   // Change the value of the key in the object
   // Example 1: const obj = {name: 'Alice', age: 25};
@@ -25,10 +31,9 @@ export function changeValueOf(obj, key, value) {
   // changeValueOf(obj, 'job', 'teacher');
   // Expected obj: {name: 'Alice', age: 25, job: 'teacher'}
   obj[key] = value;
-  return obj;
 }
 
-export function cancelExpiredEvents(events) {
+export function cancelExpiredEvents(events: Event[]): void {
   // update the events in place, do not return a new obj
 
   // Cancel the expired events
@@ -39,18 +44,19 @@ export function cancelExpiredEvents(events) {
   // ];
   // Expected output: 
   // an array of events, but event1 and event2 are canceled, event3 is not canceled
-  const toDay = new Date();
+  const today = new Date();
 
   for (let event of events) {
-    const eventDate = new Date(event.date);
-    if (eventDate <= toDay) {
-      event.isCanceled = true;
+    if (event.date) {
+      const eventDate = new Date(event.date);
+      if (eventDate <= today) {
+        event.isCanceled = true;
+      }
     }
   }
-  return events;
 }
 
-export function findEventByType(events, type) {
+export function findEventByType(events: Event[], type: string): Event[] {
   // Find the event by type
   // Example: const events = [
   //   event1: {name: 'Birthday Party', type: 'private'},
@@ -59,7 +65,7 @@ export function findEventByType(events, type) {
   // ];
   // findEventByType(events, 'private');
   // Expected output: [{name: 'Birthday Party', type: 'private'}, {name: 'Christmas Party', type: 'private'}]
-  const foundEvents = [];
+  const foundEvents: Event[] = [];
 
   for (let event of events) {
     if (event.type === type) {

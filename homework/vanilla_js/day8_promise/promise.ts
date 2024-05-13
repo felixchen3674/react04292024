@@ -1,4 +1,4 @@
-export const fetchPosts = async () => {
+export const fetchPosts = async (): Promise<any[]> => {
   //fetch posts from "https://jsonplaceholder.typicode.com/posts"
   // return the posts
 
@@ -13,7 +13,7 @@ export const fetchPosts = async () => {
 //     console.log("data", data);
 //   });
 
-export const fetchPostById = async (id: number) => {
+export const fetchPostById = async (id: number): Promise<any> => {
   //fetch a post by id from "https://jsonplaceholder.typicode.com/posts/${id}"
   //return the post
 

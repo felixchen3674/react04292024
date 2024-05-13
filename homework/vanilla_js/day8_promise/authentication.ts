@@ -1,4 +1,12 @@
-export const users = [
+interface User {
+  name: string;
+  username: string;
+  email: string;
+  password: string;
+  token?: string;
+}
+
+export const users: User[] = [
   {
     name: "Leanne Graham",
     username: "Bret",
@@ -13,19 +21,19 @@ export const users = [
   },
 ];
 
-export const encodePassword = (password: string) => {
+export const encodePassword = (password: string): string => {
   // encode the password by reversing it and add "encoded" at the end
   // for example, "password1" => "1drowssapencoded"
   return password.split('').reverse().join('')+'encoded'
 };
 
-export const decodePassword = (encrypted: string) => {
+export const decodePassword = (encrypted: string): string => {
   // decode the password
   // for example, "1drowssapencoded" => "password1"
   return encrypted.slice(0, -7).split('').reverse().join('');
 };
 
-export const getUserByEmail = async (email: string) => {
+export const getUserByEmail = async (email: string): Promise<User> => {
   // fetch a user by email
   // should throw an error with message "User not found" if the user is not found
   // e.g. { name: "Leanne Graham", username: "Bret", email: "leanne.graham@email.com", password: "1drowssapencoded" }
@@ -36,7 +44,7 @@ export const getUserByEmail = async (email: string) => {
   return user;
 };
 
-export const verifyPassword = async (password: string, encrypted: string) => {
+export const verifyPassword = async (password: string, encrypted: string): Promise<void> => {
   // verify the password
   // should throw an error with message "Invalid password" if the password is incorrect
   const decoded = decodePassword(encrypted);
@@ -45,7 +53,7 @@ export const verifyPassword = async (password: string, encrypted: string) => {
   }
 };
 
-export const login = async (email: string, password: string) => {
+export const login = async (email: string, password: string): Promise<User | string> => {
   // login the user with email and password
   // should return the user and token if the login is successful
   // e.g. { name: "Leanne Graham", username: "Bret", email: "leanne.graham@email.com", token: "token" }
@@ -64,7 +72,7 @@ export const login = async (email: string, password: string) => {
     // Hash (#):
     // symbol is used in JavaScript as a prefix for private class fields and methods. 
     //It's used to define private members in classes, which are accessible only within the class itself and not from outside the class or its instances.
-    return { ...userWithoutPassword, token: "token" };
+    return { ...userWithoutPassword, token: "token" } as User;
   } 
   catch (error) {
     return error.message;

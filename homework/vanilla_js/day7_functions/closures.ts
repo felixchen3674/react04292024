@@ -7,8 +7,8 @@
 // console.log(sayHello("Alice"));  // Outputs: "Hello Alice"
 // const sayHi = createGreeting("Hi");
 // console.log(sayHi("Bob"));  // Outputs: "Hi Bob"
-export function createGreeting(greeting) {
-    return function (name){
+export function createGreeting(greeting: string) {
+    return function (name: string){
         return `${greeting} ${name}`;
     }
 }
@@ -46,14 +46,14 @@ export function createCounter() {
 // store.store("add", (a, b) => a + b);
 // console.log(store.run("add", 5, 7)); // Outputs: 12
 export function functionStore() {
-    const store = {};
+    const store: Record<string, Function> = {};
     return {
-        store(key, fn) {
-          store[key] = fn;
+        store(key: string, fn: Function) {
+            store[key] = fn;
         },
-        run(key, ...args) {
+        run(key: string, ...args: any[]) {
             return store[key](...args);
-        }
+        },
     };
 }
 
@@ -66,15 +66,15 @@ export function functionStore() {
 // console.log(person.getName());  // Outputs: "Alice"
 // person.setName("Bob");
 // console.log(person.getName());  // Outputs: "Bob"
-export function createPerson(name) {
+export function createPerson(name: string) {
     let privateName = name;
     return {
         getName() {
             return privateName;
         },
-        setName(newName) {
-            privateName = newName
-            return privateName
+        setName(newName: string) {
+            privateName = newName;
+            return privateName;
         },
     };
 }
@@ -95,12 +95,12 @@ export function createPerson(name) {
 // limitedHello(); // Outputs: "Hello!"
 // limitedHello(); // No output, subsequent calls are ignored
 
-export function createLimitedCallFunction(fn, limit) {
+export function createLimitedCallFunction(fn: Function, limit: number) {
     let callCount = 0;
-    return function(...args) {
+    return function (...args: any[]) {
         if (callCount < limit) {
-        fn(...args);
-        callCount++;
+            fn(...args);
+            callCount++;
         }
     };
 }
@@ -121,22 +121,22 @@ export function createLimitedCallFunction(fn, limit) {
 // limitedLog("World"); // "World" is logged
 // limitedLog("Again"); // This call is ignored
 
-export function createRateLimiter(fn, limit, interval) {
+export function createRateLimiter(fn: Function, limit: number, interval: number) {
     let lastCallTime = 0;
     let callCount = 0;
 
-    return function(...args) {
+    return function (...args: any[]) {
         const now = Date.now();
 
         if (now - lastCallTime >= interval) {
-        callCount = 1;
-        lastCallTime = now;
-        fn(...args);
+            callCount = 1;
+            lastCallTime = now;
+            fn(...args);
         } else if (callCount < limit) {
-        callCount++;
-        fn(...args);
+            callCount++;
+            fn(...args);
         } else {
-            console.log('Limit reached')
+            console.log('Limit reached');
         }
     };
 }

@@ -21,7 +21,12 @@ export const BASE_PRICE = {
   large: 8.5,
 };
 
-export const TOPPINGS = {
+interface Topping {
+  cost: number;
+  name: string;
+}
+
+export const TOPPINGS: Record<string, Topping> = {
   p: { cost: 1.5, name: "pepperoni" },
   g: { cost: 0.86, name: "green pepper" },
   o: { cost: 0.5, name: "onion" },
@@ -31,12 +36,15 @@ export const TOPPINGS = {
 };
 
 export default class Pizza {
-  constructor(size, toppingCodes) {
+  size: string;
+  toppingCodes: string[];
+
+  constructor(size: string, toppingCodes: string[]) {
     this.size = size;
     this.toppingCodes = toppingCodes;
   }
 
-  getBaseCost() {
+  getBaseCost(): number {
     return BASE_PRICE[this.size]
   }
 // MDN property accessors
@@ -56,7 +64,7 @@ export default class Pizza {
 // console.log(person2['lastname']);
 // Expected output: "Doe"
 
-  getTotalCost() {
+  getTotalCost(): number {
     const baseCost = this.getBaseCost()
     const toppingCost = this.toppingCodes.reduce((accumulator, code) =>{
       const topping = TOPPINGS[code]?.cost || 0;
@@ -69,7 +77,7 @@ export default class Pizza {
   //                                     SIZE ,     toppingCodes
   //                                                    'code', 'code', 'code'
 
-  getDescription() {
+  getDescription(): string {
     const toppings = this.toppingCodes.map(code => TOPPINGS[code].name).join(', ');
     return `A ${this.size} pizza with ${toppings}.`;
   }

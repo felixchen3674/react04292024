@@ -6,28 +6,31 @@
 // The Order class should have the following properties:
 // - pizzas: an array of Pizza instances.
 // - status: a string representing the status of the order. Default value is "pending".
-
+import Pizza from './Pizza';
 export default class Order {
+  pizzas: Pizza[];
+  status: string;
+
   constructor() {
     this.pizzas = [];
     this.status = "pending";
   }
 
-  addPizza(pizza) {
+  addPizza(pizza: Pizza) {
     this.pizzas.push(pizza);
   }
 
-  removePizza(index) {
+  removePizza(index: number) {
     if(index < this.pizzas.length && index >=0){
       this.pizzas.splice(index, 1)
     }
   }
 
-  getTotalCost() {
+  getTotalCost(): number {
     return this.pizzas.reduce((total, pizza) => total + pizza.getTotalCost(), 0);
   }
 
-  updateStatus(newStatus) {
+  updateStatus(newStatus: string) {
     this.status = newStatus;
   }
 }
