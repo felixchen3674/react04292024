@@ -1,4 +1,4 @@
-export default function Day11Notes() {
+export default function Day11Play() {
   return (
     <div>
       <h1>Day 11 Notes</h1>
