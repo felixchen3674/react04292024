@@ -17,7 +17,7 @@ export default function ToDoList() {
     event.preventDefault();
     if (userInput.current?.value) {
       const newItem: TodoItem = {
-        id: Date.now(), // or some other unique identifier
+        id: Date.now(),
         text: userInput.current.value
       };
       console.log('state before add item', state);
@@ -30,13 +30,13 @@ export default function ToDoList() {
     <div className='container'>
         <header className="header">To Do List</header>
         <form className="todoForm"> 
-        <input type="text" className="todoInput" ref={userInput}/>
+            <input type="text" className="todoInput" ref={userInput}/>
             <button className="submitBtn" type="submit" onClick={addItem}>+</button>
         </form>
         <ul id="present">
-        {state.map(listItem => {
-          return <ListItem key={listItem.id} listItem={listItem} deleteItem={deleteItem} />;
-        })}
+          {state.map(listItem => {
+            return <ListItem key={listItem.id} listItem={listItem} deleteItem={deleteItem} />;
+          })}
         </ul>
     </div>
   );

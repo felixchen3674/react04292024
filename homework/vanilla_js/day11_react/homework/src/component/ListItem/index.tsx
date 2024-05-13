@@ -14,8 +14,7 @@ interface ListItemProps {
 export default function ListItem({ listItem, deleteItem }: ListItemProps) {
   return (
     <li>
-        <input type='checkbox'/>
-        <span>{listItem.text}</span>
+        <div><input type='checkbox'/><span>{listItem.text}</span></div>
         <button className='deleteButton' onClick={() => deleteItem(listItem.id)}>Delete</button>
     </li>
   )
