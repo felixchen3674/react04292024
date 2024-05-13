@@ -13,14 +13,35 @@ import { Component } from "react";
 
 // implement a Student component here
 
-export interface StudentType {}
-
-export function StudentFn() {
-  return <div data-testid="student"></div>;
+export interface StudentType {
+  id: number;
+  name: string;
+  age: number;
+  grade: "A" | "B" | "C" | "D" | "F";
 }
 
-export class StudentClass extends Component {
+export function StudentFn(props: { student: StudentType }) {
+  const { id, name, age, grade } = props.student;
+  return (
+    <div data-testid="student">
+      <h4>{id}</h4>
+      <h4>{name}</h4>
+      <h4>{age}</h4>
+      <h4>{grade}</h4>
+    </div>
+  );
+}
+
+export class StudentClass extends Component<{ student: StudentType }> {
   render() {
-    return <div data-testid="student">Student</div>;
+    const { id, name, age, grade } = this.props.student;
+    return (
+      <div data-testid="student">
+        <h4>{id}</h4>
+        <h4>{name}</h4>
+        <h4>{age}</h4>
+        <h4>{grade}</h4>
+      </div>
+    );
   }
 }
