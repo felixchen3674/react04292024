@@ -1,5 +1,16 @@
 export default function Select() {
   return (
-    <div>Select</div>
-  )
+    <div>
+      <label>
+        Choose the duration of your appointment
+        <select>
+          <optgroup label="Select the following:">
+            <option value={"10"}>10 mins</option>
+            <option value={"20"}>20 mins</option>
+            <option value={"30"}>30 mins</option>
+          </optgroup>
+        </select>
+      </label>
+    </div>
+  );
 }
