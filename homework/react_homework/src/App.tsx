@@ -4,6 +4,8 @@ import { ClassClick } from "./day11_describing_the_ui/notes/ClassClick";
 import FunctionClick from "./day11_describing_the_ui/notes/FunctionClick";
 import { PlayButton } from "./day11_describing_the_ui/notes/PlayButton";
 import { StudentType } from "./day11_describing_the_ui/Student";
+import Day12Play from "./day12_interactivity/notes";
+
 function App() {
   const student: StudentType = {
     id: 1,
@@ -23,6 +25,8 @@ function App() {
       <ClassClick />
       <PlayButton movieName="Good movie" />
       {/* here it is adding the new property to the day11play component which is student */}
+      {/* <Day11Play /> */}
+      <Day12Play />
     </>
   );
 }
