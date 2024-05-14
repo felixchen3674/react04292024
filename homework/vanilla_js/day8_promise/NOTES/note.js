@@ -83,7 +83,7 @@ async function foo(){
     console.log(data);
     console.log("sync")
 }
-foo()
+// foo()
 
 const c = Promise.resolve(5).then((value)=>{
     console.log(value)
@@ -94,4 +94,111 @@ const c = Promise.resolve(5).then((value)=>{
     console.log(number)
 })
 
-console.log(c)
+// console.log(c)
+
+function orderPizza(callback){
+    setTimeout(()=>{
+        const pizza = `🍕`
+        callback(pizza)
+    },2000)
+}
+
+function pizzaReady(pizza){
+    console.log(`Eat the ${pizza}`)
+}
+
+// orderPizza(pizzaReady);
+// console.log('call me');
+
+
+function getWeather(){
+    return new Promise(function(resolve,reject){
+        setTimeout(()=>{
+            resolve('Rainy')
+        },1000)
+    })
+}
+function getWeatherIcon(weather){
+    return new Promise(function(resolve,reject){
+        setTimeout(()=>{
+            switch(weather){
+                case 'Sunny':
+                    resolve('🌞')
+                    break
+                case 'Cloudy':
+                    resolve('☁️')
+                    break
+                case 'Rainy':
+                    resolve('🌧️')
+                    break
+                default:
+                    reject('no icon found')
+            }
+            resolve("Sunny")
+        },1000)
+    })
+}
+function onSuccess(data){
+    console.log(`first data ${data}`)
+}
+function onError(error){
+    console.log(`first data ${error}`)
+}
+
+// getWeather()
+//     .then(getWeatherIcon)
+//     .then(onSuccess)
+//     .catch(onError)
+
+function fun1(){
+    return new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            resolve("404")
+        },1000)
+    })
+}
+
+function fun2(){
+    console.log('function2?')
+    return new Promise((resolve, reject)=>{
+        setTimeout(() => {
+            resolve('🥸')
+        }, 1000);
+    })
+}
+
+function onSuccess1(data){
+    console.log(data)
+}
+
+function onError1(error){
+    console.log(`error ${error}`)
+}
+
+function inTheEnd(){
+    console.log('we are done!!!')
+}
+// fun1()
+//     .then(fun2)
+//     .then(onSuccess1)
+//     .catch(onError1)
+//     .finally(inTheEnd)
+
+
+function fetchData(){
+    return new Promise(function(resolve, reject){
+        fetch('https://api.weather.gov/gridpoints/OKX/34,-118/forecast')
+            .then(response => response.json())
+            .then(data => resolve(data.properties.periods[1].shortForecast));
+    })
+}
+function displayData(weather){
+    console.log(weather);
+}
+function onError2(err){
+    console.log(err);
+}
+// fetchData()
+//     .then(displayData)
+//     .catch(onError2)
+
