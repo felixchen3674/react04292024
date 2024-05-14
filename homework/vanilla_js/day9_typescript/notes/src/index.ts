@@ -51,12 +51,13 @@ const medium = 2;
 const large = 3;
 
 enum Size {
-  Small,
+  Small = 1,
   Medium,
   Large,
 }
 let mySize: Size = Size.Medium;
 console.log(mySize);
+// which will show mySize to be 2; if we want more specify number, we can assgin each variable in enum instead of just assign the small to 1
 
 //function
 // "noUnusedParameters": true /* Raise an error when a function parameter isn't read. */,
@@ -239,7 +240,7 @@ const respons3: ApiResponse2 = {
   isError: false,
 };
 
-//**** generics obj type */
+//**** generics obj type */ it limit the type of Data to be object type
 
 type ApiResponse3<Data extends object> = {
   data: Data;

@@ -3,7 +3,7 @@ import { render } from "@testing-library/react";
 import { StudentClass, StudentFn, StudentType } from "./Student";
 
 describe("Student", () => {
-  const student = {
+  const student: StudentType = {
     id: 1,
     name: "John",
     age: 20,

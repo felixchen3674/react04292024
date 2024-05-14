@@ -10,6 +10,7 @@
 */
 
 import { Component } from "react";
+// import React from "react";
 
 // implement a Student component here
 
@@ -45,3 +46,16 @@ export class StudentClass extends Component<{ student: StudentType }> {
     );
   }
 }
+// export class StudentClass extends React.Component<{ student: StudentType }> {
+//   render(): React.ReactNode {
+//     const { id, name, age, grade } = this.props.student;
+//     return (
+//       <div data-testid="student">
+//         <h4>{id}</h4>
+//         <h4>{name}</h4>
+//         <h4>{age}</h4>
+//         <h4>{grade}</h4>
+//       </div>
+//     );
+//   }
+// }
