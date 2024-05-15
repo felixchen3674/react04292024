@@ -3,7 +3,7 @@ import { useState } from "react";
 export default function Counter() {
   const [count, setCount] = useState(0);
 
-//   console.log("Counter rendered");
+  console.log("Counter rendered");
 
   const handleAdd = () => {
     setCount(count + 1);
