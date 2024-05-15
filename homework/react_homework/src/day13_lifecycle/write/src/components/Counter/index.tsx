@@ -1,9 +1,9 @@
 import React, { useState, useRef } from 'react'
 
 export default function Counter() {
-  const [count, setCount] = useState(0);
-  const [startDisabled, setStartDisabled] = useState(false);
-  const [pauseDisabled, setPauseDisabled] = useState(true);
+  const [count, setCount] = useState<number>(0);
+  const [startDisabled, setStartDisabled] = useState<boolean>(false);
+  const [pauseDisabled, setPauseDisabled] = useState<boolean>(true);
   const intervalRef = useRef(null);
 
   const handleStart = () => {
