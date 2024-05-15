@@ -12,13 +12,13 @@ import { StudentType, StudentFn, StudentClass } from "./Student";
 export function StudentsListFn({students} : {students : StudentType[]}) {
   return <div>
     {students.map((student) => (
-        <ul key={student.id} data-testid="student"> {/* Add data-testid here */}
-          <li>{student.id}</li>
-          <li>{student.name}</li>
-          <li>{student.age}</li>
-          <li>{student.grade}</li>
-        </ul>
-      ))}
+      <ul key={student.id} data-testid="student"> {/* Add data-testid here */}
+        <li>{student.id}</li>
+        <li>{student.name}</li>
+        <li>{student.age}</li>
+        <li>{student.grade}</li>
+      </ul>
+    ))}
   </div>;
 }
 
