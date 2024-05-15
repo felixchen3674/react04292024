@@ -6,7 +6,7 @@ import Select from "./Select";
 const TodoList: React.FC = () => {
   const [tasks, setTasks] = useState<string[]>([]);
   const [taskInput, setTaskInput] = useState("");
-
+//CHANGE TO OBJECT TYPE INSTEAD OF STRING
   const handleAddTask = () => {
     if (taskInput.trim() !== "") {
       setTasks([...tasks, taskInput]);
@@ -47,7 +47,7 @@ const TodoList: React.FC = () => {
           <li key={index}>
             <Checkbox
               label={task}
-              checked={false}
+              defaultChecked={false}
               onChange={(checked) => handleTaskCompletion(index, checked)}
             />
             <button

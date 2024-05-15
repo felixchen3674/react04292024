@@ -2,7 +2,7 @@ import { useState } from "react";
 
 interface CheckboxProps {
   label: string;
-  defaultChecked?: boolean; // Optional defaultChecked prop
+  defaultChecked?: boolean; 
   onChange: (checked: boolean) => void;
 }
 
