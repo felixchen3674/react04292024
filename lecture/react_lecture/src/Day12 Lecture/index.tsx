@@ -2,7 +2,7 @@ import { useState } from "react";
 import KeepComponentsPure from "./KeepComponentsPure";
 import Input from "./ControlledComponents/Input";
 import EventHandlers from "./EventHandlers";
-import UpdatingState from "./UpdatingState";
+import UpdatingState from "./TodoListApp";
 
 export default function Day12Lecture() {
   return (
