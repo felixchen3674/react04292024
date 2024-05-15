@@ -10,35 +10,35 @@
 */
 
 import { Component } from "react";
-import React from "react";
 // implement a Student component here
+
 export interface StudentType {
-  id: number;
-  name: string;
-  age: number;
+  id: number
+  name: string
+  age: number
   grade: "A" | "B" | "C" | "D" | "F";
 }
 
 export function StudentFn({ student }: { student: StudentType }) {
   return (
     <div data-testid="student">
-      <h2>{student.name}</h2>
-      <p>ID: {student.id}</p>
-      <p>Age: {student.age}</p>
-      <p>Grade: {student.grade}</p>
+      <h1>{student.name}</h1>
+      <h2>{student.id}</h2>
+      <h2>{student.age}</h2>
+      <h2>{student.grade}</h2>
     </div>
   );
 }
 
-export class StudentClass extends React.Component<{ student: StudentType }> {
+export class StudentClass extends Component<{ student: StudentType }> {
   render() {
     const { student } = this.props;
     return (
       <div data-testid="student">
-        <h2>{student.name}</h2>
-        <p>ID: {student.id}</p>
-        <p>Age: {student.age}</p>
-        <p>Grade: {student.grade}</p>
+        <h1>{student.name}</h1>
+        <h2>{student.id}</h2>
+        <h2>{student.age}</h2>
+        <h2>{student.grade}</h2>
       </div>
     );
   }

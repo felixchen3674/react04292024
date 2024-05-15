@@ -1,4 +1,3 @@
-import React from "react";
 import { Component } from "react";
 import { StudentType, StudentFn, StudentClass } from "./Student";
 
@@ -10,27 +9,33 @@ import { StudentType, StudentFn, StudentClass } from "./Student";
 */
 
 // implement a StudentsList component here
-interface StudentsListProps {
-  students: StudentType[];
-}
-
-export function StudentsListFn({ students }: StudentsListProps) {
+export function StudentsListFn({ students }: { students: StudentType[] }) {
   return (
     <div>
       {students.map((student) => (
-        <StudentFn key={student.id} student={student} />
+        <ul key={student.id} data-testid="student">
+          <li>{student.id}</li>
+          <li>{student.name}</li>
+          <li>{student.age}</li>
+          <li>{student.grade}</li>
+        </ul>
       ))}
     </div>
   );
 }
 
-export class StudentsListClass extends React.Component<StudentsListProps> {
+export class StudentsListClass extends Component<{ students: StudentType[] }> {
   render() {
     const { students } = this.props;
     return (
       <div>
         {students.map((student) => (
-          <StudentClass key={student.id} student={student} />
+          <ul key={student.id} data-testid="student">
+            <li>{student.id}</li>
+            <li>{student.name}</li>
+            <li>{student.age}</li>
+            <li>{student.grade}</li>
+          </ul>
         ))}
       </div>
     );
