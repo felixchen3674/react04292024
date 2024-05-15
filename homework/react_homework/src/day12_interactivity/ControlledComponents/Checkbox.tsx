@@ -1,34 +1,14 @@
-import { useState } from "react";
-
 interface CheckboxProps {
-  label: string;
-  defaultChecked?: boolean; 
-  onChange: (checked: boolean) => void;
+  checked: boolean;
+  onChange: () => void;
+  label?: string;
 }
 
-export default function Checkbox({
-  label,
-  defaultChecked = false,
-  onChange,
-}: CheckboxProps) {
-  const [checked, setChecked] = useState(defaultChecked);
-
-  const handleCheckboxChange = () => {
-    const newChecked = !checked;
-    setChecked(newChecked);
-    onChange(newChecked);
-  };
-
-  return (
-    <div>
-      <label>
-        <input
-          type="checkbox"
-          checked={checked}
-          onChange={handleCheckboxChange}
-        />
-        {label}
-      </label>
-    </div>
+export default function Checkbox({checked, onChange, label}: CheckboxProps){
+  return(
+    <label>
+      <input type="checkbox" checked={checked} onChange={onChange}/>
+      <span>{label}</span>
+    </label>
   );
 }

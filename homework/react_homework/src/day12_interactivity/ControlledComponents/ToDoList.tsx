@@ -1,70 +1,72 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Checkbox from "./Checkbox";
-import RadioGroup from "./RadioGroup";
-import Select from "./Select";
 
-const TodoList: React.FC = () => {
-  const [tasks, setTasks] = useState<string[]>([]);
-  const [taskInput, setTaskInput] = useState("");
-//CHANGE TO OBJECT TYPE INSTEAD OF STRING
-  const handleAddTask = () => {
-    if (taskInput.trim() !== "") {
-      setTasks([...tasks, taskInput]);
-      setTaskInput("");
+interface ToDoType {
+  id: number;
+  task: string;
+  completed: boolean;
+}
+
+function ToDoList() {
+  const [toDos, setToDos] = useState<ToDoType[]>([]);
+  const [newToDos, setNewToDos] = useState("");
+
+  const handleAddList = () => {
+    if (newToDos.trim() !== "") {
+      const newId = toDos.length > 0 ? toDos[toDos.length - 1].id + 1 : 1;
+      const newToDosItem: ToDoType = {
+        id: newId,
+        task: newToDos.trim(),
+        completed: false,
+      };
+
+      setToDos([...toDos, newToDosItem]);
+      setNewToDos("");
     }
   };
-
-  const handleDeleteTask = (index: number) => {
-    const updatedTasks = tasks.filter((_, i) => i !== index);
-    setTasks(updatedTasks);
+  const handleRemoveList = (id: number) => {
+    setToDos(toDos.filter((toDo) => toDo.id !== id));
   };
-
-  const handleEditTask = (index: number, newValue: string) => {
-    const updatedTasks = [...tasks];
-    updatedTasks[index] = newValue;
-    setTasks(updatedTasks);
-  };
-
-  const handleTaskCompletion = (index: number, checked: boolean) => {
-    const updatedTasks = [...tasks];
-    updatedTasks[index] = checked ? tasks[index] + "Completed" : tasks[index];
-    setTasks(updatedTasks);
+  const handleToggleComplete = (id: number) => {
+    const updatedToDos = [...toDos];
+    const todoIndex = updatedToDos.findIndex((todo) => todo.id === id);
+    if (todoIndex !== -1) {
+      updatedToDos[todoIndex] = {
+        ...updatedToDos[todoIndex],
+        completed: !updatedToDos[todoIndex].completed,
+      };
+      setToDos([...updatedToDos]);
+    }
   };
 
   return (
     <div>
-      <h1>Todo List</h1>
-      <div>
-        <input
-          type="text"
-          value={taskInput}
-          onChange={(e) => setTaskInput(e.target.value)}
-        />
-        <button onClick={handleAddTask}>Add Task</button>
-      </div>
+      <h2>To Do List</h2>
       <ul>
-        {tasks.map((task, index) => (
-          <li key={index}>
-            <Checkbox
-              label={task}
-              defaultChecked={false}
-              onChange={(checked) => handleTaskCompletion(index, checked)}
-            />
-            <button
-              onClick={() =>
-                handleEditTask(index, prompt("Edit task:", task) || task)
-              }
-            >
-              Edit
-            </button>
-            <button onClick={() => handleDeleteTask(index)}>Delete</button>
-          </li>
+        {toDos.map((toDo) => (
+          <>
+            <li key={toDo.id}>
+              <Checkbox
+                checked={toDo.completed}
+                onChange={() => handleToggleComplete(toDo.id)}
+              />
+              {toDo.task}
+              {' '}
+              {toDo.completed ? "Completed" : "Incomplete"}
+              <button onClick={() => handleRemoveList(toDo.id)}>Remove</button>
+            </li>
+          </>
         ))}
       </ul>
-      <RadioGroup />
-      <Select />
+      <input
+        type="text"
+        value={newToDos}
+        onChange={(e) => setNewToDos(e.target.value)}
+        placeholder="Task"
+      />
+      <button onClick={handleAddList}>Add Task</button>
     </div>
   );
-};
+}
 
-export default TodoList;
+export default ToDoList;
