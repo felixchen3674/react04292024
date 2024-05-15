@@ -51,3 +51,16 @@ console.log(x, typeof x);
 let de = "123 whhs";
 de = parseInt(de);
 console.log(de, typeof de);
+
+const object = {
+  key: "1",
+  fn: function () {
+    console.log(this);
+  },
+  fn2: function () {
+    function boo() {
+      console.log(this);
+    }
+    boo();
+  },
+};

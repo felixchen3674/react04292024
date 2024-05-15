@@ -1,5 +1,3 @@
-import Password from "antd/lib/input/Password";
-
 // spead method
 const arr1 = [1, 2, 3, 4, 5];
 const arr2 = [2, ...arr1];
@@ -29,13 +27,13 @@ const {
 } = obj;
 console.log(personName, age, job, city);
 
-function printperson() {
-  console.log(person?.address?.street);
-}
+// function printperson() {
+//   console.log(person?.address?.street);
+// }
 // ?. similiar as && to identify if the item exist or not;
-const kyle = new personName("Kyle", undefined, ["bowling"]);
+// const kyle = new personName("Kyle", undefined, ["bowling"]);
 
-printperson(undefined);
+// printperson(undefined);
 
 obj2 = {
   name,
@@ -43,3 +41,21 @@ obj2 = {
   key: 123,
   Password: 1212,
 };
+
+const object = {
+  key: "1",
+  fn: () => {
+    console.log(this);
+  },
+  fn2: function () {
+    return () => {
+      console.log(this);
+    };
+  },
+  fn3: function () {
+    console.log(this);
+  },
+};
+object.fn();
+object.fn2()();
+object.fn3();
