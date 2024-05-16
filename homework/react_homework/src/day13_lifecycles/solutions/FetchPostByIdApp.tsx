@@ -74,6 +74,7 @@ export default class FetchPostByIdApp extends Component<
       <div>
         <h2>Current Post Id: {this.state.postId}</h2>
         <div>Title: {title}</div>
+        <div>Body: {body}</div>
         <button onClick={this.handleNextPost}>Next Post</button>
         <button
           onClick={() =>
