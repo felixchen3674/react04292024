@@ -3,7 +3,7 @@
 ### IP Address
 
 Answer: IP address stands for Internet protocol address, it is a sequence of number
-that is assigned to devices that help identify them. ip addresses match to domain names
+that is assigned to devices that help identify them. ip addresses match to domain names.
 
 
 ### Client vs Server Difference
@@ -14,8 +14,8 @@ information is rendered. Client sends request to server, server response to clie
 ### What is CDN and why do we need it?
 
 Answer: CDN(content delivery network) is designed for speeding up delivery of 
-static HTML content globally.CDN can bring content closer to users by using 
-hundreds of PoP (point of presence)to improve web service performance. Store content
+static HTML content globally. CDN can bring content closer to users by using 
+hundreds of PoP (point of presence) to improve web service performance. Store content
 in CDN to boost performance and initial loading time.
 
 
@@ -25,7 +25,8 @@ Answer:
 CDN can enhance the performance of web services by decreasing initial load time for users.Placing servers around world, known as PoPs will reduce the distances data needs to travel.
 
 ### What are RESTful APIs?
-REST stands for Representational State Transfer, create, read, update, and delete
+REST stands for Representational State Transfer, best practices for creating web servers.
+Enables communication between client and server over the HTTP protocol. create, read, update, and delete
 operations.
 
 GET:Retrieves data from the server
@@ -58,6 +59,7 @@ storage is always going to be there till user delete, session storage is just fo
 the current session, once the session ends, the storage is deleted, cookie you can
 set. Every time cookie will be sent to the server from browser when a request is made.
 Always use local/session storage unless we want to send something to the server.
+E.g. when logging in, id password will be saved - cookie.
 
 
 ### What is accessibility and why is it important
