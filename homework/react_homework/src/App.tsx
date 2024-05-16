@@ -6,6 +6,7 @@ import { TodoListApp } from "./day12_interactivity/TodoListApp";
 // import { PlayButton } from "./day11_describing_the_ui/notes/PlayButton";
 // import { StudentType } from "./day11_describing_the_ui/Student";
 import Day12Play from "./day12_interactivity/notes";
+import Fetch from "./day13_lifecycle/notes/FetchData";
 import { LifeCycle } from "./day13_lifecycle/notes/LifeCycle";
 import UseEffectCycle from "./day13_lifecycle/notes/UseEffect";
 // import TodoListApp from "./day12_interactivity/TodoListApp";
@@ -32,8 +33,9 @@ function App() {
       {/* <Day11Play /> */}
       <Day12Play />
       <TodoListApp />
-      {/* <LifeCycle /> */}
-      <UseEffectCycle />
+      <LifeCycle />
+      {/* <UseEffectCycle /> */}
+      {/* <Fetch /> */}
     </>
   );
 }

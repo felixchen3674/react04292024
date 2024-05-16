@@ -29,6 +29,7 @@ export class LifeCycle extends Component<{}, Type> {
         <button onClick={() => this.setState({ count: count + 1 })}>
           increase
         </button>
+        {/* {this.state.check ? <h1>good</h1> : "bad"} */}
         {this.state.check ? <Child /> : null}
         <button onClick={() => this.setState({ check: !check })}>
           use for unmount
@@ -43,7 +44,7 @@ export class Child extends Component<{}> {
   }
   componentWillUnmount() {
     console.log("Components will unmount");
-    // we use conditional situation for unmount we don't want to use it if some statement;
+    // compontwill unmount will only trigger when this compontent will be destory ; usecase : conditional statement
   }
   render(): ReactNode {
     return (
