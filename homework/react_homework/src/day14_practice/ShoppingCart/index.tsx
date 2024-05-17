@@ -32,30 +32,55 @@ export default function ShoppingCart() {
       }
     }
     fetchData();
-  });
+  }, []);
 
   const handleItemDecrement = (id: number) => {
-    const newitems = items.map((item) => {
-      const newitem = { ...item };
-      if (newitem.id === id) {
-        if (newitem.count <= 0) {
-          return newitem;
-        }
-        newitem.count--;
+    const newItems = items.map((item) => {
+      if (item.id === id && item.count > 0) {
+        const newItem = { ...item };
+        newItem.count--;
+        return newItem;
+      } else {
+        return item;
       }
-      return newitem;
     });
-    setItems(newitems);
+    setItems(newItems);
   };
+
   const handleItemIncrement = (id: number) => {
-    const newitems = items.map((item) => {
-      const newitem = { ...item };
-      if (newitem.id === id) {
-        newitem.count++;
+    const newItems = items.map((item) => {
+      if (item.id === id) {
+        const newItem = { ...item };
+        newItem.count++;
+        return newItem;
+      } else {
+        return item;
       }
-      return newitem;
     });
-    setItems(newitems);
+    setItems(newItems);
+  };
+
+  const handlePrice = (items: DataType[]) => {
+    return items
+      .reduce((acc, item) => {
+        return acc + item.count * item.price;
+      }, 0)
+      .toFixed(2);
+  };
+
+  const handleClearOut = () => {
+    const newItems = items.map((item) => {
+      if (item.count !== 0) {
+        const newItem = { ...item };
+        newItem.count = 0;
+        return newItem;
+      }
+      return item;
+    });
+    setItems(newItems);
+  };
+  const handleCheckOut = () => {
+    // post request or something else
   };
   return (
     <div>
@@ -90,6 +115,13 @@ export default function ShoppingCart() {
               })}
           </tbody>
         </table>
+      </div>
+      <div>
+        <h2>Total Price:{handlePrice(items)}</h2>
+      </div>
+      <div>
+        <button onClick={handleCheckOut}>Checkout</button>
+        <button onClick={handleClearOut}>Empty Cart</button>
       </div>
     </div>
   );
