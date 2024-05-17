@@ -4,6 +4,7 @@ import "./App.css";
 import TicTacToe from "./day14_practice/TicTacToe";
 // import Day14Play from "./day14_practice";
 import SelectAllForm from "./day14_practice/SelectAllForm";
+import ShoppingCart from "./day14_practice/ShoppingCart";
 // import Day13Play from './day13_lifecycles/notes'
 
 function App() {
@@ -13,7 +14,8 @@ function App() {
       {/* <Day12Play /> */}
       {/* <Day13Play/> */}
       {/* <TicTacToe/> */}
-      <SelectAllForm/>
+      {/* <SelectAllForm/> */}
+      <ShoppingCart/>
     </>
   );
 }
