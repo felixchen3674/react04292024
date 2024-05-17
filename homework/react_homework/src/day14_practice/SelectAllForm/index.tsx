@@ -78,12 +78,17 @@ export default function SelectAllForm() {
     // }
   };
 
+  const itemsToDisplay = items
+    .filter((item) => item.checked)
+    .map((item) => item.name)
+    .join(", ");
+
   return (
     <div>
       <h1>SelectAllForm</h1>
       <div>
         <h2>All selected item:</h2>
-        <h3>{items.map((item) => item.name).join(", ")}</h3>
+        <h3>{itemsToDisplay}</h3>
 
         <Checkbox
           onChange={handleSelectAll}
@@ -95,6 +100,7 @@ export default function SelectAllForm() {
           {items.map((item) => {
             return (
               <Checkbox
+                key={item.id}
                 onChange={() => handleCheckItem(item.id)}
                 checked={item.checked}
                 label={item.name}
