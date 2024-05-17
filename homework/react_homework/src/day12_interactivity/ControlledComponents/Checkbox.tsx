@@ -3,7 +3,7 @@ import React, { ChangeEvent } from 'react';
 interface CheckboxProps {
   value: string;
   isChecked: boolean;
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onChange: () => void;
 }
 
 export default function Checkbox({
