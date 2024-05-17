@@ -7,6 +7,8 @@ import Day12Play from "./day12_interactivity/notes";
 import TodoListApp from "./day12_interactivity/TodoListApp";
 import Select from "./day12_interactivity/ControlledComponents/Select";
 import FetchPost from "./day13_lifecycles/FetchPost";
+import SelectAllForm from "./day14_practice/SelectAllForm";
+import ShoppingCart from "./day14_practice/ShoppingCart";
 function App() {
   return (
     <>
@@ -16,7 +18,9 @@ function App() {
       {/* <Checkbox /> */}
       {/* <RadioGroup /> */}
       {/* <Select /> */}
-      <FetchPost />
+      {/* <FetchPost /> */}
+      {/* <SelectAllForm /> */}
+      <ShoppingCart />
 
     </>
   );
