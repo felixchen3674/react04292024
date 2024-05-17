@@ -1,12 +1,20 @@
 import React, { useState, ChangeEvent } from 'react';
 
+interface Item {
+  id : number;
+  name : string;
+  checked : boolean;
+}
+
+const itemList = ['Item 1', 'Item 2', 'Item 3'];
+
 export default function SelectAllForm() {
   const [selected, setSelected] = useState<string[]>([]);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
     if (value === 'all') {
-      setSelected(selected.length === 3 ? [] : ['Item 1', 'Item 2', 'Item 3']);
+      setSelected(selected.length === 3 ? [] : itemList);
     } else {
       setSelected((prevSelected) =>
         prevSelected.includes(value)
