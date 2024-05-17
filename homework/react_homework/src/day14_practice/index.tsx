@@ -5,8 +5,8 @@ import ShoppingCart from "./ShoppingCart";
 export default function Day14Play() {
   return (
     <div>
-      {/* <SelectAllForm /> */}
-      <ShoppingCart />
+      <SelectAllForm />
+      {/* <ShoppingCart /> */}
     </div>
   );
 }

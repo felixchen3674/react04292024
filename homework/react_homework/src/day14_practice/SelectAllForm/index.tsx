@@ -1,30 +1,81 @@
 import { useState } from "react";
+import Checkbox from "./Checkbox";
+
+interface Item {
+  id: number;
+  name: string;
+  checked: boolean;
+}
+
+const itemsList: Item[] = [
+  { id: 1, name: "item 1", checked: false },
+  { id: 2, name: "item 2", checked: false },
+  { id: 3, name: "item 3", checked: false },
+  { id: 4, name: "item 4", checked: false },
+];
 
 export default function SelectAllForm() {
-  const [item, setItems] = useState<string[]>([]);
-  const [isCheckAll, setIsCheckAll] = useState(false);
-  const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.checked) {
-      if (item.some((item) => item === e.target.value)) {
-        return;
+  const [items, setItems] = useState<Item[]>(itemsList);
+
+  // isCheckAll is a derived data from items
+  // we do not need to create another state for isCheckAll
+  const isCheckAll = items.every((item) => item.checked);
+
+  const handleCheckItem = (id: number) => {
+    // trying to calculate the new states: items
+    const newItems = items.map((item) => {
+      // look for the item we're trying to update
+      if (item.id === id) {
+        const newItem = { ...item };
+        // // toggle the checked status
+        newItem.checked = !newItem.checked;
+        return newItem;
       } else {
-        setItems([...item, e.target.value]);
+        // if not the one we're looking for, don't do anything. just return the way it is
+        return item;
       }
-    } else {
-      const newItem = item.filter((item) => item !== e.target.value);
-      setItems(newItem);
-      setIsCheckAll(false);
-    }
+    });
+
+    setItems(newItems);
+
+    // const tempItems = [...items]; // we only made a shallow copy
+    // const itemToUpdate = tempItems.find((item) => item.id === id);
+
+    // itemToUpdate!.checked = !itemToUpdate!.checked;
+    // setItems(tempItems);
   };
 
-  const handleSelectAll = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.checked) {
-      setItems(["item1", "item2", "item3"]);
-      setIsCheckAll(true);
-    } else {
-      setItems([]);
-      setIsCheckAll(false);
-    }
+  const handleSelectAll = () => {
+    setItems(
+      items.map((item) => {
+        return {
+          ...item,
+          checked: !isCheckAll,
+        };
+      })
+    );
+
+    // if (isCheckAll) {
+    //   // uncheck everything => setting everything to false
+    //   const newItems = items.map((item) => {
+    //     return {
+    //       ...item,
+    //       checked: false,
+    //     };
+    //   });
+
+    //   setItems(newItems);
+    // } else {
+    //   // check everything
+    //   const newItems = items.map((item) => {
+    //     return {
+    //       ...item,
+    //       checked: true,
+    //     };
+    //   });
+
+    //   setItems(newItems);
+    // }
   };
 
   return (
@@ -32,47 +83,47 @@ export default function SelectAllForm() {
       <h1>SelectAllForm</h1>
       <div>
         <h2>All selected item:</h2>
-        {item ? <h3>{item.toString()}</h3> : null}
+        <h3>{items.map((item) => item.name).join(", ")}</h3>
+
+        <Checkbox
+          onChange={handleSelectAll}
+          checked={isCheckAll}
+          label={"Select All"}
+        />
+
         <div>
-          <label>
-            Select All items
-            <input
-              type="checkbox"
-              onChange={handleSelectAll}
-              checked={isCheckAll}
-            />
-          </label>
-        </div>
-        <div>
-          <label>
-            Item1
-            <input
-              type="checkbox"
-              onChange={handleOnChange}
-              value={"item1"}
-              checked={item.includes("item1")}
-            />
-          </label>
-          <label>
-            Item2
-            <input
-              type="checkbox"
-              onChange={handleOnChange}
-              value={"item2"}
-              checked={item.includes("item2")}
-            />
-          </label>
-          <label>
-            Item3
-            <input
-              type="checkbox"
-              onChange={handleOnChange}
-              value={"item3"}
-              checked={item.includes("item3")}
-            />
-          </label>
+          {items.map((item) => {
+            return (
+              <Checkbox
+                onChange={() => handleCheckItem(item.id)}
+                checked={item.checked}
+                label={item.name}
+              />
+              // <label key={item.id}>
+              //   {item.name}
+              //   <input
+              //     type="checkbox"
+              //     onChange={() => handleCheckItem(item.id)}
+              //     checked={item.checked}
+              //   />
+              // </label>
+            );
+          })}
         </div>
       </div>
     </div>
   );
 }
+
+// hard coded
+// checked = {items.includes}
+
+/* <label>
+  Item1
+  <input
+    type="checkbox"
+    onChange={handleOnChange}
+    value={"item1"}
+    checked={items.includes("item1")}
+  />
+</label> */
