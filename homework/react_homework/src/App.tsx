@@ -11,6 +11,7 @@ import "./App.css";
 // import UseEffectCycle from "./day13_lifecycles/notes/UseEffect";
 // import TodoListApp from "./day12_interactivity/TodoListApp";
 import Day13Play from "./day13_lifecycles/notes";
+import Day14Play from "./day14_practice";
 
 function App() {
   // const student: StudentType = {
@@ -38,7 +39,8 @@ function App() {
       {/* <UseEffectCycle /> */}
       {/* <Fetch /> */}
       {/* <Day12Play /> */}
-      <Day13Play />
+      {/* <Day13Play /> */}
+      <Day14Play />
     </>
   );
 }
