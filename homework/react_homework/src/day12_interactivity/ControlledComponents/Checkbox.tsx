@@ -1,22 +1,22 @@
-import React, { useState, ChangeEvent } from 'react';
-export default function Checkbox() {
-  const [isChecked, setIsChecked] = useState<boolean>(false);
+import React, { ChangeEvent } from 'react';
 
-  const handleCheckboxChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setIsChecked(e.target.checked);
-  };
+interface CheckboxProps {
+  value: string;
+  isChecked: boolean;
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+}
 
+export default function Checkbox({
+  value,
+  isChecked,
+  onChange,
+}: CheckboxProps) {
   return (
     <div>
       <label>
-        <input
-          type="checkbox"
-          checked={isChecked}
-          onChange={handleCheckboxChange}
-        />
-        Label
+        <input type="checkbox" checked={isChecked} onChange={onChange} />
+        {value}
       </label>
-      <p>{isChecked ? 'Checked' : 'Not Checked'}</p>
     </div>
   );
 }

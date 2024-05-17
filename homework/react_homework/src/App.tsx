@@ -7,6 +7,7 @@ import CounterTimer from './day13/homework/CounterTimer';
 import FetchPostByTime from './day13/homework/FetchPostByTime';
 import FetchPosts from './day13/homework/FetchPosts';
 import Day13Play from './day13/notes';
+import SelectAllForm from './day14_practice/SelectAllForm';
 
 function App() {
   return (
@@ -18,7 +19,8 @@ function App() {
       {/* <Day13Play /> */}
       {/* <FetchPosts /> */}
       {/* <CounterTimer /> */}
-      <FetchPostByTime />
+      {/* <FetchPostByTime /> */}
+      <SelectAllForm />
     </>
   );
 }
