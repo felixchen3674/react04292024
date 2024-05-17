@@ -1,11 +1,20 @@
 import "./App.css";
 // import { TodoListApp } from "./day12_interactivity/TodoListApp";
-import Day11Play from "./day11_describing_the_ui/notes";
+// import { TodoListApp } from "./day12_interactivity/TodoListApp";
+// import Day11Play from "./day11_describing_the_ui/notes";
 // import { ClassClick } from "./day11_describing_the_ui/notes/ClassClick";
 // import FunctionClick from "./day11_describing_the_ui/notes/FunctionClick";
 // import { PlayButton } from "./day11_describing_the_ui/notes/PlayButton";
 import { StudentType } from "./day11_describing_the_ui/Student";
+// // import { ClassClick } from "./day11_describing_the_ui/notes/ClassClick";
+// import FunctionClick from "./day11_describing_the_ui/notes/FunctionClick";
+// import { PlayButton } from "./day11_describing_the_ui/notes/PlayButton";
+// import { StudentType } from "./day11_describing_the_ui/Student";
 // import Day12Play from "./day12_interactivity/notes";
+// import Fetch from "./day13_lifecycles/notes/FetchData";
+// import { LifeCycle } from "./day13_lifecycles/notes/LifeCycle";
+// import UseEffectCycle from "./day13_lifecycles/notes/UseEffect";
+// import TodoListApp from "./day12_interactivity/TodoListApp";
 // import Fetch from "./day13_lifecycles/notes/FetchData";
 // import { LifeCycle } from "./day13_lifecycles/notes/LifeCycle";
 // import UseEffectCycle from "./day13_lifecycles/notes/UseEffect";
@@ -14,8 +23,6 @@ import Day13Play from "./day13_lifecycles/notes";
 import Day14Play from "./day14_practice";
 import Day16Play from "./day16_custom_hooks/notes";
 import Day17Play from "./day17_performance/notes";
-import Day18Play from "./day18_ context & useReducer";
-import Day19Play from "./day19_/notes";
 
 function App() {
   // const student: StudentType = {
@@ -27,15 +34,6 @@ function App() {
 
   return (
     <>
-      {/* <Day11Play
-        student={student}
-        message="good"
-        onClick={() => console.log("day")}
-      /> */}
-      {/* <FunctionClick />
-      <ClassClick />
-      <PlayButton movieName="Good movie" /> */}
-      {/* here it is adding the new property to the day11play component which is student */}
       {/* <Day11Play /> */}
       {/* <Day12Play />
       <TodoListApp />
@@ -46,9 +44,7 @@ function App() {
       {/* <Day13Play /> */}
       {/* <Day14Play /> */}
       {/* <Day16Play /> */}
-      {/* <Day17Play /> */}
-      {/* <Day18Play /> */}
-      <Day19Play />
+      <Day17Play />
     </>
   );
 }
