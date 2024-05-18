@@ -1,4 +1,5 @@
 import { StudentType } from "../Student";
+import ConditionalRender from "./ConditionalRender";
 
 export default function Day11Play(props: {
   student: StudentType;
@@ -13,6 +14,7 @@ export default function Day11Play(props: {
   return (
     <div>
       <h1>Day 11 Notes</h1>
+      <ConditionalRender />
     </div>
   );
 }

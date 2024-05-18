@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Checkbox from "./Checkbox";
-
+// import { CheckBox } from "./Checkbox";
 interface Item {
   id: number;
   name: string;
