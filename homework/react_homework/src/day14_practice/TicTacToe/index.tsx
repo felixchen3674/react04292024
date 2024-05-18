@@ -1,7 +1,10 @@
-import React from 'react'
+import React from "react";
+import Solution from "./Solution";
 
 export default function TicTacToe() {
   return (
-    <div>TicTacToe</div>
-  )
+    <div>
+      <Solution />
+    </div>
+  );
 }
