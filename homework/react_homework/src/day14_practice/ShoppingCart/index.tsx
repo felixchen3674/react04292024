@@ -1,5 +1,9 @@
-import React from "react";
+import Solution from "./Solution";
 
 export default function ShoppingCart() {
-  return <div>ShoppingCart</div>;
+  return (
+    <div>
+      <Solution />
+    </div>
+  );
 }
