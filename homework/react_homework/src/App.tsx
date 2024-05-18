@@ -15,7 +15,8 @@ function App() {
       {/* <Day13Play/> */}
       {/* <TicTacToe/> */}
       {/* <SelectAllForm/> */}
-      <ShoppingCart/>
+      {/* <ShoppingCart/> */}
+      <TicTacToe/>
     </>
   );
 }
