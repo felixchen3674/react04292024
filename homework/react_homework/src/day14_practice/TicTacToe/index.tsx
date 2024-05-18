@@ -1,12 +1,5 @@
-<<<<<<< HEAD
-import React, {useState} from 'react'
-
-type Player = 'X' | 'O';
-type SquareValue = Player | null;
-=======
 import React from "react";
 import Solution from "./Solution";
->>>>>>> ca451d1 (tic tac toe)
 
 export default function TicTacToe() {
   const [board, setBoard] = useState(initBoard);
@@ -37,21 +30,7 @@ export default function TicTacToe() {
 
   return (
     <div>
-      <h1>Tic Tac Toe</h1>
-      <div>Current Player: {curPlayer}</div>
-      <div className="board">
-        {board.map((cell) => {
-          return (
-            <div
-              key={cell.id}
-              className="cell"
-              onClick={() => handleClickCell(cell.id)}
-            >
-              {cell.player}
-            </div>
-          );
-        })}
-      </div>
+      <Solution />
     </div>
   );
 }
