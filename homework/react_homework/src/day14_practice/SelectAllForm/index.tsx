@@ -2,60 +2,61 @@ import React, { useState, ChangeEvent } from 'react';
 import Checkbox from '../../day12_interactivity/ControlledComponents/Checkbox';
 
 interface Item {
+  id: number;
   value: string;
   isChecked: boolean;
 }
-
+const itemsList = [
+  { id: 1, value: 'Item1', isChecked: false },
+  { id: 2, value: 'Item2', isChecked: false },
+  { id: 3, value: 'Item3', isChecked: false },
+];
 export default function SelectAllForm() {
-  const [items, setItems] = useState<Item[]>([
-    { value: 'Item1', isChecked: false },
-    { value: 'Item2', isChecked: false },
-    { value: 'Item3', isChecked: false },
-  ]);
+  const [items, setItems] = useState<Item[]>(itemsList);
 
-  const [isSelectedAll, setIsSelectedAll] = useState(false);
+  const isSelectedAll = items.every((item) => item.isChecked);
 
-  const handleSelectAllChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const { checked } = e.target;
-    setIsSelectedAll(checked);
-    setItems(items.map((item) => ({ ...item, isChecked: checked })));
+  const handleSelectAll = () => {
+    setItems(
+      items.map((item) => {
+        return { ...item, isChecked: !isSelectedAll };
+      })
+    );
   };
 
-  const handleItemChange =
-    (index: number) => (e: ChangeEvent<HTMLInputElement>) => {
-      const { checked } = e.target;
-      const newItems = [...items];
-      newItems[index].isChecked = checked;
-      setItems(newItems);
-      setIsSelectedAll(newItems.every((item) => item.isChecked));
-    };
+  const handleItemChange = (id: number) => {
+    setItems(
+      items.map((item) => {
+        if (item.id === id) {
+          item.isChecked = !item.isChecked;
+        }
+        return item;
+      })
+    );
+  };
 
-  const selectedItems = items
-    .filter((item) => item.isChecked)
-    .map((item) => item.value);
+  const selectedItems = items.filter((item) => item.isChecked);
 
   return (
     <div>
-      <h1>All the selected items</h1>
       <Checkbox
-        value="Select All"
+        value="Selected All"
         isChecked={isSelectedAll}
-        onChange={handleSelectAllChange}
+        onChange={handleSelectAll}
       />
-      {items.map((item, index) => (
-        <Checkbox
-          key={index}
-          value={item.value}
-          isChecked={item.isChecked}
-          onChange={handleItemChange(index)}
-        />
+      {items.map((item) => {
+        return (
+          <Checkbox
+            key={item.id}
+            value={item.value}
+            isChecked={item.isChecked}
+            onChange={() => handleItemChange(item.id)}
+          />
+        );
+      })}
+      {selectedItems.map((selectedItem) => (
+        <p key={selectedItem.id}>{selectedItem.value}</p>
       ))}
-      <div>
-        <h2>Selected Items:</h2>
-        {selectedItems.map((item, index) => (
-          <p key={index}>{item}</p>
-        ))}
-      </div>
     </div>
   );
 }
