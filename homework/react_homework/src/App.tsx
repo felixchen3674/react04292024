@@ -9,6 +9,7 @@ import FetchPosts from './day13/homework/FetchPosts';
 import Day13Play from './day13/notes';
 import SelectAllForm from './day14_practice/SelectAllForm';
 import ShoppingCart from './day14_practice/ShoppingCart';
+import TicTacToe from './day14_practice/TicTacToe';
 
 function App() {
   return (
@@ -22,7 +23,8 @@ function App() {
       {/* <CounterTimer /> */}
       {/* <FetchPostByTime /> */}
       {/* <SelectAllForm /> */}
-      <ShoppingCart />
+      {/* <ShoppingCart /> */}
+      <TicTacToe />
     </>
   );
 }

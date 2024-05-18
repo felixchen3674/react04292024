@@ -14,10 +14,13 @@ interface Item {
   price: number;
   quantity: number;
 }
+// dont know how to implement async mock call
 
 export default function ShoppingCart() {
   const [items, setItems] = useState<Item[]>(
-    shoppingItems.map((item) => ({ ...item, quantity: 0 }))
+    shoppingItems.map((item) => {
+      return { ...item, quantity: 0 };
+    })
   );
 
   const handleIncrement = (id: number) => {
