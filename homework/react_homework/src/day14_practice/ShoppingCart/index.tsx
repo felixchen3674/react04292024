@@ -40,6 +40,13 @@ export default function ShoppingCart() {
     }))
   }
 
+  const handleEmptyCart = () => {
+    setShoppingList(shoppingList.map(shoppingItem => {
+      shoppingItem.action = 0;
+      return shoppingItem;
+    }))
+  }
+
   return <div>
     <table>
       <thead>
@@ -59,5 +66,7 @@ export default function ShoppingCart() {
       </tbody>
     </table>
     <p>Total price: ${totalPrice}</p>
+    <button>Checkout</button>
+    <button onClick={handleEmptyCart}>Empty Cart</button>
   </div>
 }

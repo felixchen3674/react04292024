@@ -12,12 +12,12 @@ function App() {
   return (
     <>
       {/* <Day11Play /> */}
-      <Day11/>
+      {/* <Day11/> */}
       {/* <Day12Play /> */}
       {/* <Day13Play/> */}
       {/* <TicTacToe/> */}
       {/* <SelectAllForm/> */}
-      {/* <ShoppingCart/> */}
+      <ShoppingCart/>
       {/* <TicTacToe/> */}
     </>
   );
