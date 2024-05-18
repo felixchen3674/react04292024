@@ -1,5 +1,6 @@
-import React from "react"
-import Nav from "./Nav"
+import React from "react";
+import FetchPostByIdApp from "../solutions/FetchPostByIdApp";
+import Nav from "./Nav";
 
 class App1 extends React.Component {
     constructor(){
@@ -88,3 +89,13 @@ class Child extends React.Component {
 }
 
 export default App1;
+function Day13Play() {
+  return (
+    <div>
+      <h1>Day 13 Play</h1>
+      <div>
+        <FetchPostByIdApp />
+      </div>
+    </div>
+  );
+}
