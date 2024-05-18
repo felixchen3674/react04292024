@@ -1,4 +1,4 @@
-import {useState} from "react"
+import {useState, useEffect} from "react"
 import "./ShoppingCart.css"
 
 const fruits = [
@@ -10,13 +10,15 @@ const fruits = [
 
 export function ShoppingCart() {
   const [total, setTotal] = useState(0)
+  const [isEmpty, setIsEmpty] = useState(false)
 
-  function handleTotal(total) {
-    setTotal(total)
+  function handleTotal(newTotal) {
+    setTotal(newTotal)
   }
 
   function handleEmpty() {
     setTotal(0)
+    setIsEmpty(true)
   }
 
   return (
@@ -39,7 +41,9 @@ export function ShoppingCart() {
                 <Action
                   total={total}
                   fruit={fruit}
+                  isEmpty={isEmpty}
                   onHandleTotal={handleTotal}
+                  onResetEmpty={() => setIsEmpty(false)}
                 />
               </td>
             </tr>
@@ -53,26 +57,35 @@ export function ShoppingCart() {
   )
 }
 
-function Action({total, fruit, onHandleTotal}) {
+function Action({total, fruit, isEmpty, onHandleTotal, onResetEmpty}) {
   const [count, setCount] = useState(0)
 
+  useEffect(() => {
+    if (isEmpty) {
+      setCount(0)
+      onResetEmpty()
+    }
+  }, [isEmpty, onResetEmpty])
+
   function handleDecrement() {
-    if (count === 0) return
-    const curCount = count - 1
-    setCount(curCount)
-    onHandleTotal(total + curCount * fruit.price)
+    if (count === 0) {
+      return
+    }
+    const newCount = count - 1
+    setCount(newCount)
+    onHandleTotal(total - fruit.price)
   }
 
   function handleIncrement() {
-    const curCount = count + 1
-    setCount(curCount)
-    onHandleTotal(total + curCount * fruit.price)
+    const newCount = count + 1
+    setCount(newCount)
+    onHandleTotal(total + fruit.price)
   }
 
   return (
     <div>
       <button onClick={handleDecrement}>-</button>
-      {total === 0 ? 0 : count}
+      {count}
       <button onClick={handleIncrement}>+</button>
     </div>
   )
