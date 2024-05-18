@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, {useState} from "react";
 
 type Item  = {
@@ -63,5 +64,15 @@ export default function ShoppingCart() {
         <button onClick={() => setItems(items.map(item => ({ ...item, quantity: 0 })))}>Empty Cart</button>
     </div>
 );
+=======
+import Solution from "./Solution";
+
+export default function ShoppingCart() {
+  return (
+    <div>
+      <Solution />
+    </div>
+  );
+>>>>>>> 66e2cc0 (shopping cart)
 }
 
