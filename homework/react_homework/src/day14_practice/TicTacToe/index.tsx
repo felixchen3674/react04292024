@@ -1,5 +1,7 @@
-import React from "react";
-import Solution from "./Solution";
+import React, {useState} from 'react'
+
+type Player = 'X' | 'O';
+type SquareValue = Player | null;
 
 export default function TicTacToe() {
   const [board, setBoard] = useState(initBoard);
