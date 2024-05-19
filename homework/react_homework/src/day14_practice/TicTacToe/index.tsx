@@ -1,29 +1,7 @@
-import React, { useState } from "react";
-import "./style.css";
+import React, {useState} from 'react'
 
-type Player = "X" | "O";
-enum Results {
-  X_WINS = "Winner: X",
-  O_WINS = "Winner: O",
-  DRAW = "Draw",
-  ON_GOING = "On Going",
-}
-interface CellType {
-  id: number;
-  player: Player | null;
-}
-
-const initBoard: CellType[] = [
-  { id: 1, player: null },
-  { id: 2, player: null },
-  { id: 3, player: null },
-  { id: 4, player: null },
-  { id: 5, player: null },
-  { id: 6, player: null },
-  { id: 7, player: null },
-  { id: 8, player: null },
-  { id: 9, player: null },
-];
+type Player = 'X' | 'O';
+type SquareValue = Player | null;
 
 export default function TicTacToe() {
   const [board, setBoard] = useState(initBoard);
