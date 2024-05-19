@@ -48,7 +48,7 @@ td {
   padding: 10px;
 }
 
-#gameContainer {
+/* #gameContainer {
   border: 1px solid black;
   width: 500px;
   height: 500px;
@@ -62,4 +62,28 @@ td {
   justify-content: center;
   align-items: center;
   font-size: 100px;
+} */
+
+#itemContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#gameContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  width: 500px;
+  height: 500px;
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+#gameContainer div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 100px;
+  border: 1px solid black;
 }
