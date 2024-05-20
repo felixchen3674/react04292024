@@ -8,6 +8,9 @@ import Select from "./day12_interactivity/ControlledComponents/Select";
 import FetchPost from "./day13_lifecycles/FetchPost";
 import SelectAllForm from "./day14_practice/SelectAllForm";
 import ShoppingCart from "./day14_practice/ShoppingCart";
+import TicTacToe from "./day14_practice/TicTacToe";
+import LoginForm from "./day16_custom_hooks/Ref/LoginForm";
+import AutoFocusInput from "./day16_custom_hooks/Ref/AutoFocusInput";
 function App() {
   return (
     <>
@@ -19,7 +22,10 @@ function App() {
       {/* <Select /> */}
       {/* <FetchPost /> */}
       {/* <SelectAllForm /> */}
-      <ShoppingCart />
+      {/* <ShoppingCart /> */}
+      {/* <TicTacToe /> */}
+      <AutoFocusInput />
+      {/* <LoginForm /> */}
 
     </>
   );
