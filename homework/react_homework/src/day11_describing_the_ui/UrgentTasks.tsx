@@ -1,7 +1,7 @@
 export interface TaskType {
   id: number;
   name: string;
-  priority: "normal" | "urgent";
+  priority: 'normal' | 'urgent';
 }
 
 // const exampleTasks: TaskType[] = [
@@ -17,7 +17,12 @@ export default function UrgentTasks({ tasks }: { tasks: TaskType[] }) {
     <div>
       <h1>Urgent Tasks</h1>
       {/* Only displays the urgent tasks */}
-      <ul></ul>
+      <ul>
+        {tasks.map((task) => {
+          if (task.priority === 'urgent')
+            return <li key={task.id}>{task.name}</li>;
+        })}
+      </ul>
     </div>
   );
 }

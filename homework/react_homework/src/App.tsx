@@ -1,6 +1,8 @@
 import './App.css';
 import Day11Play from './day11_describing_the_ui/notes';
 import Checkbox from './day12_interactivity/ControlledComponents/Checkbox';
+import RadioGroup from './day12_interactivity/ControlledComponents/RadioGroup';
+import Select from './day12_interactivity/ControlledComponents/Select';
 import TodoListApp from './day12_interactivity/TodoListApp';
 import Day12Play from './day12_interactivity/notes';
 import CounterTimer from './day13/homework/CounterTimer';
@@ -18,13 +20,15 @@ function App() {
       {/* <Day12Play /> */}
       {/* <TodoListApp />
       <Checkbox /> */}
+      {/* <RadioGroup /> */}
+      <Select />
       {/* <Day13Play /> */}
       {/* <FetchPosts /> */}
       {/* <CounterTimer /> */}
       {/* <FetchPostByTime /> */}
       {/* <SelectAllForm /> */}
       {/* <ShoppingCart /> */}
-      <TicTacToe />
+      {/* <TicTacToe /> */}
     </>
   );
 }

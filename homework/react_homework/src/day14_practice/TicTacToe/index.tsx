@@ -14,7 +14,7 @@ const winningArrays = [
   [0, 4, 8],
   [2, 4, 6],
 ];
-export default function TicTacToe(): React.FC {
+export default function TicTacToe() {
   const [cells, setCells] = useState<Cell[]>(Array(9).fill(null));
   const [currentPlayer, setCurrentPlayer] = useState<Player>('X');
   const [winner, setWinner] = useState<Player | null>(null);
