@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
-import Cell from '../Cell'
-import './index.css'
+import React, { useState } from "react";
+import Cell from "../Cell";
+import "./index.css";
 
-export type Player = 'O' | 'X';
-export type CellType = Player | null
+export type Player = "O" | "X";
+export type CellType = Player | null;
 
 const winningCombinations = [
   [0, 1, 2],
@@ -17,9 +17,19 @@ const winningCombinations = [
 ];
 
 export default function TicTacToe() {
-  const [board, setBoard] = useState<CellType[]>([null, null, null, null, null, null, null, null, null]);
+  const [board, setBoard] = useState<CellType[]>([
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+  ]);
   const [winner, setWinner] = useState<Player | null>(null);
-  const [player, setPlayer] = useState<Player>('O');
+  const [player, setPlayer] = useState<Player>("O");
 
   const handleClick = (index: number) => {
     if (board[index] || winner) return;
@@ -32,9 +42,9 @@ export default function TicTacToe() {
     if (newWinner) {
       setWinner(newWinner);
     } else {
-      setPlayer(player === 'O' ? 'X' : 'O');
+      setPlayer(player === "O" ? "X" : "O");
     }
-  }
+  };
 
   const checkWinner = (board: CellType[]): Player | null => {
     for (const combination of winningCombinations) {
@@ -44,27 +54,30 @@ export default function TicTacToe() {
       }
     }
     return null;
-  }
+  };
 
   const restartGame = () => {
     setBoard(Array(9).fill(null));
     setWinner(null);
-    setPlayer('O');
-  }
+    setPlayer("O");
+  };
 
   return (
-    <div className='board'>
-      {
-        board.map((cell, index: number) => {
-          return <Cell key={index} index={index} cell={cell} handleClick={() => handleClick(index)}/>
-        })
-      }
-      <div className='display-winner'>
-        <div>
-          Winner: {winner ? winner : 'None'}
-        </div>
+    <div className="board">
+      {board.map((cell, index: number) => {
+        return (
+          <Cell
+            key={index}
+            index={index}
+            cell={cell}
+            handleClick={() => handleClick(index)}
+          />
+        );
+      })}
+      <div className="display-winner">
+        <div>Winner: {winner ? winner : "None"}</div>
         <button onClick={restartGame}>RESTART GAME</button>
       </div>
     </div>
-  )
+  );
 }
