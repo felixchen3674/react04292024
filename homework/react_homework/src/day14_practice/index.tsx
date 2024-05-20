@@ -7,7 +7,7 @@ export default function Day14Play() {
     <div>
       <h1>Day 14 Play</h1>
       {/* <ShoppingCart /> */}
-      <TicTacToe />
+      {/* <TicTacToe /> */}
     </div>
   );
 }
