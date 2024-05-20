@@ -1,5 +1,5 @@
-import { Component } from "react";
-import { StudentType, StudentFn, StudentClass } from "./Student";
+import { Component } from 'react';
+import { StudentType, StudentFn, StudentClass } from './Student';
 
 /*
     implement a StudentsList component here
@@ -9,12 +9,30 @@ import { StudentType, StudentFn, StudentClass } from "./Student";
 */
 
 // implement a StudentsList component here
-export function StudentsListFn() {
-  return <div>Students List</div>;
+
+interface StudentListProps {
+  students: StudentType[];
 }
 
-export class StudentsListClass extends Component {
+export function StudentsListFn({ students }: StudentListProps) {
+  return (
+    <div>
+      {students.map((student) => (
+        <StudentFn key={student.id} student={student} />
+      ))}
+    </div>
+  );
+}
+
+export class StudentsListClass extends Component<StudentListProps> {
   render() {
-    return <div>Students List</div>;
+    const { students } = this.props;
+    return (
+      <div>
+        {students.map((student) => (
+          <StudentClass key={student.id} student={student} />
+        ))}
+      </div>
+    );
   }
 }

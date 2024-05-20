@@ -1,6 +1,8 @@
 import './App.css';
 import Day11Play from './day11_describing_the_ui/notes';
 import Checkbox from './day12_interactivity/ControlledComponents/Checkbox';
+import RadioGroup from './day12_interactivity/ControlledComponents/RadioGroup';
+import Select from './day12_interactivity/ControlledComponents/Select';
 import TodoListApp from './day12_interactivity/TodoListApp';
 import Day12Play from './day12_interactivity/notes';
 import CounterTimer from './day13/homework/CounterTimer';
@@ -10,6 +12,7 @@ import Day13Play from './day13/notes';
 import SelectAllForm from './day14_practice/SelectAllForm';
 import ShoppingCart from './day14_practice/ShoppingCart';
 import TicTacToe from './day14_practice/TicTacToe';
+import Day16Play from './day16_custom_hooks/notes';
 
 function App() {
   return (
@@ -18,13 +21,16 @@ function App() {
       {/* <Day12Play /> */}
       {/* <TodoListApp />
       <Checkbox /> */}
+      {/* <RadioGroup /> */}
+      {/* <Select /> */}
       {/* <Day13Play /> */}
       {/* <FetchPosts /> */}
       {/* <CounterTimer /> */}
       {/* <FetchPostByTime /> */}
       {/* <SelectAllForm /> */}
       {/* <ShoppingCart /> */}
-      <TicTacToe />
+      {/* <TicTacToe /> */}
+      <Day16Play />
     </>
   );
 }
