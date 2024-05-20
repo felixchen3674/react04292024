@@ -12,22 +12,23 @@ import { StudentType } from "./day11_describing_the_ui/Student";
 // import TodoListApp from "./day12_interactivity/TodoListApp";
 import Day13Play from "./day13_lifecycles/notes";
 import Day14Play from "./day14_practice";
+import Day16Play from "./day16_custom_hooks/notes";
 
 function App() {
-  const student: StudentType = {
-    id: 1,
-    name: "John",
-    age: 20,
-    grade: "A",
-  };
+  // const student: StudentType = {
+  //   id: 1,
+  //   name: "John",
+  //   age: 20,
+  //   grade: "A",
+  // };
 
   return (
     <>
-      <Day11Play
+      {/* <Day11Play
         student={student}
         message="good"
         onClick={() => console.log("day")}
-      />
+      /> */}
       {/* <FunctionClick />
       <ClassClick />
       <PlayButton movieName="Good movie" /> */}
@@ -40,7 +41,8 @@ function App() {
       {/* <Fetch /> */}
       {/* <Day12Play /> */}
       {/* <Day13Play /> */}
-      <Day14Play />
+      {/* <Day14Play /> */}
+      <Day16Play />
     </>
   );
 }
