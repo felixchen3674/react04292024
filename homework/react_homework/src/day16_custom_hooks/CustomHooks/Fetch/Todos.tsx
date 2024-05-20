@@ -1,10 +1,38 @@
-import React from 'react'
+import React from 'react';
+import useFetch from './useFetch';
 
-// use useFetch to implement the Component
-// fetches from jsonplaceholder, implement loading, and error handling
+interface Todo {
+  userId: number;
+  id: number;
+  title: string;
+  completed: boolean;
+}
 
 export default function Todos() {
+  const {
+    data: todos,
+    loading,
+    error,
+  } = useFetch('https://jsonplaceholder.typicode.com/todos');
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+
   return (
-    <div>Todos</div>
-  )
+    <div>
+      <h1>Todos</h1>
+      {todos &&
+        todos.map((todo) => (
+          <div key={todo.id}>
+            <h2>{todo.title}</h2>
+            <p>{todo.completed ? 'Completed' : 'Not Completed'}</p>
+          </div>
+        ))}
+    </div>
+  );
 }

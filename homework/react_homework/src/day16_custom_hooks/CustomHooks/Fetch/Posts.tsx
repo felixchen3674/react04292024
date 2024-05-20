@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 
 interface Post {
   userId: number;
@@ -23,7 +23,7 @@ export default function Posts() {
 
       try {
         const response = await fetch(
-          "https://jsonplaceholder.typicode.com/posts"
+          'https://jsonplaceholder.typicode.com/posts'
         );
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);

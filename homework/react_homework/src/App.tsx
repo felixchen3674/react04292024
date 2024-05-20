@@ -12,6 +12,7 @@ import Day13Play from './day13/notes';
 import SelectAllForm from './day14_practice/SelectAllForm';
 import ShoppingCart from './day14_practice/ShoppingCart';
 import TicTacToe from './day14_practice/TicTacToe';
+import Day16Play from './day16_custom_hooks/notes';
 
 function App() {
   return (
@@ -21,7 +22,7 @@ function App() {
       {/* <TodoListApp />
       <Checkbox /> */}
       {/* <RadioGroup /> */}
-      <Select />
+      {/* <Select /> */}
       {/* <Day13Play /> */}
       {/* <FetchPosts /> */}
       {/* <CounterTimer /> */}
@@ -29,6 +30,7 @@ function App() {
       {/* <SelectAllForm /> */}
       {/* <ShoppingCart /> */}
       {/* <TicTacToe /> */}
+      <Day16Play />
     </>
   );
 }
