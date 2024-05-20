@@ -7,21 +7,20 @@ interface Item {
   quant:number
 }
 
+async function mockApiCall(){
+  await new Promise((resolve) => setTimeout(resolve, 2000))
+
+  const data = [
+    {id:1, name:"Apply", price: 0.99, quant:0},
+    {id:2, name:"Banana", price: 0.49, quant:0},
+    {id:3, name:"Mango", price: 1.99, quant:0},
+    {id:4, name:"Strawberry", price: 1.49, quant:0},
+  ]
+  return data;
+}
 
 export default function ShoppingCart() {
   const [fruits, setFruits] = useState<Item[]>([])
-
-  async function mockApiCall(){
-    await new Promise((resolve) => setTimeout(resolve, 2000))
-
-    const data = [
-      {id:1, name:"Apply", price: 0.99, quant:0},
-      {id:2, name:"Banana", price: 0.49, quant:0},
-      {id:3, name:"Mango", price: 1.99, quant:0},
-      {id:4, name:"Strawberry", price: 1.49, quant:0},
-    ]
-    return data;
-  }
 
   useEffect(()=>{
     const getData = async () => {
@@ -49,7 +48,7 @@ export default function ShoppingCart() {
     )
   }
 
-  const totalPrice = fruits.reduce((acc, fruit) => acc + (fruit.price * fruit.quant),0)
+  const totalPrice = fruits.reduce((acc, fruit) => acc + (fruit.price * fruit.quant),0).toFixed(2)
 
   const handleResetQuant = () => {
     setFruits(fruits.map((fruit)=>
@@ -59,7 +58,7 @@ export default function ShoppingCart() {
 
   return (
     <>
-      <table>
+      <table style={{border: "1px solid black"}}>
         <thead>
           <tr>
             <th>Name</th>
@@ -74,9 +73,9 @@ export default function ShoppingCart() {
               <td>{fruit.price}</td>
               <td>
                 <div key={fruit.id}>
-                  <button onClick={()=>handleQuantUp(fruit.id)}>+</button>
-                  {fruit.quant}
                   <button onClick={()=>handleQuantDown(fruit.id)}>-</button>
+                  {fruit.quant}
+                  <button onClick={()=>handleQuantUp(fruit.id)}>+</button>
                 </div>
               </td>
             </tr>
@@ -84,7 +83,7 @@ export default function ShoppingCart() {
         </tbody>
       </table>
       <p>
-        Total Price ${totalPrice.toFixed(2)}
+        Total Price ${totalPrice}
       </p>
       <button>Check Out</button>
       <button onClick={handleResetQuant}>Empty Cart</button>
