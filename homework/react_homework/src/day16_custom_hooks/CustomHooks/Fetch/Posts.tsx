@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import useFetch from "./useFetch";
 
 interface Post {
   userId: number;
@@ -7,42 +8,45 @@ interface Post {
   body: string;
 }
 
-interface Error {
+export interface ErrorType {
   message: string;
 }
 
 export default function Posts() {
-  const [posts, setPosts] = useState<Post[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<Error | null>(null);
+  // const [posts, setPosts] = useState<Post[]>([]);
+  // const [loading, setLoading] = useState<boolean>(true);
+  // const [error, setError] = useState<Error | null>(null);
+  const { data, isLoading, error } = useFetch<Post>(
+    "https://jsonplaceholder.typicode.com/posts"
+  );
 
-  useEffect(() => {
-    const fetchPosts = async () => {
-      setLoading(true);
-      setError(null); // Reset error state before fetching new data
+  // useEffect(() => {
+  //   const fetchPosts = async () => {
+  //     setLoading(true);
+  //     setError(null); // Reset error state before fetching new data
 
-      try {
-        const response = await fetch(
-          "https://jsonplaceholder.typicode.com/posts"
-        );
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = (await response.json()) as Post[];
+  //     try {
+  //       const response = await fetch(
+  //         "https://jsonplaceholder.typicode.com/posts"
+  //       );
+  //       if (!response.ok) {
+  //         throw new Error(`HTTP error! status: ${response.status}`);
+  //       }
+  //       const data = (await response.json()) as Post[];
 
-        setPosts(data);
-      } catch (error: any) {
-        setError({ message: `Failed to fetch posts: ${error.message}` });
-        setPosts([]);
-      } finally {
-        setLoading(false);
-      }
-    };
+  //       setPosts(data);
+  //     } catch (error: any) {
+  //       setError({ message: `Failed to fetch posts: ${error.message}` });
+  //       setPosts([]);
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
 
-    fetchPosts();
-  }, []);
+  //   fetchPosts();
+  // }, []);
 
-  if (loading) {
+  if (isLoading) {
     return <div>Loading...</div>;
   }
 
@@ -53,7 +57,7 @@ export default function Posts() {
   return (
     <div>
       <h1>Posts</h1>
-      {posts.map((post) => (
+      {data.map((post) => (
         <div key={post.id}>
           <h2>{post.title}</h2>
           <p>{post.body}</p>
