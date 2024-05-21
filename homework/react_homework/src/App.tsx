@@ -13,6 +13,7 @@ import { StudentType } from "./day11_describing_the_ui/Student";
 import Day13Play from "./day13_lifecycles/notes";
 import Day14Play from "./day14_practice";
 import Day16Play from "./day16_custom_hooks/notes";
+import Day17Play from "./day17_performance/notes";
 
 function App() {
   // const student: StudentType = {
@@ -42,7 +43,8 @@ function App() {
       {/* <Day12Play /> */}
       {/* <Day13Play /> */}
       {/* <Day14Play /> */}
-      <Day16Play />
+      {/* <Day16Play /> */}
+      <Day17Play />
     </>
   );
 }
