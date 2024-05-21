@@ -14,7 +14,7 @@ export default function Day16Play() {
         {/* <Todos /> */}
       </>
       {/* <DebouncedInput /> */}
-      {/* <AutoFocusInput /> */}
+      <AutoFocusInput />
       <LoginForm />
     </div>
   )

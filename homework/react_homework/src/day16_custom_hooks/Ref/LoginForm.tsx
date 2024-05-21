@@ -1,4 +1,4 @@
-import React, {useRef, useState} from "react"
+import {useRef, useState} from "react"
 
 const EXAMPLE_USERS = [
   {id: 1, username: "john", password: "123"},
@@ -6,19 +6,19 @@ const EXAMPLE_USERS = [
 ]
 
 export default function LoginForm() {
-  const [loginResult, setLoginResult] = useState(null)
+  const [loginResult, setLoginResult] = useState<string | null>(null)
 
   // Create refs for the username and password inputs
-  const usernameRef = useRef(null)
-  const passwordRef = useRef(null)
+  const usernameRef = useRef<HTMLInputElement | null>(null)
+  const passwordRef = useRef<HTMLInputElement | null>(null)
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     // if login succeeds or fails, display appropriate message in the result
     // then clear the inputs
     e.preventDefault()
 
-    const username = usernameRef.current.value
-    const password = passwordRef.current.value
+    const username = usernameRef.current!.value
+    const password = passwordRef.current!.value
 
     const user = EXAMPLE_USERS.find(
       (user) => user.username === username && user.password === password
@@ -30,8 +30,8 @@ export default function LoginForm() {
       setLoginResult("Invalid username or password")
     }
 
-    usernameRef.current.value = ""
-    passwordRef.current.value = ""
+    usernameRef.current!.value = ""
+    passwordRef.current!.value = ""
   }
 
   return (
@@ -46,13 +46,13 @@ export default function LoginForm() {
             <div>
               <label htmlFor="username">
                 Username:
-                <input type="text" required ref={usernameRef} />
+                <input type="text" ref={usernameRef} />
               </label>
             </div>
             <div>
               <label htmlFor="password">
                 Password:
-                <input type="password" required ref={passwordRef} />
+                <input type="password" ref={passwordRef} />
               </label>
             </div>
             <button type="submit">Login</button>
