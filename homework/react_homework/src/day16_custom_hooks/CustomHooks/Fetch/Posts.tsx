@@ -1,53 +1,53 @@
-import React, { useState, useEffect } from "react";
+import React, {useState, useEffect} from "react"
 
 interface Post {
-  userId: number;
-  id: number;
-  title: string;
-  body: string;
+  userId: number
+  id: number
+  title: string
+  body: string
 }
 
 interface Error {
-  message: string;
+  message: string
 }
 
 export default function Posts() {
-  const [posts, setPosts] = useState<Post[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<Error | null>(null);
+  const [posts, setPosts] = useState<Post[]>([])
+  const [loading, setLoading] = useState<boolean>(true)
+  const [error, setError] = useState<Error | null>(null)
 
   useEffect(() => {
     const fetchPosts = async () => {
-      setLoading(true);
-      setError(null); // Reset error state before fetching new data
+      setLoading(true)
+      setError(null) // Reset error state before fetching new data
 
       try {
         const response = await fetch(
           "https://jsonplaceholder.typicode.com/posts"
-        );
+        )
         if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
+          throw new Error(`HTTP error! status: ${response.status}`)
         }
-        const data = (await response.json()) as Post[];
+        const data = (await response.json()) as Post[]
 
-        setPosts(data);
+        setPosts(data)
       } catch (error: any) {
-        setError({ message: `Failed to fetch posts: ${error.message}` });
-        setPosts([]);
+        setError({message: `Failed to fetch posts: ${error.message}`})
+        setPosts([])
       } finally {
-        setLoading(false);
+        setLoading(false)
       }
-    };
+    }
 
-    fetchPosts();
-  }, []);
+    fetchPosts()
+  }, [])
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div>Loading...</div>
   }
 
   if (error) {
-    return <div>Error: {error && error.message}</div>;
+    return <div>Error: {error && error.message}</div>
   }
 
   return (
@@ -60,5 +60,5 @@ export default function Posts() {
         </div>
       ))}
     </div>
-  );
+  )
 }
