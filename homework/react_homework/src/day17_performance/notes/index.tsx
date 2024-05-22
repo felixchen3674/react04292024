@@ -1,5 +1,5 @@
 import BirthdayRecord from '../BirthdayRecord';
-import Play from './Play';
+import BirthdayRecordSolution from '../BirthdayRecord/solution';
 
 export default function Day17Play() {
   return (
@@ -8,6 +8,7 @@ export default function Day17Play() {
 
       <BirthdayRecord />
       {/* <Play /> */}
+      <BirthdayRecordSolution />
     </div>
   );
 }
