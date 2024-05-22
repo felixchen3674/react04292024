@@ -8,6 +8,7 @@ import SelectAllForm from "./day14_practice/SelectAllForm";
 import ShoppingCart from "./day14_practice/ShoppingCart";
 import Day13Play from "./day13_lifecycles/notes";
 import Day16Play from "./day16_custom_hooks/notes";
+import Day17Play from "./day17_performance/notes";
 
 function App() {
   return (
@@ -20,7 +21,8 @@ function App() {
       {/* <SelectAllForm/> */}
       {/* <ShoppingCart/> */}
       {/* <TicTacToe /> */}
-      <Day16Play />
+      {/* <Day16Play /> */}
+      <Day17Play />
     </>
   );
 }

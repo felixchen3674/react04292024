@@ -5,7 +5,7 @@ export default function AutoFocusInput() {
 
   useEffect(() => {
     if (inputRef.current) {
-      inputRef.current.focus();
+      console.log(inputRef.current.focus());
     }
   }, []);
   return (
