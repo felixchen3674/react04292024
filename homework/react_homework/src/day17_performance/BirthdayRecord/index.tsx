@@ -85,19 +85,22 @@ export default function BirthdayRecord() {
   return (
     <>
       <form>
-        <label>sort by</label>
-        <input
-          type="checkbox"
-          checked={isNameChecked}
-          onChange={handleNameChanged}
-        />
-        <label>name</label>
-        <input
-          type="checkbox"
-          checked={isAgeChecked}
-          onChange={handleAgeChanged}
-        />
-        <label>age</label>
+        <label>
+          <input
+            type="checkbox"
+            checked={isNameChecked}
+            onChange={handleNameChanged}
+          />
+          name
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            checked={isAgeChecked}
+            onChange={handleAgeChanged}
+          />
+          age
+        </label>
       </form>
       <ul>
         <li>Person Name Date of Birth</li>
