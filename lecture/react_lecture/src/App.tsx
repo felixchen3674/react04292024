@@ -4,6 +4,7 @@ import Day12Lecture from "./Day12 Lecture";
 import Day13Lecture from "./Day13Lecture";
 import Day16Lecture from "./Day16Lecture";
 import Day17Lecture from "./Day17Lecture";
+import Day18Lecture from "./day18Lecture";
 
 function App() {
   return (
@@ -14,7 +15,8 @@ function App() {
       {/* <Day12Lecture /> */}
       {/* <Day13Lecture /> */}
       {/* <Day16Lecture /> */}
-      <Day17Lecture />
+      {/* <Day17Lecture /> */}
+      <Day18Lecture />
     </>
   );
 }
