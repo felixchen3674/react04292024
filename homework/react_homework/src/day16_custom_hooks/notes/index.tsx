@@ -11,10 +11,10 @@ export default function Day16Play() {
       <h1>Day 16 Play</h1>
       {/* Homework */}
       <>
-        <Posts />
+        {/* <Posts /> */}
         {/* <Todos /> */}
       </>
-      {/* <DebouncedInput /> */}
+      <DebouncedInput />
       {/* <AutoFocusInput /> */}
       {/* <LoginForm /> */}
       {/* <Play /> */}

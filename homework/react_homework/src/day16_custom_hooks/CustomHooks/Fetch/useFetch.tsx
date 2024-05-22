@@ -1,41 +1,34 @@
 import React, { useEffect, useState } from 'react';
-
-// this is your homework, create a custom hook "useFetch" to simplify the fetching process
-
-// imagine you have to implement the same fetching, loading, and error logic for another component
-// such as Comments, Todos, Users, etc. (if you are not sure what I'm talking about, just try to
-// create another component that fetches from https://jsonplaceholder.typicode.com/todos, and you will
-// find yourself rewriting the same logic)
-
 export default function useFetch(url: string) {
-  const [state, setState] = useState({
-    data: null,
-    loading: true,
-    error: null,
-  });
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<Error | null>(null);
 
   useEffect(() => {
-    const fetchData = async () => {
-      setState({ data: null, loading: true, error: null });
+    const fetchPosts = async () => {
+      setLoading(true);
+      setError(null); // Reset error state before fetching new data
 
       try {
         const response = await fetch(url);
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
-        const data = (await response.json()) as T;
-        setState({ data, loading: false, error: null });
+        const data = await response.json();
+        setData(data);
       } catch (error: any) {
-        setState({
-          data: null,
-          loading: false,
-          error: `Failed to fetch data: ${error.message}`,
+        setError({
+          ...error,
+          message: `Failed to fetch posts: ${error.message}`,
         });
+        setData([]);
+      } finally {
+        setLoading(false);
       }
     };
 
-    fetchData();
+    fetchPosts();
   }, [url]);
 
-  return state;
+  return { data, loading, error };
 }
