@@ -1,4 +1,4 @@
-import { ChangeEvent, useEffect, useState } from "react";
+import { ChangeEvent, useCallback, useEffect, useState } from 'react';
 
 function debounce<F extends (...args: any[]) => any>(func: F, wait: number): F {
   let timeoutId: ReturnType<typeof setTimeout> | null = null;
@@ -22,16 +22,17 @@ function debounce<F extends (...args: any[]) => any>(func: F, wait: number): F {
 }
 
 function apiCall(searchQuery: string) {
-  console.log("api called...");
+  console.log('api called...');
 }
 
 export default function DebouncedCallback() {
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState('');
+  const debouncedApiCall = useCallback(debounce(apiCall, 300), []);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
     // instead of using useDebounce hook, use debounce higher order function
-    apiCall(e.target.value);
+    debouncedApiCall(e.target.value);
   };
 
   return (
