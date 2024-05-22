@@ -20,7 +20,7 @@ export default function Todos() {
   }
 
   if (error) {
-    return <div>Error: {error}</div>;
+    return <div>Error: {error && error.message}</div>;
   }
 
   return (

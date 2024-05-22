@@ -1,19 +1,19 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
+import useDebounce from './useDebounce';
 
 function apiCall(searchQuery: string) {
-  console.log("api called...");
+  console.log('api called...');
 }
 
 export default function DebouncedInput() {
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState('');
+  const debouncedTerm = useDebounce(searchTerm, 500);
 
   useEffect(() => {
-    // currently, every letter I type, the api is called
-    // create a useDebounce custom hook to reduce the
-    // number of times api is called
-    apiCall(searchTerm);
-  }, [searchTerm]);
-
+    if (debouncedTerm) {
+      apiCall(debouncedTerm);
+    }
+  }, [debouncedTerm]);
   return (
     <div>
       <input
