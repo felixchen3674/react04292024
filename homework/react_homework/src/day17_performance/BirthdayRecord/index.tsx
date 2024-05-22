@@ -1,8 +1,8 @@
-import {useEffect, useState} from "react"
+import { useEffect, useState } from "react";
 
 interface Person {
-  name: string
-  birthdate: string
+  name: string;
+  birthdate: string;
 }
 
 const getPeople = async () => {
@@ -39,37 +39,37 @@ const getPeople = async () => {
       name: "Jessica Taylor",
       birthdate: "02/08/1994",
     },
-  ]
-  return people
-}
-
+  ];
+  return people;
+};
+type sortOption = "name" | "age" | "";
 // shall be able to sort people based on name or birthdate
 export default function BirthdayRecord() {
-  const [people, setPeople] = useState<Person[]>([])
-  const [sortBy, setSortBy] = useState<"name" | "birthdate" | null>(null)
+  const [people, setPeople] = useState<Person[]>([]);
+  const [sortBy, setSortBy] = useState<sortOption>("");
 
   useEffect(() => {
     const fetchData = async () => {
-      const peopleData = await getPeople()
-      setPeople(peopleData)
-    }
+      const peopleData = await getPeople();
+      setPeople(peopleData);
+    };
 
-    fetchData()
-  }, [])
+    fetchData();
+  }, []);
 
   const handleSortChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSortBy(e.target.value as "name" | "age")
-  }
+    setSortBy(e.target.value as sortOption);
+  };
 
   const sortedPeople = [...people].sort((a: Person, b: Person) => {
     if (sortBy === "name") {
-      return a.name.localeCompare(b.name)
+      return a.name.localeCompare(b.name);
     } else if (sortBy === "age") {
-      return new Date(a.birthdate).getTime() - new Date(b.birthdate).getTime()
+      return new Date(a.birthdate).getTime() - new Date(b.birthdate).getTime();
     } else {
-      return [...people]
+      return 0;
     }
-  })
+  });
 
   return (
     <>
@@ -82,6 +82,8 @@ export default function BirthdayRecord() {
           onChange={handleSortChange}
         />
         by name
+      </label>
+      <label>
         <input
           type="radio"
           name="sort"
@@ -90,6 +92,16 @@ export default function BirthdayRecord() {
           onChange={handleSortChange}
         />
         by age
+      </label>
+      <label>
+        <input
+          type="radio"
+          name="sort"
+          value={""}
+          checked={sortBy === ""}
+          onChange={handleSortChange}
+        />
+        default
       </label>
       <p>Person Name Date of Birth</p>
       <ul>
@@ -100,5 +112,5 @@ export default function BirthdayRecord() {
         ))}
       </ul>
     </>
-  )
+  );
 }
