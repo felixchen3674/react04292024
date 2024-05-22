@@ -22,17 +22,18 @@ function debounce<F extends (...args: any[]) => any>(func: F, wait: number): F {
 }
 
 function apiCall(searchQuery: string) {
-  console.log("api called...");
+  console.log("api called...", searchQuery);
 }
 
 export default function DebouncedCallback() {
   const [searchTerm, setSearchTerm] = useState("");
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleChange = debounce((e: ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
     // instead of using useDebounce hook, use debounce higher order function
+    setSearchTerm(e.target.value)
     apiCall(e.target.value);
-  };
+  }, 500);
 
   return (
     <div>
