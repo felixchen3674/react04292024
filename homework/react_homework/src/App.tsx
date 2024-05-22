@@ -19,28 +19,23 @@ import ParentTwo from "./day17_performance/notes/ParentTwo";
 import PureComp from "./day17_performance/notes/PureComp";
 import ParentComp from "./day17_performance/notes/ParentComp";
 import BirthdayRecord from "./day17_performance/BirthdayRecord";
+import DebouncedCallback from "./day17_performance/DebouncedCallback";
+import CountingStar, { Parent } from "./day18_context/notes";
+import TodoList18 from "./day18_context/Todo/TodoList18";
+
+
 
 function App() {
   return (
     <>
-      {/* <Day11Play /> */}
-      {/* {/* <Day12Play /> */}
-      {/* <TodoList /> */}
-      {/* <MyComponent /> */} 
-      {/* <PostViewer /> */}
-      {/* <CounterTimer /> */}
-      {/* <Day13Play /> */}
-      {/* <SelectAllForm />
-      <SelectAllForm2 /> */}
-      {/* <ShoppingCart /> */}
-      {/* <NewIndex2 /> */}
-      {/* <DebouncedInput /> */}
-      {/* <Posts /> */}
-      {/* <Todos /> */}
       {/* <AutoFocusInput /> */}
       {/* <ParentTwo /> */}
       {/* <ParentComp /> */}
-      <BirthdayRecord />
+      {/* <BirthdayRecord /> */}
+      {/* <DebouncedCallback />
+      <CountingStar /> */}
+      <TodoList18 />
+
     </>
   );
 }
