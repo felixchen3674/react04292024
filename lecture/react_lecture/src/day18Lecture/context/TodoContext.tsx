@@ -3,20 +3,18 @@ import { TodoType } from "../components/Todo";
 
 type TodoContextType = {
   todos: TodoType[];
-  handleToggleComplete: (id: number) => void;
-  handleAddTodo: (task: string) => void;
+  handleToggleComplete: (id: number) => Promise<void>;
+  handleAddTodo: (task: string) => Promise<void>;
   newTask: string;
   setNewTask: React.Dispatch<React.SetStateAction<string>>;
+  fetchTodos: () => Promise<void>;
 };
 
 export const TodoContext = createContext<TodoContextType>(
   {} as TodoContextType
 );
 
-const initialTodos = [
-  { id: 1, task: "cook", completed: false },
-  { id: 2, task: "play", completed: true },
-];
+const TODO_API = "http://localhost:3000/todos";
 
 export function TodoProvider({
   children,
@@ -24,27 +22,48 @@ export function TodoProvider({
   children: ReactElement | ReactElement[];
 }) {
   const [newTask, setNewTask] = useState("");
-  const [todos, setTodos] = useState(initialTodos);
+  const [todos, setTodos] = useState<TodoType[]>([]);
 
-  
+  const handleAddTodo = async (task: string) => {
+    const res = await fetch(TODO_API, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        task,
+        completed: false,
+      }),
+    });
 
-  const handleAddTodo = (task: string) => {
-    const newId = todos[todos.length - 1].id + 1;
-
-    const newTodo: TodoType = {
-      id: newId,
-      task,
-      completed: false,
-    };
-
-    setTodos([...todos, newTodo]);
+    const newTodo = await res.json();
+    setTodos((prev) => [...prev, newTodo]);
   };
 
-  const handleToggleComplete = (id: number) => {
-    const _todos = [...todos];
-    const todo = _todos.find((todo) => todo.id === id);
-    todo!.completed = !todo!.completed;
-    setTodos(_todos);
+  const handleToggleComplete = async (id: number) => {
+    const todo = todos.find((todo) => todo.id === id);
+    const res = await fetch(`${TODO_API}/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        completed: !todo?.completed,
+      }),
+    });
+    const updatedTodo = await res.json();
+
+    setTodos((prev) =>
+      prev.map((_todo) => {
+        return _todo.id === id ? updatedTodo : _todo;
+      })
+    );
+  };
+
+  const fetchTodos = async () => {
+    const res = await fetch(TODO_API);
+    const data: TodoType[] = await res.json();
+    setTodos(data);
   };
 
   return (
@@ -55,6 +74,7 @@ export function TodoProvider({
         handleAddTodo,
         newTask,
         setNewTask,
+        fetchTodos,
       }}
     >
       {children}
