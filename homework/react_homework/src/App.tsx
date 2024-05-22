@@ -15,6 +15,10 @@ import DebouncedInput from "./day16_custom_hooks/CustomHooks/Debounce/DebouncedI
 import Posts from "./day16_custom_hooks/CustomHooks/Fetch/Posts";
 import Todos from "./day16_custom_hooks/CustomHooks/Fetch/Todos";
 import AutoFocusInput from "./day16_custom_hooks/Ref/AutoFocusInput";
+import ParentTwo from "./day17_performance/notes/ParentTwo";
+import PureComp from "./day17_performance/notes/PureComp";
+import ParentComp from "./day17_performance/notes/ParentComp";
+import BirthdayRecord from "./day17_performance/BirthdayRecord";
 
 function App() {
   return (
@@ -33,7 +37,10 @@ function App() {
       {/* <DebouncedInput /> */}
       {/* <Posts /> */}
       {/* <Todos /> */}
-      <AutoFocusInput />
+      {/* <AutoFocusInput /> */}
+      {/* <ParentTwo /> */}
+      {/* <ParentComp /> */}
+      <BirthdayRecord />
     </>
   );
 }
