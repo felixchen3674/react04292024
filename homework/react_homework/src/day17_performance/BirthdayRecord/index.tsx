@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 interface Person {
   name: string;
@@ -43,55 +43,42 @@ const getPeople = async () => {
   return people;
 };
 
-const debounce = (func, delay) => {
-  let timeoutId;
-  return (...args) => {
-    clearTimeout(timeoutId);
-    timeoutId = setTimeout(() => {
-      func.apply(this, args);
-    }, delay);
-  };
-};
-
 // shall be able to sort people based on name or birthdate
 export default function BirthdayRecord() {
-  const [people, setPeople] = useState<Person[]>([]);
-  const [sortBy, setSortBy] = useState<"name" | "birthdate">("name");
+  const [people, setPeople] = useState<Person[]>([])
+  const [sortBy, setSortBy] = useState<"name" | "birthdate">("name")
 
   useEffect(() => {
     const fetchData = async () => {
-      const fetchedPeople = await getPeople();
-      setPeople(fetchedPeople);
-    };
-    fetchData();
-  }, []);
+      const fetchedPeople = await getPeople()
+      setPeople(fetchedPeople)
+    }
+    fetchData()
+  }, [])
 
-  const sortPeople = useCallback(
-    (data: Person[], sortBy: "name" | "birthdate") => {
-      if (!data || !sortBy) return [];
+  const sortPeople = (data: Person[], sortBy: "name" | "birthdate") => {
+      if (!data || !sortBy) return []
 
       const sortedData = [...data].sort((a, b) => {
         if (sortBy === "name") {
-          return a.name.localeCompare(b.name);
+          return a.name.localeCompare(b.name)
         } else if (sortBy === "birthdate") {
-          const dateA = new Date(a.birthdate);
-          const dateB = new Date(b.birthdate);
-          return dateA.getTime() - dateB.getTime();
+          const dateA = new Date(a.birthdate)
+          const dateB = new Date(b.birthdate)
+          return dateA.getTime() - dateB.getTime()
         } else {
-          console.warn("Invalid sort criteria:", sortBy);
-          return 0;
+          console.warn("Invalid sort criteria:", sortBy)
+          return 0
         }
-      });
-      return sortedData;
-    },
-    []
-  );
+      })
+      return sortedData
+    }
 
-  const handleSortChange = debounce((event) => {
-    setSortBy(event.target.value);
-  }, 500);
+  const handleSortChange = (event) => {
+    setSortBy(event.target.value)
+  }
 
-  const sortedPeople = sortPeople(people, sortBy);
+  const sortedPeople = sortPeople(people, sortBy)
 
   return (
     <div>
@@ -112,7 +99,7 @@ export default function BirthdayRecord() {
           <input
             type="radio"
             name="sort"
-            value="birthdate" // Corrected typo here
+            value="birthdate"
             checked={sortBy === "birthdate"}
             onChange={handleSortChange}
           />
@@ -136,5 +123,5 @@ export default function BirthdayRecord() {
         </tbody>
       </table>
     </div>
-  );
+  )
 }
