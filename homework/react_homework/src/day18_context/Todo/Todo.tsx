@@ -1,18 +1,25 @@
-import React from 'react'
-import { ACTIONS } from './TodoList18'
+import React from 'react';
 
-export default function Todo( {todo, dispatch} ) {
+interface TodoProps {
+  todo: {
+    id: number;
+    name: string;
+    complete: boolean;
+  };
+  handleToggle: (id: number) => void;
+  handleDelete: (id: number) => void;
+}
+
+const Todo: React.FC<TodoProps> = ({ todo, handleToggle, handleDelete }) => {
   return (
     <div>
-        <span style={{color: todo.complete ? "#AAA" : "#000"}}>
-            {todo.name}
-        </span>
-        <button onClick={()=>dispatch({type: ACTIONS.TOGGLE_TODO, payload: {id: todo.id}})}>
-          Completed?
-        </button>
-        <button onClick={()=>dispatch({type: ACTIONS.DELETE_TODO, payload: {id: todo.id}})}>
-          Delete
-        </button>
+      <span style={{ color: todo.complete ? "#AAA" : "#000" }}>
+        {todo.name}
+      </span>
+      <button onClick={() => handleToggle(todo.id)}>Completed?</button>
+      <button onClick={() => handleDelete(todo.id)}>Delete</button>
     </div>
-  )
-}
+  );
+};
+
+export default Todo;
