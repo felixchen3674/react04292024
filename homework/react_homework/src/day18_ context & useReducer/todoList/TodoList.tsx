@@ -1,55 +1,100 @@
 import { UUID } from "mongodb";
 import { useEffect, useState } from "react";
 
+const API_URL = "http://localhost:3000/todos";
+
 interface TodoType {
   id: number;
   name: string;
   isCompleted: boolean;
 }
 
-const todosItems: TodoType[] = [
-  { id: 1, name: "todoitem1", isCompleted: false },
-  { id: 2, name: "todoitem2", isCompleted: false },
-  { id: 3, name: "todoitem3", isCompleted: false },
-  { id: 4, name: "todoitem4", isCompleted: false },
-  { id: 5, name: "todoitem5", isCompleted: false },
-];
 export default function TodoList() {
   const [todos, setTodos] = useState<TodoType[]>([]);
   const [name, setName] = useState("");
-  const [editedIndex, setEditedIndex] = useState<number | null>(null);
-  const [editedInput, setEditedInput] = useState<string>("");
   useEffect(() => {
     async function FetchData() {
-      setTodos(todosItems);
+      try {
+        const response = await fetch("http://localhost:3000/todos");
+        if (response.ok) {
+          const res = await response.json();
+          setTodos(res);
+        } else {
+          throw new Error("Something wrong");
+        }
+      } catch (err) {
+        console.log(err);
+      }
     }
     FetchData();
   }, []);
 
-  const handleAdd = () => {
-    const index = todos[todos.length - 1].id + 1;
-    const newItem = { id: index, name: name, isCompleted: false };
-    const newtodos = [...todos, newItem];
-    setTodos(newtodos);
-  };
-  const handleDelete = (id: number) => {
-    const newTodos = todos.filter((item) => item.id !== id);
-    setTodos(newTodos);
-  };
-  const handleEdit = (name: string, id: number) => {
-    setEditedIndex(id);
-    setEditedInput(name);
-  };
-  const handleSave = (id: number) => {
-    const newTodos = todos.map((item) => {
-      if (item.id === id) {
-        const newItem = { ...item, name: editedInput };
-        return newItem;
+  const handleAdd = async () => {
+    const newItem = { name, isCompleted: false };
+    try {
+      const response = await fetch(API_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newItem),
+      });
+      const res = await response.json();
+      if (res) {
+        setTodos([...todos, res]);
+        setName("");
       }
-      return item;
-    });
-    setTodos(newTodos);
-    setEditedIndex(null);
+    } catch (err) {
+      console.log(err);
+    }
+
+    // const index = todos[todos.length - 1].id + 1;
+    // const newItem = { id: index, name: name, isCompleted: false };
+    // const newtodos = [...todos, newItem];
+    // setTodos(newtodos);
+  };
+  const handleDelete = async (id: number) => {
+    try {
+      const response = await fetch(`${API_URL}/${id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const res = await response.json();
+      if (res) {
+        const newTodos = todos.filter((item) => item.id !== id);
+        setTodos(newTodos);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  const handleEdit = async (id: number) => {
+    const status = todos.find((item) => item.id === id)?.isCompleted;
+    try {
+      const response = await fetch(`${API_URL}/${id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ isCompleted: !status }),
+      });
+      const res = await response.json();
+      if (res) {
+        const newTodos = todos.map((item) => {
+          if (item.id === id) {
+            const newItem = { ...item };
+            newItem.isCompleted = !newItem.isCompleted;
+            return newItem;
+          }
+          return item;
+        });
+        setTodos(newTodos);
+      }
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
@@ -62,6 +107,7 @@ export default function TodoList() {
           Name:
           <input
             type="text"
+            value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder="ADD TODO LIST"
           />
@@ -74,28 +120,25 @@ export default function TodoList() {
             todos.map((item) => {
               return (
                 <li key={item.id}>
-                  {editedIndex === item.id ? (
-                    <div>
+                  <div>
+                    <h4>Name:{item.name}</h4>
+                    <label>
                       <input
-                        value={editedInput}
-                        onChange={(e) => setEditedInput(e.target.value)}
+                        type="checkbox"
+                        checked={item.isCompleted}
+                        onChange={() => handleEdit(item.id)}
                       />
-                      <button onClick={() => handleSave(item.id)}>save</button>
-                    </div>
-                  ) : (
-                    <div>
-                      <h4>
-                        Name:{item.name} Completed:{" "}
-                        {item.isCompleted ? "Yes" : "No"}
-                      </h4>
-                      <button onClick={() => handleEdit(item.name, item.id)}>
-                        Edit
-                      </button>
-                      <button onClick={() => handleDelete(item.id)}>
-                        Delete
-                      </button>
-                    </div>
-                  )}
+                      Completed
+                    </label>
+                    <h4>
+                      Status:
+                      {item.isCompleted ? "Completed" : "Not Completed"}
+                    </h4>
+
+                    <button onClick={() => handleDelete(item.id)}>
+                      Delete
+                    </button>
+                  </div>
                 </li>
               );
             })}
