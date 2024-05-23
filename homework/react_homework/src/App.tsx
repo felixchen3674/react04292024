@@ -10,6 +10,7 @@ import Day13Play from "./day13_lifecycles/notes";
 import Day16Play from "./day16_custom_hooks/notes";
 import Day17Play from "./day17_performance/notes";
 import Day18 from "./day18_context_useReducer/notes";
+import Day19 from "./day19_redux/notes";
 
 function App() {
   return (
@@ -24,7 +25,8 @@ function App() {
       {/* <TicTacToe /> */}
       {/* <Day16Play /> */}
       {/* <Day17Play /> */}
-      <Day18 />
+      {/* <Day18 /> */}
+      <Day19 />
     </>
   );
 }
