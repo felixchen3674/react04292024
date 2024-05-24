@@ -1,22 +1,21 @@
-import { TOGGLE_THEME } from "../constant";
+import { THEME_TOGGLE } from "../constant";
 
 export type ThemeState = "light" | "dark";
 
-export const toggleTheme = () => {
-  console.log("toggleTheme action dispatched");
-  type: TOGGLE_THEME;
-};
-
 const initialState: ThemeState = "light";
 
-export const themReducer = (
+export const themeReducer = (
   state: ThemeState = initialState,
   action: { type: string }
 ): ThemeState => {
   switch (action.type) {
-    case TOGGLE_THEME:
+    case THEME_TOGGLE:
       return state === "light" ? "dark" : "light";
     default:
       return state;
   }
+};
+
+export const toggleTheme = () => {
+  return { type: THEME_TOGGLE };
 };

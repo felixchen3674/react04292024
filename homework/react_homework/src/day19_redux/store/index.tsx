@@ -1,13 +1,9 @@
 // src/store.ts
 import { configureStore } from "@reduxjs/toolkit";
-import { todoReducer } from "../reducer";
-import { themReducer } from "../ThemReducer";
+import { rootReducer } from "../reducer";
 
 const store = configureStore({
-  reducer: {
-    todos: todoReducer,
-    theme: themReducer,
-  },
+  reducer: rootReducer,
 });
 
 export default store;

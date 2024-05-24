@@ -1,4 +1,4 @@
-export const HANDLE_ADD = "HANDLE_ADD";
-export const HANDLE_DELETE = "HANDLE_DELETE";
-export const HANDLE_FETCH = "HANDLE_FETCH";
-export const TOGGLE_THEME = "TOGGLE_THEME";
+export const TODOS_HANDLE_ADD = "TODOS_HANDLE_ADD";
+export const TODOS_HANDLE_DELETE = "TODOS_HANDLE_DELETE";
+export const TODOS_SET = "TODOS_HANDLE_FETCH";
+export const THEME_TOGGLE = "THEME_TOGGLE";
