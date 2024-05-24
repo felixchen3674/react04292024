@@ -22,21 +22,26 @@ import BirthdayRecord from "./day17_performance/BirthdayRecord";
 import DebouncedCallback from "./day17_performance/DebouncedCallback";
 import CountingStar, { Parent } from "./day18_context/notes";
 import TodoList18 from "./day18_context/Todo/TodoList18";
+import CakeContainer from "./day19_redux/notes/CakeContainer";
+import { Provider } from "react-redux";
+import store from "./day19_redux/homework/store";
+import TodoList19 from "./day19_redux/homework/TodoList19";
 
 
 
 function App() {
   return (
-    <>
+    <Provider store={store}>
       {/* <AutoFocusInput /> */}
       {/* <ParentTwo /> */}
       {/* <ParentComp /> */}
       {/* <BirthdayRecord /> */}
       {/* <DebouncedCallback />
       <CountingStar /> */}
-      <TodoList18 />
-
-    </>
+      {/* <TodoList18 /> */}
+      <CakeContainer />
+      <TodoList19 />
+    </Provider>
   );
 }
 
