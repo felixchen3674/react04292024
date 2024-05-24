@@ -1,3 +1,29 @@
 {
-  "todos": []
+  "todos": [
+    {
+      "id": "1",
+      "text": "Learn context API and useReducer",
+      "completed": true
+    },
+    {
+      "id": "2",
+      "text": "Build a todo list app",
+      "completed": true
+    },
+    {
+      "id": "3",
+      "text": "Go to gym",
+      "completed": false
+    },
+    {
+      "id": "4",
+      "text": "Practice mock interview",
+      "completed": false
+    },
+    {
+      "id": "5",
+      "text": "Shopping",
+      "completed": false
+    }
+  ]
 }
