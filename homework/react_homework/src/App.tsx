@@ -1,4 +1,5 @@
 import "./App.css";
+import ReduxTodoSolution from "./ReduxTodoSolution";
 import Day11Play from "./day11_describing_the_ui/notes";
 import Checkbox from "./day12_interactivity/ControlledComponents/Checkbox";
 import RadioGroup from "./day12_interactivity/ControlledComponents/RadioGroup";
@@ -16,7 +17,8 @@ function App() {
       {/* <Day13Play /> */}
       {/* <Day14Play /> */}
       {/* <Day16Play /> */}
-      <Day17Play />
+      {/* <Day17Play /> */}
+      <ReduxTodoSolution />
     </>
   );
 }
