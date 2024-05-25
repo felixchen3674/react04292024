@@ -1,4 +1,7 @@
 import { TODOS_HANDLE_ADD, TODOS_HANDLE_DELETE, TODOS_SET } from "../constant";
+import { startLoading, stopLoading } from "./loadingReducer";
+
+const TODOS_API_URL = "http://localhost:3000/todos";
 
 export type TodoType = {
   id: string;
@@ -40,4 +43,43 @@ export function addTodo(newTodo: TodoType) {
 
 export function deleteTodo(id: string) {
   return { type: TODOS_HANDLE_DELETE, payload: id };
+}
+
+export function fetchTodosThunk() {
+  return async function thunkExample(dispatch) {
+    dispatch(startLoading());
+    try {
+      await wait();
+      const response = await fetch(TODOS_API_URL);
+
+      const todos: TodoType[] = await response.json();
+
+      dispatch(setTodos(todos));
+    } catch (err) {
+      console.error("Failed to fetch todos:", err);
+    } finally {
+      dispatch(stopLoading());
+    }
+  };
+}
+
+export const deleteTodoThunk = (id: string) => async (dispatch) => {
+  try {
+    const response = await fetch(`${TODOS_API_URL}/${id}`, {
+      method: "DELETE",
+    });
+    const data = await response.json();
+
+    dispatch(deleteTodo(id));
+  } catch (error) {
+    console.error("Failed to delete todo:", error);
+  }
+};
+
+async function wait(time = 1000) {
+  return new Promise((res) => {
+    setTimeout(() => {
+      res(null);
+    }, time);
+  });
 }

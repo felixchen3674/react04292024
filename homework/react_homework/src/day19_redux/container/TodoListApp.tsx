@@ -1,10 +1,14 @@
 import React, { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import TodoItem from "../components/TodoList/TodoItem";
 import { useDispatch, useSelector } from "react-redux";
-import { State, TodoType, addTodo, setTodos } from "../reducer/todosReducer";
+import {
+  State,
+  TodoType,
+  addTodo,
+  fetchTodosThunk,
+} from "../reducer/todosReducer";
 import { ThemeState, toggleTheme } from "../reducer/themeReducer";
 import TodoList from "../components/TodoList/TodoList";
-import { fetchTodos } from "../api/todosAPI";
 
 const todoAPI = "http://localhost:3000/todos";
 
@@ -15,9 +19,7 @@ export default function TodoListApp() {
   const theme = useSelector((state: { theme: ThemeState }) => state.theme);
 
   useEffect(() => {
-    fetchTodos().then((todos) => {
-      dispatch(setTodos(todos!));
-    });
+    dispatch(fetchTodosThunk());
   }, [dispatch]);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {

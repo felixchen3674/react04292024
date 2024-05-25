@@ -2,3 +2,7 @@ export const TODOS_HANDLE_ADD = "TODOS_HANDLE_ADD";
 export const TODOS_HANDLE_DELETE = "TODOS_HANDLE_DELETE";
 export const TODOS_SET = "TODOS_HANDLE_FETCH";
 export const THEME_TOGGLE = "THEME_TOGGLE";
+
+export const LOADING_START = "LOADING_START";
+export const LOADING_STOP = "LOADING_STOP";
+
