@@ -1,4 +1,5 @@
 import "./App.css";
+import ReduxTodoSolution from "./ReduxTodoSolution";
 import Day11Play from "./day11_describing_the_ui/notes";
 import Day12Play from "./day12_interactivity/notes";
 import Day13Play from "./day13_lifecycles/notes";
@@ -14,7 +15,8 @@ function App() {
       {/* <Day13Play /> */}
       {/* <Day14Play /> */}
       {/* <Day16Play /> */}
-      <Day17Play />
+      {/* <Day17Play /> */}
+      <ReduxTodoSolution />
     </>
   );
 }
