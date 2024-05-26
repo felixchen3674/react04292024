@@ -7,6 +7,7 @@ import Day14Play from "./day14_practice";
 import Day16Play from "./day16_custom_hooks/notes";
 import Day17Play from "./day17_performance/notes";
 import Day21Play from "./day21_routing/notes";
+import Day22Play from "./day22_testing";
 
 function App() {
   return (
@@ -18,7 +19,8 @@ function App() {
       {/* <Day16Play /> */}
       {/* <Day17Play /> */}
       {/* <ReduxTodoSolution /> */}
-      <Day21Play />
+      {/* <Day21Play /> */}
+      <Day22Play />
     </>
   );
 }
