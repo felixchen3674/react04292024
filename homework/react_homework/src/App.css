@@ -87,3 +87,12 @@ td {
   font-size: 100px;
   border: 1px solid black;
 }
+
+#light {
+  background-color: white;
+  color: black;
+}
+#black {
+  background-color: black;
+  color: white;
+}

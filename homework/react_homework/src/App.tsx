@@ -14,6 +14,8 @@ import Day13Play from "./day13_lifecycles/notes";
 import Day14Play from "./day14_practice";
 import Day16Play from "./day16_custom_hooks/notes";
 import Day17Play from "./day17_performance/notes";
+import Day18Play from "./day18_ context & useReducer";
+import Day19Play from "./day19_/notes";
 
 function App() {
   // const student: StudentType = {
@@ -44,7 +46,9 @@ function App() {
       {/* <Day13Play /> */}
       {/* <Day14Play /> */}
       {/* <Day16Play /> */}
-      <Day17Play />
+      {/* <Day17Play /> */}
+      {/* <Day18Play /> */}
+      <Day19Play />
     </>
   );
 }
