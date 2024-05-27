@@ -1,0 +1,28 @@
+{
+  "todos": [
+    {
+      "Id": 1,
+      "task": "Buy groceries",
+      "completed": false,
+      "date": "2024-05-27",
+      "description": "Purchase milk, eggs, bread, and vegetables from the supermarket.",
+      "id": "23d8"
+    },
+    {
+      "Id": 2,
+      "task": "Finish homework",
+      "completed": false,
+      "date": "2024-05-28",
+      "description": "Complete the math and science homework assignments.",
+      "id": "7ab6"
+    },
+    {
+      "id": "c367",
+      "Id": 3,
+      "task": "45",
+      "completed": false,
+      "date": "2024-05-27",
+      "description": ""
+    }
+  ]
+}
