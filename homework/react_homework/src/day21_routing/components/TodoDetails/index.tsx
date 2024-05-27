@@ -7,7 +7,7 @@ export default function TodoDetails() {
   const { state, updateTodo, deleteTodo } = useContext(TodoContext);
   const history = useHistory();
 
-  const todo = state.todos.find((todo) => todo.id === parseInt(id));
+  const todo = state.todos.find((todo) => todo.id === id);
 
   const handleUpdate = async () => {
     const updatedTodo = { ...todo, completed: !todo.completed };

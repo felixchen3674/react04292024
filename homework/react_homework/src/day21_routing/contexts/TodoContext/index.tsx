@@ -33,7 +33,6 @@ const TodoProvider = ({ children }) => {
 
   const addTodo = async (task, description) => {
     const newTodo = {
-      id: Date.now(),
       task,
       completed: false,
       date: getCurrentDate(),
@@ -71,7 +70,7 @@ const TodoProvider = ({ children }) => {
     }
   };
 
-  const deleteTodo = async (id) => {
+  const deleteTodo = async (id: string) => {
     const response = await fetch(`http://localhost:3000/todos/${id}`, {
       method: "DELETE",
     });
