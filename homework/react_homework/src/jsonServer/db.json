@@ -1,20 +1,11 @@
 {
   "todos": [
     {
-      "id": "a638",
-      "task": "123"
-    },
-    {
-      "id": "f52f",
-      "task": "123"
-    },
-    {
-      "id": "f70e",
-      "task": "123"
-    },
-    {
-      "id": "3fcd",
-      "task": "123"
+      "id": 1716793602695,
+      "task": "aaa",
+      "completed": false,
+      "date": "2024-05-27",
+      "description": "Description for the todo"
     }
   ]
 }
