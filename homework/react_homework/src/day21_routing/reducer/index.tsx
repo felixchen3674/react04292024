@@ -44,3 +44,24 @@ export const toDoReducer = (
       return state;
   }
 };
+
+export const addToDoAction = (todo: ToDoListType): ActionType => {
+  return {
+    type: ADD_TODO,
+    payload: todo,
+  };
+};
+
+export const updateToDoAction = (todo: ToDoListType): ActionType => {
+  return {
+    type: UPDATE_TODO,
+    payload: todo,
+  };
+};
+
+export const deleteToDoAction = (id: string): ActionType => {
+  return {
+    type: DELETE_TODO,
+    payload: id,
+  };
+};

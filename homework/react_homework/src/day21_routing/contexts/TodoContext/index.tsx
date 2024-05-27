@@ -1,5 +1,10 @@
 import { createContext, useEffect, useReducer } from "react";
-import { toDoReducer } from "../../reducer";
+import {
+  addToDoAction,
+  deleteToDoAction,
+  toDoReducer,
+  updateToDoAction,
+} from "../../reducer";
 import { ADD_TODO, DELETE_TODO, UPDATE_TODO } from "../../constants";
 
 const getCurrentDate = () => {
@@ -49,7 +54,7 @@ const TodoProvider = ({ children }) => {
 
     if (response.ok) {
       const savedTodo = await response.json();
-      dispatch({ type: ADD_TODO, payload: savedTodo });
+      dispatch(addToDoAction(savedTodo));
     }
   };
 
@@ -66,7 +71,7 @@ const TodoProvider = ({ children }) => {
     );
 
     if (response.ok) {
-      dispatch({ type: UPDATE_TODO, payload: updatedTodo });
+      dispatch(updateToDoAction(updatedTodo));
     }
   };
 
@@ -76,7 +81,7 @@ const TodoProvider = ({ children }) => {
     });
 
     if (response.ok) {
-      dispatch({ type: DELETE_TODO, payload: id });
+      dispatch(deleteToDoAction(id));
     } else {
       console.error(`Failed to delete todo with id ${id}`);
     }
