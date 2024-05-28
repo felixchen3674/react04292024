@@ -6,7 +6,7 @@ import Day14Play from "./day14_practice"
 import Day16Play from "./day16_custom_hooks/notes"
 import Day17Play from "./day17_performance/notes"
 import Day19Play from "./day19_redux1/note"
-
+import Day21Play from "./day21_routing/notes"
 
 function App() {
   return (
@@ -18,8 +18,8 @@ function App() {
       {/* <Day16Play /> */}
       {/* <Day17Play /> */}
 
-      <Day19Play />
-
+      {/* <Day19Play /> */}
+      <Day21Play />
     </>
   )
 }
