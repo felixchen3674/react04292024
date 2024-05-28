@@ -67,4 +67,3 @@ store.dispatch(buyCake())
 store.dispatch(buyCake())
 store.dispatch(buyIce())
 unsubscribe();
-
