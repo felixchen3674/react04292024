@@ -1,25 +1,27 @@
-import React, { useEffect, useState } from "react";
-import { FetchData } from "../api/helper";
+import React, { useContext, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { ToDoContext } from "./todoContext";
+import AddTodo from "./AddTodo";
 
 export default function Home() {
-  const [todos, setTodos] = useState([]);
+  const { FetchData, todos } = useContext(ToDoContext);
   useEffect(() => {
-    async function Fetch() {
-      const res = await FetchData();
-      if (res.ok) {
-        setTodos(res);
-      }
-    }
-    Fetch();
+    FetchData();
   }, []);
+  console.log(todos);
   return (
     <div>
+      <div>
+        <AddTodo />
+      </div>
       {todos &&
         todos.map((item) => {
           return (
-            <div>
-              <button>{item.name}</button>
-              <h4>Status: {item.isCompleted ? "Completed" : "ImCompleted"}</h4>
+            <div key={item.id}>
+              <Link to={`/todo/${item.id}`}>
+                Task:{item.task} Status:
+                {item.completed ? "completed" : "imcompleted"}
+              </Link>
             </div>
           );
         })}

@@ -1,3 +1,18 @@
 {
-  "todos": []
+  "todos": [
+    {
+      "id": "1",
+      "task": "Complete React project",
+      "completed": false,
+      "date": "2024-05-28",
+      "description": "Finish the React project by implementing Redux and adding styling."
+    },
+    {
+      "id": "2",
+      "task": "Prepare for presentation",
+      "completed": true,
+      "date": "2024-05-30",
+      "description": "Create slides, rehearse presentation, and gather feedback from peers."
+    }
+  ]
 }

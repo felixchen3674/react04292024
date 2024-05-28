@@ -1,14 +1,18 @@
-import TodoApp from "./todoWRouter/todoApp";
-import TodoProvider from "./todoWRouter/todoContext";
+import { BrowserRouter, Link, Route, Router, Switch } from "react-router-dom";
+import Home from "./todoWRouter/components/Home";
+import SingleTodo from "./todoWRouter/components/SingleTodo";
+import customHistory from "./todoWRouter/components/customerHistory";
 
-export default function Day21Play() {
+export default function ToDoApp() {
   return (
     <div>
-      <h1>Day 21 Play</h1>
-      <Routes>
-        <Route to={"/"} component={Home} />
-        <Route to={"/todo/:id"} component={SingleTodo} />
-      </Routes>
+      <h1>TO DO APP</h1>
+      <Router history={customHistory}>
+        <Switch>
+          <Route path={"/"} exact component={Home} />
+          <Route path={"/todo/:id"} component={SingleTodo} />
+        </Switch>
+      </Router>
     </div>
   );
 }

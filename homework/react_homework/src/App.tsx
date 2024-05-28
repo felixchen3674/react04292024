@@ -23,7 +23,9 @@ import Day13Play from "./day13_lifecycles/notes";
 import Day14Play from "./day14_practice";
 import Day16Play from "./day16_custom_hooks/notes";
 import Day17Play from "./day17_performance/notes";
+import ToDoApp from "./day21_routing";
 import Day21Play from "./day21_routing/notes";
+import TodoProvider from "./day21_routing/todoWRouter/components/todoContext";
 
 function App() {
   // const student: StudentType = {
@@ -34,20 +36,11 @@ function App() {
   // };
 
   return (
-    <>
-      {/* <Day11Play /> */}
-      {/* <Day12Play />
-      <TodoListApp />
-      <LifeCycle /> */}
-      {/* <UseEffectCycle /> */}
-      {/* <Fetch /> */}
-      {/* <Day12Play /> */}
-      {/* <Day13Play /> */}
-      {/* <Day14Play /> */}
-      {/* <Day16Play /> */}
-      {/* <Day17Play /> */}
-      <Day21Play />
-    </>
+    <div>
+      <TodoProvider>
+        <ToDoApp />
+      </TodoProvider>
+    </div>
   );
 }
 
