@@ -26,6 +26,7 @@ import Day17Play from "./day17_performance/notes";
 import ToDoApp from "./day21_routing";
 import Day21Play from "./day21_routing/notes";
 import TodoProvider from "./day21_routing/todoWRouter/components/todoContext";
+import Counter from "./day22_testing/notes/Counter";
 
 function App() {
   // const student: StudentType = {
@@ -37,9 +38,12 @@ function App() {
 
   return (
     <div>
-      <TodoProvider>
+      <div>
+        <Counter initialCount={0} />
+      </div>
+      {/* <TodoProvider>
         <ToDoApp />
-      </TodoProvider>
+      </TodoProvider> */}
     </div>
   );
 }
