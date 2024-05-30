@@ -8,7 +8,7 @@ vi.mock("../api/get-characters")
 
 describe("<CharactersApp />", () => {
   beforeEach(() => {
-    ;(getCharacters as jest.Mock).mockImplementation(
+    getCharacters as jest.Mock).mockImplementation(
       async (pageNumber: number) => {
         return Array.from({length: 10}, (_, i) => ({
           url: `https://www.anapioficeandfire.com/api/characters/${
