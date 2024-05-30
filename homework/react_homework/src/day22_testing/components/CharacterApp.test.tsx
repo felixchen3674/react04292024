@@ -31,7 +31,7 @@ describe("<CharactersApp />", () => {
       fireEvent.click(button);
 
       await waitFor (() => {
-        const characters = screen.getAllByText("Character \d+");
+        const characters = screen.getAllByText(new RegExp("Character \d+", "i"));
         expect(characters.length).toBe(10);
       })
     });
