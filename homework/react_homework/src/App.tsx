@@ -20,13 +20,13 @@ import { StudentType } from "./day11_describing_the_ui/Student";
 // import UseEffectCycle from "./day13_lifecycles/notes/UseEffect";
 // import TodoListApp from "./day12_interactivity/TodoListApp";
 import Day13Play from "./day13_lifecycles/notes";
+import Counter from "./day13_lifecycles/notes/CounterTimer";
 import Day14Play from "./day14_practice";
 import Day16Play from "./day16_custom_hooks/notes";
 import Day17Play from "./day17_performance/notes";
 import ToDoApp from "./day21_routing";
 import Day21Play from "./day21_routing/notes";
 import TodoProvider from "./day21_routing/todoWRouter/components/todoContext";
-import Counter from "./day22_testing/notes/Counter";
 
 function App() {
   // const student: StudentType = {
@@ -39,12 +39,21 @@ function App() {
   return (
     <div>
       <div>
-        <Counter initialCount={0} />
+        {/* <Counter initialCount={0} /> */}
       </div>
       {/* <TodoProvider>
         <ToDoApp />
       </TodoProvider> */}
-    </div>
+      {/* <Day11Play /> */}
+      {/* <Day12Play /> */}
+      {/* <Day13Play /> */}
+      {/* <Day14Play /> */}
+      {/* <Day16Play /> */}
+      {/* <Day17Play /> */}
+      {/* <ReduxTodoSolution /> */}
+      <Day21Play />
+      {/* <Day22Play /> */}
+      </div>
   );
 }
 
