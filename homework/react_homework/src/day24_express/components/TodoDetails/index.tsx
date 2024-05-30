@@ -7,7 +7,7 @@ import { deleteTodoAsync } from "../../reducer/toDoReducer";
 export default function TodoDetails() {
   const { id } = useParams<{ id: string }>();
   const history = useHistory();
-  const todos = useSelector((todos) => todos as TodosType[]);
+  const todos = useSelector((state) => state.todos as TodosType[]);
   const todo = todos.find((toDoItem) => id === toDoItem.id);
   const dispatch = useDispatch();
 
@@ -16,11 +16,9 @@ export default function TodoDetails() {
     console.log(`Todo ID: ${id}`);
   }, [id]);
 
-  const handleRemove = (id: string) => {
-    return () => {
-      dispatch(deleteTodoAsync(id));
-      history.push("/");
-    };
+  const handleRemove = () => {
+    dispatch(deleteTodoAsync(id));
+    history.push("/");
   };
 
   return (
@@ -34,7 +32,7 @@ export default function TodoDetails() {
         <strong>Text: </strong>
         {todo?.text}
       </p>
-      <button onClick={handleRemove(id)}>Remove</button>
+      <button onClick={handleRemove}>Remove</button>
     </div>
   );
 }

@@ -6,7 +6,7 @@ import TodoItem from "../TodoItem";
 
 export default function TodoList() {
   const [toDoValue, setTodoValue] = useState<string>("");
-  const todos = useSelector((todos) => todos as TodosType[]);
+  const todos = useSelector((state) => state.todos as TodosType[]);
   const dispatch = useDispatch();
 
   useEffect(() => {

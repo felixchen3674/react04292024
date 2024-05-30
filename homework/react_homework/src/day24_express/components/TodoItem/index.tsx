@@ -9,7 +9,7 @@ interface TodoItemProps {
 export default function TodoItem({ text, id }: TodoItemProps) {
   return (
     <li>
-      <Link to={`/todos/:${id}`}>{text}</Link>
+      <Link to={`/todos/${id}`}>{text}</Link>
     </li>
   );
 }
