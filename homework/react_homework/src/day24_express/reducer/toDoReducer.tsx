@@ -1,4 +1,4 @@
-import { AppDispatch } from "../../ReduxTodoSolution/redux/store";
+import { AppDispatch } from "../store";
 import { ADD, DELETE, SET } from "../constants";
 
 export type TodosType = {
@@ -52,7 +52,7 @@ const remove = (id: string): DeleteType => {
   };
 };
 
-const setTodo = (todos: TodosType[]) => {
+const setTodo = (todos: TodosType[]): SetType => {
   return {
     type: SET,
     payload: todos,
