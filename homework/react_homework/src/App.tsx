@@ -20,8 +20,7 @@ function App() {
       {/* <Day16Play /> */}
       {/* <Day17Play /> */}
       {/* <ReduxTodoSolution /> */}
-      {/* <Day21Play /> */}
-      <TodoListApp />
+      <Day21Play />
       {/* <Day22Play /> */}
     </>
   );
