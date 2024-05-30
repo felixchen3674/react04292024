@@ -20,6 +20,8 @@
   "dependencies": {
     "@babel/preset-env": "^7.24.4",
     "axios": "^1.7.2",
-    "axois": "^0.0.1-security"
+    "axois": "^0.0.1-security",
+    "cors": "^2.8.5",
+    "express": "^4.19.2"
   }
 }

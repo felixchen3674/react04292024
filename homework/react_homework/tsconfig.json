@@ -20,6 +20,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src"],
+  "include": ["src", "../vanilla_js/day24_express/index.js"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
