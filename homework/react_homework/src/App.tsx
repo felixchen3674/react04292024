@@ -21,8 +21,7 @@ function App() {
       {/* <Day17Play /> */}
       {/* <ReduxTodoSolution /> */}
       {/* <Day21Play /> */}
-      <TodoListApp />
-      {/* <Day22Play /> */}
+      <Day22Play />
     </>
   );
 }
