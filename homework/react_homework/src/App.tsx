@@ -4,6 +4,7 @@ import ReduxTodoSolution from './ReduxTodoSolution'
 
 import Day12Play from './day12_interactivity/notes'
 import Day13Play from './day13_lifecycles/notes'
+import Day18Play from './day18_contextAPI_useReducer'
 
 import Day19Play from './day19_redux1/note'
 
@@ -14,7 +15,7 @@ function App() {
     <>
       {/* <Day11Play /> */}
       {/* <Day12Play /> */}
-      <Day13Play />
+      {/* <Day13Play /> */}
       {/* <Day14Play /> */}
       {/* <Day16Play /> */}
 
@@ -22,6 +23,8 @@ function App() {
       {/* <Day11Play />
 
       <Day17Play /> */}
+
+      <Day18Play />
 
       {/* <Day19Play /> */}
 
