@@ -1,0 +1,17 @@
+.selected-color {
+  width: 160px;
+  height: 200px;
+  border: 2px solid black;
+  display: flex;
+  color: white;
+  justify-content: center;
+  align-items: flex-end;
+  margin-bottom: 10px;
+}
+
+.color-option {
+  width: 30px;
+  height: 60px;
+  margin: 5px;
+  cursor: pointer;
+}
