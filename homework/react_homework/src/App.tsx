@@ -9,6 +9,7 @@ import Day17Play from './day17_performance/notes';
 import TodoListApp from './day21_routing/TodoList';
 import Day21Play from './day21_routing/notes';
 import Day22Play from './day22_testing';
+import { QuizApp } from './many_practices';
 
 function App() {
   return (
@@ -21,7 +22,8 @@ function App() {
       {/* <Day17Play /> */}
       {/* <ReduxTodoSolution /> */}
       {/* <Day21Play /> */}
-      <Day22Play />
+      {/* <Day22Play /> */}
+      <QuizApp />
     </>
   );
 }
