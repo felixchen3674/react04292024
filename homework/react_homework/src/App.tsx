@@ -15,8 +15,10 @@ import Day16Play from "./day16_custom_hooks/notes";
 import Day17Play from "./day17_performance/notes";
 import Day21Play from "./day21_routing/notes";
 import Day22Play from "./day22_testing";
+import ColorPicker from "./many_practices/ColorPicker";
 
 function App() {
+  const colorOptions : string[] = ['red', 'green', 'blue', 'orange', 'purple'];
   return (
     <>
       {/* <Day11Play /> */}
@@ -26,8 +28,9 @@ function App() {
       {/* <Day16Play /> */}
       {/* <Day17Play /> */}
       {/* <ReduxTodoSolution /> */}
-      <Day21Play />
+      {/* <Day21Play /> */}
       {/* <Day22Play /> */}
+      <ColorPicker initialSelectedColor="red" colorPickerOptions={colorOptions} />
     </>
   );
 }
