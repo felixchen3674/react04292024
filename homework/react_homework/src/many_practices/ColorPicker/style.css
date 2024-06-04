@@ -4,8 +4,8 @@
   }
   
   .selected-color {
-    width: 200px;
-    height: 100px;
+    width: 100px;
+    height: 200px;
     margin: 10px auto;
     border: 1px solid black;
   }
@@ -13,7 +13,7 @@
   .color-options {
     display: flex;
     justify-content: center;
-    width: 200px;
+    width: 100px;
     margin: 0 auto;
   }
   
