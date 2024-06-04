@@ -96,3 +96,12 @@ td {
   background-color: black;
   color: white;
 }
+
+.searchContainer {
+  display: flex;
+}
+.btnContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}

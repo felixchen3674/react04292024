@@ -1,3 +1,4 @@
+import React from "react";
 import "./App.css";
 // import { TodoListApp } from "./day12_interactivity/TodoListApp";
 // import { TodoListApp } from "./day12_interactivity/TodoListApp";
@@ -28,6 +29,9 @@ import ToDoApp from "./day21_routing";
 import Day21Play from "./day21_routing/notes";
 import TodoProvider from "./day21_routing/todoWRouter/components/todoContext";
 
+import DormProvider from "./many_practices/DormitoryList/dormContext";
+import DomitroyList from "./many_practices/DormitoryList";
+
 function App() {
   // const student: StudentType = {
   //   id: 1,
@@ -38,9 +42,7 @@ function App() {
 
   return (
     <div>
-      <div>
-        {/* <Counter initialCount={0} /> */}
-      </div>
+      <div>{/* <Counter initialCount={0} /> */}</div>
       {/* <TodoProvider>
         <ToDoApp />
       </TodoProvider> */}
@@ -51,9 +53,12 @@ function App() {
       {/* <Day16Play /> */}
       {/* <Day17Play /> */}
       {/* <ReduxTodoSolution /> */}
-      <Day21Play />
+      {/* <Day21Play /> */}
       {/* <Day22Play /> */}
-      </div>
+      <DormProvider>
+        <DomitroyList />
+      </DormProvider>
+    </div>
   );
 }
 
