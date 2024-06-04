@@ -13,6 +13,7 @@ import Day18 from "./day18_context_useReducer/notes";
 import Day19 from "./day19_redux/notes";
 import Day21Play from "./day21_routing/notes";
 import Day24 from "./day24_express/components/Day24";
+import EmployeeTable from "./many_practices/EmployeeTable";
 
 function App() {
   return (
@@ -30,7 +31,8 @@ function App() {
       {/* <Day18 /> */}
       {/* <Day19 /> */}
       {/* <Day21Play /> */}
-      <Day24 />
+      {/* <Day24 /> */}
+      <EmployeeTable />
     </>
   );
 }
