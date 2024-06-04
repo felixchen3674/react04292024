@@ -14,15 +14,17 @@ app.get("/todo", (req, res) => {
 
 app.post("/todo", (req, res) => {
   const newTodo = req.body;
-  if (!newTodo)
-    return res.sendStatus(403).send({ message: "body is required" });
+  if (!newTodo || !newTodo.title || newTodo.iscompleted === undefined) {
+    return res.status(400).send({ message: "Invalid body" });
+  }
+  newTodo.id = todos.length ? todos[todos.length - 1].id + 1 : 1;
   todos.push(newTodo);
   res.send({ message: "success!" });
 });
 
 app.delete("/todo/:id", (req, res) => {
   const id = req.params.id;
-  if (!id) return res.sendStatus(404).send({ message: "id is required" });
+  if (!id) return res.sendStatus(404).send({ message: "ID is required" });
   todos = todos.filter((todo) => todo.id !== id);
   res.send({ message: "success!" });
 });
@@ -31,7 +33,7 @@ app.put("/todo/:id", (req, res) => {
   const id = req.params.id;
   const newTodo = req.body;
   if (!id) {
-    return res.status(400).send({ message: "Id id required" });
+    return res.status(400).send({ message: "ID id required" });
   }
   if (!todos.find((item) => item.id === id))
     return res.status(400).send({ message: "ID is not found" });

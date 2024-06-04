@@ -31,3 +31,6 @@ ul.addEventListener("click", (e) => {
     li.remove();
   }
 });
+
+const arr1 = [..."317111"];
+console.log(arr1);

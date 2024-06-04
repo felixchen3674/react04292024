@@ -1,0 +1,43 @@
+GET http://localhost:3000/posts
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoidG9tIiwiaWF0IjoxNzE3MTEyNzU2LCJleHAiOjE3MTcxMTI3NzF9.LXppKpll4tBys2-hyRypmNPAtO38U8SPHlSX03nMzO0
+###
+
+POST http://localhost:4000/token
+Content-Type: application/json
+
+{
+    "token" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoidG9tIiwiaWF0IjoxNzE3MTEyNzQyfQ.vw1NuJSdw8ltglkUj-cJ0zyxadCYxThlm3-gFKt4uj0"
+}
+
+###
+
+DELETE http://localhost:4000/logout
+Content-Type: application/json
+
+{
+    "token" :"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoidG9tIiwiaWF0IjoxNzE3MTEyNzQyfQ.vw1NuJSdw8ltglkUj-cJ0zyxadCYxThlm3-gFKt4uj0"
+}
+
+###
+POST http://localhost:4000/login
+Content-Type: application/json
+
+{
+    "username":"tom"
+    
+}
+
+## style have to follow this format including the next line or ###
+
+
+###
+GET http://localhost:4000/todo
+
+###
+POST http://localhost:4000/todo
+Content-Type: application/json
+
+{
+      "title": "todo4",
+      "iscompleted": false
+}
