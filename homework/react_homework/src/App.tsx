@@ -21,15 +21,7 @@ function App() {
   const colorOptions : string[] = ['red', 'green', 'blue', 'orange', 'purple'];
   return (
     <>
-      {/* <Day11Play /> */}
-      {/* <Day12Play /> */}
-      {/* <Day13Play /> */}
-      {/* <Day14Play /> */}
-      {/* <Day16Play /> */}
-      {/* <Day17Play /> */}
-      {/* <ReduxTodoSolution /> */}
-      {/* <Day21Play /> */}
-      {/* <Day22Play /> */}
+
       <ColorPicker initialSelectedColor="red" colorPickerOptions={colorOptions} />
     </>
   );
