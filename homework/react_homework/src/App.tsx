@@ -31,6 +31,7 @@ import TodoProvider from "./day21_routing/todoWRouter/components/todoContext";
 
 import DormProvider from "./many_practices/DormitoryList/dormContext";
 import DomitroyList from "./many_practices/DormitoryList";
+import EmployeeTable from "./many_practices/EmployeeTable";
 
 function App() {
   // const student: StudentType = {
@@ -55,9 +56,10 @@ function App() {
       {/* <ReduxTodoSolution /> */}
       {/* <Day21Play /> */}
       {/* <Day22Play /> */}
-      <DormProvider>
+      {/* <DormProvider>
         <DomitroyList />
-      </DormProvider>
+      </DormProvider> */}
+      <EmployeeTable />
     </div>
   );
 }
