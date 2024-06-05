@@ -1,0 +1,8 @@
+.employee-table {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+.employee-table td {
+  border: 1px solid black;
+}

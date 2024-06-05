@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "./store/store";
 import { add_employee, edit_disabled, edit_salary } from "./reducer";
+import "./index.css";
 
 export default function EmployeeTable() {
   const [inputName, setInputName] = useState<string>("");
@@ -73,7 +74,7 @@ export default function EmployeeTable() {
 
   return (
     <form>
-      <table>
+      <table className="employee-table">
         <thead>
           <tr>
             <td>Name</td>
