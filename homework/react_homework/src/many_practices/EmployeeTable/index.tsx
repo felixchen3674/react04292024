@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "./store/store";
 import { add_employee, edit_disabled, edit_salary } from "./reducer";
 import "./index.css";
+import UserInput from "./components/UserInput";
 
 export default function EmployeeTable() {
   const [inputName, setInputName] = useState<string>("");
@@ -118,30 +119,21 @@ export default function EmployeeTable() {
             </tr>
           ))}
           <tr>
-            <td>
-              <input
-                type="text"
-                placeholder="Name"
-                value={inputName}
-                onChange={handleInputName}
-              />
-            </td>
-            <td>
-              <input
-                type="text"
-                placeholder="Position"
-                value={inputPosition}
-                onChange={handleInputPosition}
-              />
-            </td>
-            <td>
-              <input
-                type="text"
-                placeholder="Salary"
-                value={inputSalary}
-                onChange={handleInputSalary}
-              />
-            </td>
+            <UserInput
+              placeholder={"Name"}
+              value={inputName}
+              onChange={handleInputName}
+            />
+            <UserInput
+              placeholder={"Position"}
+              value={inputPosition}
+              onChange={handleInputPosition}
+            />
+            <UserInput
+              placeholder={"Salary"}
+              value={inputSalary}
+              onChange={handleInputSalary}
+            />
             <td>
               <button onClick={handleAdd} disabled={isAddDisabled}>
                 Add
