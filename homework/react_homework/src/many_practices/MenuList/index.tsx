@@ -13,10 +13,10 @@ const menuConfig = [
 ]
 
 export default function MenuList() {
-  const [expandedIndex, setExpandedIndex] = useState(null)
+  const [expandedMenuIndex, setExpandedMenuIndex] = useState(null)
 
   function handleExpand(index) {
-    setExpandedIndex(expandedIndex === index ? null : index)
+    setExpandedMenuIndex(expandedMenuIndex === index ? null : index)
   }
 
   return (
@@ -24,17 +24,17 @@ export default function MenuList() {
       <div>MenuList</div>
       <ul>
         {menuConfig.map((item, index) => (
-          <li key={index}>
-            {item.title}{' '}
+          <li key={Math.random().toString()}>
+            <span>{item.title}</span>
             {item.subItems ? (
               <button onClick={() => handleExpand(index)}>
-                {expandedIndex === index ? 'collapse' : 'expand'}
+                {expandedMenuIndex === index ? 'collapse' : 'expand'}
               </button>
             ) : null}
-            {expandedIndex === index && item.subItems ? (
+            {expandedMenuIndex === index && item.subItems ? (
               <ul>
                 {item.subItems.map((subItem, subIndex) => (
-                  <li key={subIndex}>{subItem}</li>
+                  <li key={Math.random().toString()}>{subItem}</li>
                 ))}
               </ul>
             ) : null}
