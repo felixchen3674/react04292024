@@ -32,6 +32,9 @@ import TodoList19 from "./day19_redux/homework/TodoList19";
 import Day21Play from "./day21_routing/notes";
 import Day22Play from "./day22_testing";
 import Counter from "./day22_testing/note/PedroTech/Counter";
+import CollapsibleFAQ from "./many_practices/CallapsibleFAQ/CollapsibleFAQ";
+
+
 
 function App() {
   return (
@@ -47,8 +50,9 @@ function App() {
       {/* <TodoList19 /> */}
       {/* <ReduxTodoSolution /> */}
       {/* <Day21Play /> */}
-      <Day22Play />
+      {/* <Day22Play /> */}
       {/* <Counter initialCount={0}  /> */}
+      <CollapsibleFAQ />
     </Provider>
   );
 }
