@@ -119,11 +119,17 @@ export default function EmployeeTable() {
           ))}
           <tr>
             <td>
-              <input type="text" value={inputName} onChange={handleInputName} />
+              <input
+                type="text"
+                placeholder="Name"
+                value={inputName}
+                onChange={handleInputName}
+              />
             </td>
             <td>
               <input
                 type="text"
+                placeholder="Position"
                 value={inputPosition}
                 onChange={handleInputPosition}
               />
@@ -131,6 +137,7 @@ export default function EmployeeTable() {
             <td>
               <input
                 type="text"
+                placeholder="Salary"
                 value={inputSalary}
                 onChange={handleInputSalary}
               />
