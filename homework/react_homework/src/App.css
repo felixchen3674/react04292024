@@ -105,3 +105,20 @@ td {
   flex-direction: column;
   justify-content: end;
 }
+.textContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.addContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.questionContainer {
+  display: flex;
+  justify-content: center;
+}
+.answerContainer {
+  display: flex;
+}

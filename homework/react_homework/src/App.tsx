@@ -32,6 +32,7 @@ import TodoProvider from "./day21_routing/todoWRouter/components/todoContext";
 import DormProvider from "./many_practices/DormitoryList/dormContext";
 import DomitroyList from "./many_practices/DormitoryList";
 import EmployeeTable from "./many_practices/EmployeeTable";
+import CollapsibleFAQ from "./many_practices/CallapsibleFAQ";
 
 function App() {
   // const student: StudentType = {
@@ -59,7 +60,8 @@ function App() {
       {/* <DormProvider>
         <DomitroyList />
       </DormProvider> */}
-      <EmployeeTable />
+      {/* <EmployeeTable /> */}
+      <CollapsibleFAQ />
     </div>
   );
 }
