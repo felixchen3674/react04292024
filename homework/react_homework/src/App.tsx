@@ -15,6 +15,7 @@ import Day21Play from "./day21_routing/notes";
 import Day24 from "./day24_express/components/Day24";
 import EmployeeTable from "./many_practices/EmployeeTable";
 import CollapsibleFAQ from "./many_practices/CallapsibleFAQ";
+import ColorPicker from "./many_practices/ColorPicker";
 
 function App() {
   return (
@@ -34,7 +35,8 @@ function App() {
       {/* <Day21Play /> */}
       {/* <Day24 /> */}
       {/* <EmployeeTable /> */}
-      <CollapsibleFAQ />
+      {/* <CollapsibleFAQ /> */}
+      <ColorPicker />
     </>
   );
 }

@@ -1,0 +1,62 @@
+ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+  }
+  
+  .nav-item {
+    margin: 5px;
+  }
+  
+  .color-link {
+    display: block;
+    width: 100px; /* Adjust as needed */
+    height: 100px; /* Adjust as needed */
+  }
+  
+  .background-color-red .color-link {
+    background-color: red;
+  }
+  
+  .background-color-green .color-link {
+    background-color: green;
+  }
+  
+  .background-color-grey .color-link {
+    background-color: grey;
+  }
+  
+  .background-color-blue .color-link {
+    background-color: blue;
+  }
+  
+  .background-color-purple .color-link {
+    background-color: purple;
+  }
+  
+  /* Optional: Add styles for ColorDisplay component */
+  .background-color-red {
+    background-color: red;
+    height: 100px;
+  }
+  
+  .background-color-green {
+    background-color: green;
+    height: 100px;
+  }
+  
+  .background-color-grey {
+    background-color: grey;
+    height: 100px;
+  }
+  
+  .background-color-blue {
+    background-color: blue;
+    height: 100px;
+  }
+  
+  .background-color-purple {
+    background-color: purple;
+    height: 100px;
+  }
+  

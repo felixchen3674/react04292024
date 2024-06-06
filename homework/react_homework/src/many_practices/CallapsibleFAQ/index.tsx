@@ -1,18 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import QuestionAndAnswer from "./components/QuestionAndAnswer";
 import "./index.css";
 
 type QuestionWithAnswer = {
+  id: number;
   question: string;
   answer: string;
 };
 
 const initialQuestions: QuestionWithAnswer[] = [
-  { question: "Do you wanna paly", answer: "yes" },
-  { question: "Do you like party", answer: "Not really" },
+  { id: 1, question: "Do you wanna play?", answer: "Yes" },
+  { id: 2, question: "Do you like parties?", answer: "Not really" },
   {
-    question: "Do you have a girlfriend or boyfriend",
-    answer: "No, Im single",
+    id: 3,
+    question: "Do you have a girlfriend or boyfriend?",
+    answer: "No, I'm single",
   },
 ];
 
@@ -33,39 +35,37 @@ export default function CollapsibleFAQ() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (inputQuestion === "" || inputAnswer === "") {
-      alert("either question or answer is empty");
+      alert("Both question and answer must be filled out.");
+      return;
     }
     setQuestionAnswerList((prev) => [
       ...prev,
-      { question: inputQuestion, answer: inputAnswer },
+      { id: Date.now(), question: inputQuestion, answer: inputAnswer },
     ]);
     setInputQuestion("");
     setInputAnswer("");
   };
 
-  const handleDelete = (id: number) => {
-    return () => {
-      setQuestionAnswerList((prev) => prev.filter((_, index) => index !== id));
-    };
-  };
+  const handleDelete = useCallback((id: number) => {
+    setQuestionAnswerList((prev) => prev.filter((qa) => qa.id !== id));
+  }, []);
+
   return (
     <>
-      {questionAnswerList.map((qa, index) => {
-        return (
-          <QuestionAndAnswer
-            key={index}
-            question={qa.question}
-            answer={qa.answer}
-            handleDelete={handleDelete(index)}
-          />
-        );
-      })}
+      {questionAnswerList.map((qa) => (
+        <QuestionAndAnswer
+          key={qa.id}
+          question={qa.question}
+          answer={qa.answer}
+          handleDelete={() => handleDelete(qa.id)}
+        />
+      ))}
       <form className="input-form" onSubmit={handleSubmit}>
         <div className="input-form-user-input">
           <label>
             <input
               type="text"
-              placeholder="input question"
+              placeholder="Input question"
               value={inputQuestion}
               onChange={handleInputQuestion}
             />
@@ -73,13 +73,13 @@ export default function CollapsibleFAQ() {
           <label>
             <input
               type="text"
-              placeholder="input answer"
+              placeholder="Input answer"
               value={inputAnswer}
               onChange={handleInputAnswer}
             />
           </label>
         </div>
-        <button>ADD</button>
+        <button type="submit">ADD</button>
       </form>
     </>
   );
