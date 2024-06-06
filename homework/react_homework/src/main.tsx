@@ -4,8 +4,4 @@ import App from "./App.tsx";
 import "./index.css";
 import store from "./many_practices/EmployeeTable/store/store.tsx";
 
-ReactDOM.createRoot(document.getElementById("root")!).render(
-  <Provider store={store}>
-    <App />
-  </Provider>
-);
+ReactDOM.createRoot(document.getElementById("root")!).render(<App />);

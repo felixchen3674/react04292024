@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import QuestionAndAnswer from "./components/QuestionAndAnswer";
-import UserInput from "./components/UserInput";
 import "./index.css";
 
 type QuestionWithAnswer = {
@@ -40,6 +39,8 @@ export default function CollapsibleFAQ() {
       ...prev,
       { question: inputQuestion, answer: inputAnswer },
     ]);
+    setInputQuestion("");
+    setInputAnswer("");
   };
 
   const handleDelete = (id: number) => {
