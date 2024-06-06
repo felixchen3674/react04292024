@@ -10,6 +10,7 @@ import TodoListApp from './day21_routing/TodoList';
 import Day21Play from './day21_routing/notes';
 import Day22Play from './day22_testing';
 import { QuizApp } from './many_practices';
+import ColorPicker from './many_practices/ColorPicker';
 
 function App() {
   return (
@@ -23,7 +24,8 @@ function App() {
       {/* <ReduxTodoSolution /> */}
       {/* <Day21Play /> */}
       {/* <Day22Play /> */}
-      <QuizApp />
+      {/* <QuizApp /> */}
+      <ColorPicker />
     </>
   );
 }
