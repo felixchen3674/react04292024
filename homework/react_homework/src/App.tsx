@@ -11,6 +11,7 @@ import Day19Play from './day19_redux1/note'
 import Day21Play from './day21_routing/notes'
 import MenuList from './many_practices/MenuList'
 import ColorPicker from './many_practices/ColorPicker'
+import EmployeeTable from './many_practices/EmployeeTable'
 
 function App() {
   return (
@@ -32,11 +33,12 @@ function App() {
 
       {/* <Day19Play /> */}
       {/* <Day21Play /> */}
-      <MenuList />
+      {/* <MenuList /> */}
       {/* <ColorPicker
         initialSelectedColor="red"
         colorPickerOptions={['red', 'blue', 'green', 'purple']}
       /> */}
+      <EmployeeTable />
     </>
   )
 }
