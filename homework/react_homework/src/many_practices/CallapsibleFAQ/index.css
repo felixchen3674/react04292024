@@ -1,0 +1,25 @@
+.input-form {
+    width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 300px;
+}
+
+.input-form-user-input {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.input-form input {
+    width: 500px;
+    height: 40px;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+.input-form button {
+    height: 40px;
+    font-size: 16px;
+}

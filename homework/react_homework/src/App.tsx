@@ -14,6 +14,7 @@ import Day19 from "./day19_redux/notes";
 import Day21Play from "./day21_routing/notes";
 import Day24 from "./day24_express/components/Day24";
 import EmployeeTable from "./many_practices/EmployeeTable";
+import CollapsibleFAQ from "./many_practices/CallapsibleFAQ";
 
 function App() {
   return (
@@ -32,7 +33,8 @@ function App() {
       {/* <Day19 /> */}
       {/* <Day21Play /> */}
       {/* <Day24 /> */}
-      <EmployeeTable />
+      {/* <EmployeeTable /> */}
+      <CollapsibleFAQ />
     </>
   );
 }

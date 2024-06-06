@@ -1,0 +1,37 @@
+.question-and-answer {
+    width: 1200px;
+    margin-bottom: 10px;
+}
+
+.question {
+    background-color: grey;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    color: green;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.question button {
+    height: 40px;
+}
+
+.answer {
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+}
+
+.answer_hide {
+    display: none;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+}
+
+.answer .delete-button {
+    background-color: red;
+    color: white
+}
