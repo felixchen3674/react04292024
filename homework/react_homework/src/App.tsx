@@ -9,6 +9,7 @@ import Day17Play from "./day17_performance/notes";
 import Day21Play from "./day21_routing/notes";
 import Day22Play from "./day22_testing";
 import MenuList from "./many_practices/MenuList";
+import QuizApp from "./many_practices/QuizApp";
 
 function App() {
   const menuConfig = [
@@ -36,7 +37,8 @@ function App() {
       {/* <ReduxTodoSolution /> */}
       {/* <Day21Play /> */}
       {/* <Day22Play /> */}
-      <MenuList menuConfig={menuConfig} />
+      {/* <MenuList menuConfig={menuConfig} /> */}
+      <QuizApp />
       
     </>
   );
