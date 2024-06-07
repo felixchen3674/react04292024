@@ -34,6 +34,8 @@ import DomitroyList from "./many_practices/DormitoryList";
 import EmployeeTable from "./many_practices/EmployeeTable";
 import CollapsibleFAQ from "./many_practices/CallapsibleFAQ";
 import QuizApp from "./many_practices/QuizApp";
+import ColorPicker from "./many_practices/ColorPicker";
+import MenuList from "./many_practices/MenuList";
 
 function App() {
   // const student: StudentType = {
@@ -63,8 +65,9 @@ function App() {
       </DormProvider> */}
       {/* <EmployeeTable /> */}
       {/* <CollapsibleFAQ /> */}
-      <QuizApp />
-      {/* <QuizApp1 /> */}
+      {/* <QuizApp /> */}
+      {/* <ColorPicker /> */}
+      <MenuList />
     </div>
   );
 }
