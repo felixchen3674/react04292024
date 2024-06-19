@@ -11,6 +11,7 @@ import Day21Play from './day21_routing/notes';
 import Day22Play from './day22_testing';
 import { QuizApp } from './many_practices';
 import ColorPicker from './many_practices/ColorPicker';
+import FTodoListApp from './fullstackTodoList/frontend';
 
 function App() {
   return (
@@ -25,7 +26,8 @@ function App() {
       {/* <Day21Play /> */}
       {/* <Day22Play /> */}
       {/* <QuizApp /> */}
-      <ColorPicker />
+      {/* <ColorPicker /> */}
+      <FTodoListApp />
     </>
   );
 }
