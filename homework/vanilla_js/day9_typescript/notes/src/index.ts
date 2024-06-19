@@ -146,7 +146,7 @@ let textBox: UImidwidget = {
 
 type Quantity = 50 | 100;
 let quantity: Quantity = 50; // it will show error if the value is not 50 or 100;
-type Metirc = "cm" | "inch";
+type Metric = "cm" | "inch";
 
 function greeting(name: string) {
   // usually we can't use null of undefined in ts;

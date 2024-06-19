@@ -1,5 +1,6 @@
 import { Component } from "react";
 import { StudentType, StudentFn, StudentClass } from "./Student";
+import React from "react";
 
 /*
     implement a StudentsList component here
@@ -9,11 +10,11 @@ import { StudentType, StudentFn, StudentClass } from "./Student";
 */
 
 // implement a StudentsList component here
-export function StudentsListFn(props: { students: StudentType[] }) {
+export function StudentsListFn({ students }: { students: StudentType[] }) {
   return (
     <div>
       <h1>Students List</h1>
-      {props.students.map((item) => {
+      {students.map((item) => {
         return <StudentFn key={item.id} student={item} />;
       })}
     </div>

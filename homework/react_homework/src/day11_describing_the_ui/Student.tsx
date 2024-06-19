@@ -9,6 +9,7 @@
     it should render the student's information
 */
 
+import React from "react";
 import { Component } from "react";
 // import React from "react";
 
@@ -21,8 +22,8 @@ export interface StudentType {
   grade: "A" | "B" | "C" | "D" | "F";
 }
 
-export function StudentFn(props: { student: StudentType }) {
-  const { id, name, age, grade } = props.student;
+export function StudentFn({ student }: { student: StudentType }) {
+  const { id, name, age, grade } = student;
   return (
     <div data-testid="student">
       <h4>{id}</h4>

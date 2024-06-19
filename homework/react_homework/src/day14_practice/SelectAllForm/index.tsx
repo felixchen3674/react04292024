@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Checkbox from "./Checkbox";
 // import { CheckBox } from "./Checkbox";
-interface Item {
+export interface Item {
   id: number;
   name: string;
   checked: boolean;

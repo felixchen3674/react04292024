@@ -2,14 +2,21 @@ type Object = {
   [key: string]: any;
 };
 export function combineObjects(obj1: Object, obj2: Object): Object {
-  let res: Object = {};
-  for (let key in obj1) {
-    res[key] = obj1[key];
-  }
-  for (let key in obj2) {
+  // let res: Object = {};
+  // for (let key in obj1) {
+  //   res[key] = obj1[key];
+  // }
+  // for (let key in obj2) {
+  //   res[key] = obj2[key];
+  // }
+  // return res;
+
+  let res = { ...obj1 };
+  for (const key in obj2) {
     res[key] = obj2[key];
   }
   return res;
+
   // Combine the objects
   // if the objects have the same key, use the value from obj2
   // Example 1: const obj1 = {name: 'Alice', age: 25};
@@ -21,7 +28,7 @@ export function combineObjects(obj1: Object, obj2: Object): Object {
 }
 
 export function changeValueOf(obj: Object, key: string, value: any): Object {
-  return (obj[key] = value);
+  // return (obj[key] = value);
   // update the obj in place, do not return a new obj
   // Change the value of the key in the object
   // Example 1: const obj = {name: 'Alice', age: 25};
@@ -30,6 +37,8 @@ export function changeValueOf(obj: Object, key: string, value: any): Object {
   // Example 2: const obj = {name: 'Alice', age: 25};
   // changeValueOf(obj, 'job', 'teacher');
   // Expected obj: {name: 'Alice', age: 25, job: 'teacher'}
+  obj[key] = value;
+  return obj;
 }
 interface event {
   name: string;
@@ -37,14 +46,23 @@ interface event {
   isCanceled: boolean;
 }
 export function cancelExpiredEvents(events: event[]) {
+  // const currentDate = new Date();
+  // for (let i = 0; i < events.length; i++) {
+  //   const event = events[i];
+  //   const eventDate = new Date(event.date);
+  //   if (eventDate < currentDate) {
+  //     event.isCanceled = true;
+  //   }
+  // }
+
   const currentDate = new Date();
-  for (let i = 0; i < events.length; i++) {
-    const event = events[i];
-    const eventDate = new Date(event.date);
+  for (const item of events) {
+    const eventDate = new Date(item.date);
     if (eventDate < currentDate) {
-      event.isCanceled = true;
+      item.isCanceled = true;
     }
   }
+
   // update the events in place, do not return a new obj
   // Cancel the expired events
   // Example: const events = [

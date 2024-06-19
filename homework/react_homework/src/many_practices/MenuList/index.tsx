@@ -20,7 +20,9 @@ export default function MenuList() {
             <div key={title} className="itemContainer">
               <h3>{title}</h3>
               {subItems && (
-                <button onClick={() => handleExpand(index)}>expand</button>
+                <button onClick={() => handleExpand(index)}>
+                  {toggleId === index ? "hide" : "expand"}
+                </button>
               )}
               {toggleId === index ? (
                 <div className="subItemContainer">

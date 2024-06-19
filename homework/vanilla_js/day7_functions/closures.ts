@@ -28,15 +28,28 @@ type Object = {
   increment: () => number;
 };
 export function createCounter(): Object {
-  let counter: number = 0;
+  // let counter: number = 0;
+  // return {
+  //   getValue: function () {
+  //     return counter;
+  //   },
+  //   increment: function () {
+  //     counter++;
+  //     return counter;
+  //   },
+  // };
+
+  let count = 0;
+  const increment = () => {
+    count = count + 1;
+    return count;
+  };
+  const getValue = () => {
+    return count;
+  };
   return {
-    getValue: function () {
-      return counter;
-    },
-    increment: function () {
-      counter++;
-      return counter;
-    },
+    getValue,
+    increment,
   };
 }
 
@@ -59,19 +72,28 @@ type Object1<T> = {
 };
 
 export function functionStore(): Store<number> {
-  let obj: Object1<number> = {};
-  return {
-    store: function (key, fn) {
-      obj[key] = fn;
-    },
-    run: function (key, ...args) {
-      if (obj[key]) {
-        return obj[key].call(this, ...args);
-      } else {
-        return undefined;
-      }
-    },
+  const obj = {};
+  const store = (key, fn) => {
+    obj[key] = fn;
   };
+  const run = function (key, ...args) {
+    return obj[key](...args);
+  };
+  return { store, run };
+
+  // let obj: Object1<number> = {};
+  // return {
+  //   store: function (key, fn) {
+  //     obj[key] = fn;
+  //   },
+  //   run: function (key, ...args) {
+  //     if (obj[key]) {
+  //       return obj[key].call(this, ...args);
+  //     } else {
+  //       return undefined;
+  //     }
+  //   },
+  // };
 }
 
 // Exercise 4: Private Variables
@@ -88,16 +110,26 @@ interface Person {
   setName: (name: string) => string;
 }
 export function createPerson(name: string): Person {
-  let storeName = name;
-  return {
-    getName: function () {
-      return storeName;
-    },
-    setName: function (newName: string) {
-      storeName = newName;
-      return storeName;
-    },
+  let nameRecord = name;
+  const getName = () => {
+    return nameRecord;
   };
+  const setName = (name2) => {
+    nameRecord = name2;
+    return nameRecord;
+  };
+  return { getName, setName };
+
+  // let storeName = name;
+  // return {
+  //   getName: function () {
+  //     return storeName;
+  //   },
+  //   setName: function (newName: string) {
+  //     storeName = newName;
+  //     return storeName;
+  //   },
+  // };
 }
 
 // Exercise 5: Limited Call Function
@@ -117,15 +149,23 @@ export function createPerson(name: string): Person {
 // limitedHello(); // No output, subsequent calls are ignored
 
 export function createLimitedCallFunction(fn: () => string, limit: number) {
-  let times = limit;
+  let times = 0;
   return function () {
-    if (times <= 0) {
+    if (times >= limit) {
       return;
-    } else {
-      times--;
-      fn();
     }
+    fn();
+    times++;
   };
+  // let times = limit;
+  // return function () {
+  //   if (times <= 0) {
+  //     return;
+  //   } else {
+  //     times--;
+  //     fn();
+  //   }
+  // };
 }
 
 // Exercise 6: Rate Limiter
@@ -149,14 +189,29 @@ export function createRateLimiter(
   limit: number,
   interval: number
 ) {
-  let call = 0;
-  return function (name: string) {
-    if (call < limit) {
-      fn(name);
-      call++;
-      setTimeout(() => {
-        call = 0;
-      }, interval);
+  let times = 0;
+  let callTime = Date.now();
+  return function (name) {
+    const currentTime = Date.now();
+    if (currentTime - callTime >= interval) {
+      times = 0;
+      callTime = currentTime;
     }
+    if (times >= limit) {
+      return;
+    }
+    fn(name);
+    times++;
   };
+
+  // let call = 0;
+  // return function (name: string) {
+  //   if (call < limit) {
+  //     fn(name);
+  //     call++;
+  //     setTimeout(() => {
+  //       call = 0;
+  //     }, interval);
+  //   }
+  // };
 }

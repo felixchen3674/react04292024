@@ -1,5 +1,3 @@
-// reinvent the wheel: prototype methods
-
 export function myMap<ElementType, ElementType2>(
   arr: ElementType[],
   cb: (item: ElementType) => ElementType2
@@ -10,6 +8,7 @@ export function myMap<ElementType, ElementType2>(
     res.push(cb(item));
   }
   return res;
+
   // Write a function that takes an array and a callback as arguments
   // and returns a new array with the callback applied to each element.
   // Example: const arr = [1, 2, 3, 4, 5];
@@ -21,7 +20,14 @@ export function myFilter<ElementType>(
   arr: ElementType[],
   cb: (item: ElementType) => boolean
 ): ElementType[] {
-  const res: ElementType[] = [];
+  // const res: ElementType[] = [];
+  // for (const item of arr) {
+  //   if (cb(item)) {
+  //     res.push(item);
+  //   }
+  // }
+  // return res;
+  const res = [];
   for (const item of arr) {
     if (cb(item)) {
       res.push(item);
@@ -108,12 +114,20 @@ export function myIncludes<T>(arr: T[], val: T): boolean {
 }
 
 export function myJoin<T>(arr: T[], separator: string): string {
+  // if (arr.length <= 1) {
+  //   return arr.toString();
+  // }
+  // let res = arr[0] + "";
+  // for (let i = 1; i < arr.length; i++) {
+  //   res = res + separator + arr[i];
+  // }
+  // return res;
   if (arr.length <= 1) {
     return arr.toString();
   }
   let res = arr[0] + "";
   for (let i = 1; i < arr.length; i++) {
-    res = res + separator + arr[i];
+    res += separator + arr[i];
   }
   return res;
   // Write a function that takes an array and a separator as arguments
@@ -172,14 +186,24 @@ export function myReduce(
   cb: (acc: number, item: number) => number,
   initial: number
 ) {
-  if (arr.length === 0) {
-    return initial;
-  }
+  // if (arr.length === 0) {
+  //   return initial;
+  // }
+  // let res = initial;
+  // for (const item of arr) {
+  //   res = cb(item, res);
+  // }
+  // return res;
+
   let res = initial;
+  if (arr.length === 0) {
+    return res;
+  }
   for (const item of arr) {
-    res = cb(item, res);
+    res = cb(res, item);
   }
   return res;
+
   // Write a function that takes an array, a callback and an initial value as arguments
   // and returns a single value.
   // Example: const arr = [1, 2, 3, 4, 5];
@@ -191,7 +215,18 @@ export function mySort(
   arr: number[],
   cb: (item1: number, item2: number) => number
 ): number[] {
-  for (let i = 0; i < arr.length; i++) {
+  // for (let i = 0; i < arr.length; i++) {
+  //   for (let j = i + 1; j < arr.length; j++) {
+  //     if (cb(arr[i], arr[j]) > 0) {
+  //       const tem = arr[i];
+  //       arr[i] = arr[j];
+  //       arr[j] = tem;
+  //     }
+  //   }
+  // }
+  // return arr;
+
+  for (let i = 0; i < arr.length - 1; i++) {
     for (let j = i + 1; j < arr.length; j++) {
       if (cb(arr[i], arr[j]) > 0) {
         const tem = arr[i];
@@ -200,7 +235,7 @@ export function mySort(
       }
     }
   }
-  return arr;
+  return [...arr];
 
   // Write a function that takes an array of NUMBERS and a callback as arguments
   // and returns a new array sorted by the callback.
@@ -210,16 +245,32 @@ export function mySort(
 }
 
 export function mySlice<T>(arr: T[], start: number, end: number) {
-  const res: T[] = [];
+  // const res: T[] = [];
+  // if (arr.length === 0) {
+  //   return arr;
+  // }
+  // start = start >= 0 ? start : arr.length + start;
+  // end = end === undefined ? arr.length : end >= 0 ? end : arr.length + end;
+  // for (let i = start; i < end; i++) {
+  //   res.push(arr[i]);
+  // }
+  // return res;
   if (arr.length === 0) {
-    return arr;
+    return [];
   }
-  start = start >= 0 ? start : arr.length + start;
-  end = end === undefined ? arr.length : end >= 0 ? end : arr.length + end;
-  for (let i = start; i < end; i++) {
-    res.push(arr[i]);
+  const res = [];
+
+  start = start < 0 ? arr.length + start : start;
+  end = end === undefined ? arr.length : end < 0 ? arr.length + end : end;
+  if (start > end || start === undefined) {
+    return [];
+  } else {
+    for (let i = start; i < end; i++) {
+      res.push(arr[i]);
+    }
   }
   return res;
+
   // Write a function that takes an array, a start index and an end index as arguments
   // and returns a new array with the elements sliced from the start to the end.
   // Example: const arr = [1, 2, 3, 4, 5];

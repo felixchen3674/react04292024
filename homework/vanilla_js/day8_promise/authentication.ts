@@ -27,7 +27,9 @@ export const encodePassword = (password: string): string => {
 };
 
 export const decodePassword = (encrypted: string): string => {
-  const decodedString = encrypted.split("").slice(0, -7).reverse().join("");
+  // const decodedString = encrypted.split("").slice(0, -7).reverse().join("");
+  const decodedString = encrypted.slice(0, -7).split("").reverse().join("");
+
   return decodedString;
   // const res = encrypted.split("");
   // res.splice(-7, 7);
@@ -44,13 +46,18 @@ export const getUserByEmail = async (email: string): Promise<User> => {
   // } else {
   //   return res[0];
   // }
-  const user = users.find((item) => item.email === email);
-  if (user) {
-    return Promise.resolve(user);
+  // const user = users.find((item) => item.email === email);
+  // if (user) {
+  //   return Promise.resolve(user);
+  // } else {
+  //   throw new Error("User not found");
+  // }
+  const res = users.find((item) => item.email === email);
+  if (res) {
+    return res;
   } else {
     throw new Error("User not found");
   }
-
   // fetch a user by email
   // should throw an error with message "User not found" if the user is not found
   // e.g. { name: "Leanne Graham", username: "Bret", email: "leanne.graham@email.com", password: "1drowssapencoded" }
@@ -60,12 +67,21 @@ export const verifyPassword = async (
   password: string,
   encrypted: string
 ): Promise<boolean> => {
-  const encodePassword = encrypted.split("").slice(0, -7).reverse().join("");
-  if (password === encodePassword) {
-    return Promise.resolve(true);
-  } else {
-    throw new Error("Invalid password");
-  }
+  // const encodePassword = encrypted.split("").slice(0, -7).reverse().join("");
+  // if (password === encodePassword) {
+  //   return Promise.resolve(true);
+  // } else {
+  //   throw new Error("Invalid password");
+  // }
+  return new Promise((res, rej) => {
+    const verifypassword = decodePassword(encrypted);
+    if (verifypassword === password) {
+      res(true);
+    } else {
+      rej(new Error("Invalid password"));
+    }
+  });
+
   // verify the password
   // should throw an error with message "Invalid password" if the password is incorrect
 };

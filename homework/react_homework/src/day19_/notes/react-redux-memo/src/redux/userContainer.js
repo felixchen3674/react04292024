@@ -18,11 +18,10 @@ import { fetchUser } from "./userReducer";
 // }
 export default function UserContainer() {
   const dispatch = useDispatch();
-  // useEffect(() => {
-  //   dispatch(fetchUser());
-  // }, [dispatch]);
   useEffect(() => {
     dispatch(fetchUser());
+    // when you pass a function to dispatch instead of a object, it is using middleware thunk to handle async operation so you can pass function
+    // to achieve it , you need to apply middleware to store;
   }, [dispatch]);
   const user = useSelector((state) => state.users);
   console.log(user);

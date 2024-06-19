@@ -30,7 +30,7 @@ function logger(req, res, next) {
   next();
 }
 
-require("dotenv").config();
+require("dotenv").config(); // import the env to node.js environment
 
 app.use(express.json());
 

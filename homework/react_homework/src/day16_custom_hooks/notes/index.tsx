@@ -12,6 +12,7 @@ import UseRef from "./useRef";
 import ParentTwo from "../../day17_performance/notes/parentTwo";
 import UseMemo from "../../day17_performance/notes/usememo";
 import UseCallBack from "../../day17_performance/notes/useCallBack";
+import React from "react";
 
 export default function Day16Play() {
   return (
@@ -22,7 +23,7 @@ export default function Day16Play() {
         <Posts />
         <Todos />
       </> */}
-      {/* <DebouncedInput /> */}
+      <DebouncedInput />
       {/* <AutoFocusInput /> */}
       {/* <LoginForm /> */}
       {/* <UseRef />
@@ -30,7 +31,7 @@ export default function Day16Play() {
       <HoverCounter /> */}
       {/* <ParentTwo /> */}
       {/* <UseMemo /> */}
-      <UseCallBack />
+      {/* <UseCallBack /> */}
     </div>
   );
 }

@@ -2,10 +2,14 @@
 // import FetchPostByIdApp from "../solutions/FetchPostByIdApp";
 // import FetchPosts from "./FetchPosts";
 
+import React from "react";
+import CounterP from "./CounterP";
 import Counter from "./CounterTimer";
 import { CounterClass } from "./CounterWithClass";
 import FetchPostByTime from "./FetchPostByTime";
+import FetchPostP from "./FetchPostP";
 import { FetchPostWithClass } from "./FetchPostWithClass";
+import FetchPostByTimeP from "./FetchPostByTimeP";
 
 export default function Day13Play() {
   return (
@@ -17,7 +21,10 @@ export default function Day13Play() {
         {/* <FetchPostWithClass /> */}
         {/* <Counter /> */}
         {/* <CounterClass /> */}
-        <FetchPostByTime />
+        {/* <FetchPostByTime /> */}
+        {/* <FetchPostP /> */}
+        {/* <CounterP /> */}
+        <FetchPostByTimeP />
       </div>
     </div>
   );

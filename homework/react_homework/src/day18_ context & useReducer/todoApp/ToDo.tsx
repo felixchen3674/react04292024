@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { CheckBox } from "./CheckBox";
 import { ToDoContext } from "./todoContext";
+import React from "react";
 
 export interface TodoType {
   id: number;

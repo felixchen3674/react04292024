@@ -10,7 +10,7 @@
     {
       "id": "2",
       "task": "Prepare for presentation",
-      "completed": true,
+      "completed": false,
       "date": "2024-05-30",
       "description": "Create slides, rehearse presentation, and gather feedback from peers."
     }

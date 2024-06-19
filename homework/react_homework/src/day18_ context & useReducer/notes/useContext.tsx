@@ -1,6 +1,12 @@
 import React, { createContext, useState, useContext } from "react";
 
-const appContext = createContext(null);
+interface AppContextType {
+  userName: string;
+  setUserName: (name: string) => void;
+}
+
+const appContext = createContext<AppContextType | null>(null);
+
 export default function useContextFunction() {
   const [userName, setUserName] = useState("PedroTech");
 
@@ -17,7 +23,13 @@ export const Child = () => {
   return <Grandchild />;
 };
 export const Grandchild = () => {
-  const { setUserName } = useContext(appContext);
+  // const context = useContext(appContext);
+
+  // if (!context) {
+  //   throw new Error("Grandchild must be used within an AppContextProvider");
+  // }
+  // const { setUserName } = context; option1
+  const { setUserName } = useContext(appContext) as AppContextType; //option 2
   return (
     <div>
       <button onClick={() => setUserName("PedroTechnologies")}>

@@ -2,9 +2,14 @@
 
 // Data types & numsays
 export function checkIfStringIsNumber(str: string): boolean {
-  const regex = /^[-+]?\d*\.?\d+$/;
-  return regex.test(str);
+  if (Number(str.trim())) {
+    return true;
+  } else {
+    return false;
+  }
 
+  // const regex = /^[-+]?\d*\.?\d+$/;
+  // return regex.test(str);
   //   Write a function that takes a string as an argument and
   //   returns a boolean indicating if the str is a number
   //   Example:
@@ -12,19 +17,28 @@ export function checkIfStringIsNumber(str: string): boolean {
 }
 
 export function findAvgOfNums(arr: (number | string)[]): number {
-  const newarray = arr.filter((item) => typeof item === "number");
-  // const newarray:number[] = [];
-  // for(let i =0; i<arr.length;i++){
-  //   if(typeof arr[i])
-  // }
-  if (newarray.length === 0) {
-    return 0;
-  }
   let sum = 0;
-  for (const num of newarray) {
-    sum += Number(num);
-  }
-  return sum / newarray.length;
+  let count = 0;
+  arr.forEach((item) => {
+    if (typeof item === "number") {
+      sum += item;
+      count++;
+    }
+  });
+  return count === 0 ? 0 : sum / count;
+  // const newarray = arr.filter((item) => typeof item === "number");
+  // // const newarray:number[] = [];
+  // // for(let i =0; i<arr.length;i++){
+  // //   if(typeof arr[i])
+  // // }
+  // if (newarray.length === 0) {
+  //   return 0;
+  // }
+  // let sum = 0;
+  // for (const num of newarray) {
+  //   sum += Number(num);
+  // }
+  // return sum / newarray.length;
   //   Write a function that takes an array of numbers and strings as an
   //   argument and returns the average of all the numbers.
   //   Example: const arr = [1, '2', 3, '4', 5];
@@ -57,17 +71,30 @@ interface people2 {
 }
 
 export function findAvgAgeByJob(people: people2[], job: string): number {
+  // if (people.length === 0) {
+  //   return 0;
+  // }
+
+  // let arr = people.filter((item) => item.job === job);
+  // let sum = 0;
+  // arr.forEach((item) => {
+  //   sum += item.age;
+  // });
+  // // return sum === 0 ? 0 : sum / arr.length;
+  // return sum === 0 ? 0 : sum / arr.length;
   if (people.length === 0) {
     return 0;
   }
-
-  let arr = people.filter((item) => item.job === job);
   let sum = 0;
-  arr.forEach((item) => {
-    sum += item.age;
-  });
-  // return sum === 0 ? 0 : sum / arr.length;
-  return sum === 0 ? 0 : sum / arr.length;
+  let count = 0;
+  for (const item of people) {
+    const { age } = item;
+    if (item.job === job) {
+      sum += age;
+      count++;
+    }
+  }
+  return count === 0 ? 0 : sum / count;
 
   //   Write a function that takes an array of people objects as an argument and
   //   returns the average age of people with the same job.
@@ -77,13 +104,23 @@ export function findAvgAgeByJob(people: people2[], job: string): number {
 }
 
 export function findMaxNum(arr: number[]): number {
+  // if (arr.length === 0) {
+  //   return 0;
+  // }
+  // let max = arr[0];
+  // for (const num of arr) {
+  //   if (num > max) {
+  //     max = num;
+  //   }
+  // }
+  // return max;
   if (arr.length === 0) {
     return 0;
   }
   let max = arr[0];
-  for (const num of arr) {
-    if (num > max) {
-      max = num;
+  for (const item of arr) {
+    if (item > max) {
+      max = item;
     }
   }
   return max;
@@ -98,13 +135,24 @@ export function findLongestWord(str: string): string {
     return "";
   }
   const arr = str.split(" ");
-  let max = arr[0];
-  for (let i = 1; i < arr.length; i++) {
-    if (arr[i].length > max.length) {
-      max = arr[i];
+  let res = "";
+  for (const item of arr) {
+    if (item.length > res.length) {
+      res = item;
     }
   }
-  return max;
+  return res;
+  // if (str.length === 0) {
+  //   return "";
+  // }
+  // const arr = str.split(" ");
+  // let max = arr[0];
+  // for (let i = 1; i < arr.length; i++) {
+  //   if (arr[i].length > max.length) {
+  //     max = arr[i];
+  //   }
+  // }
+  // return max;
   //   Write a function that takes a string as an argument and
   //   returns the longest word in that string.
   //   Hint: You can use String.prototype.split
@@ -112,10 +160,15 @@ export function findLongestWord(str: string): string {
 }
 
 export function findSumOfEvenNums(arr: number[]): number[] {
-  if (arr.length == 0) {
-    return [];
-  }
-  return arr.filter((item) => item % 2 === 0);
+  // if (arr.length == 0) {
+  //   return [];
+  // }
+  // return arr.filter((item) => item % 2 === 0);
+
+  if (arr.length === 0) return [];
+  const res = arr.filter((item) => item % 2 === 0);
+  return res;
+
   //   Write a function that takes an array of numbers as an argument and
   //   returns an array of only the even numbers.
   //   Example: const arr = [1, 2, 3, 4, 5];

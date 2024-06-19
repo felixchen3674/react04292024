@@ -1,13 +1,20 @@
 import { Provider } from "react-redux";
-import store from "./todowithredux/redux/store";
+
 import TodoAppWRedux from "./todowithredux/TodoAppWRedux";
+
+import React from "react";
+import store from "./todo-redux/redux/store";
+import ToDoRApp from "./todo-redux/ToDoRApp";
 
 export default function Day19Play() {
   return (
     <div>
       <h1>Day 19 Play</h1>
-      <Provider store={store}>
+      {/* <Provider store={store}>
         <TodoAppWRedux />
+      </Provider> */}
+      <Provider store={store}>
+        <ToDoRApp />
       </Provider>
     </div>
   );

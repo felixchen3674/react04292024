@@ -1,6 +1,6 @@
 import { Component, ReactNode } from "react";
 
-interface itemType {
+export interface itemType {
   id: number;
   name: string;
   price: number;

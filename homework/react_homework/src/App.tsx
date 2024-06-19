@@ -11,7 +11,7 @@ import { StudentType } from "./day11_describing_the_ui/Student";
 // import FunctionClick from "./day11_describing_the_ui/notes/FunctionClick";
 // import { PlayButton } from "./day11_describing_the_ui/notes/PlayButton";
 // import { StudentType } from "./day11_describing_the_ui/Student";
-// import Day12Play from "./day12_interactivity/notes";
+
 // import Fetch from "./day13_lifecycles/notes/FetchData";
 // import { LifeCycle } from "./day13_lifecycles/notes/LifeCycle";
 // import UseEffectCycle from "./day13_lifecycles/notes/UseEffect";
@@ -36,6 +36,9 @@ import CollapsibleFAQ from "./many_practices/CallapsibleFAQ";
 import QuizApp from "./many_practices/QuizApp";
 import ColorPicker from "./many_practices/ColorPicker";
 import MenuList from "./many_practices/MenuList";
+import Day12Play from "./day12_interactivity/notes";
+import Day18Play from "./day18_ context & useReducer";
+import Day19Play from "./day19_/notes";
 
 function App() {
   // const student: StudentType = {
@@ -67,7 +70,9 @@ function App() {
       {/* <CollapsibleFAQ /> */}
       {/* <QuizApp /> */}
       {/* <ColorPicker /> */}
-      <MenuList />
+      {/* <MenuList /> */}
+      {/* <Day18Play /> */}
+      <Day19Play />
     </div>
   );
 }

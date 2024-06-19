@@ -20,6 +20,7 @@ export class LifeCycle extends Component<{}, Type> {
     console.log("component did update");
     // we usually use for updating some state like counter;
   }
+  
   render(): ReactNode {
     console.log("render");
     const { count, check } = this.state;

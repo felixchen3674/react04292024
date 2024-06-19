@@ -1,5 +1,6 @@
 import { Component, ReactNode } from "react";
 import { CheckBox } from "./CheckboxWithClass";
+import React from "react";
 
 type ItemType = {
   id: number;

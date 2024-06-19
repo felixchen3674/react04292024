@@ -7,6 +7,10 @@ import BirthdayRecord from "../BirthdayRecord";
 import DebouncedCallback from "../DebouncedCallback";
 import BirthdayRecordSolution from "../BirthdayRecord/solution";
 import TodoApp from "../../day18_ context & useReducer/todoApp/TodoApp";
+import UseCallBack from "./useCallBack";
+import React from "react";
+import UseMemo from "./usememo";
+import ParentA from "../../day18_ context & useReducer/notes/ParentA";
 
 export default function Day17Play() {
   return (
@@ -17,9 +21,13 @@ export default function Day17Play() {
       {/* <UseContext /> */}
       {/* <UseReducerFunction /> */}
       {/* <UseReducer2 /> */}
-      {/* <UseContextReduce /> */}
-      <TodoApp />
+      <UseContextReduce>
+        <ParentA />
+      </UseContextReduce>
+      {/* <TodoApp /> */}
       {/* <BirthdayRecordSolution /> */}
+      {/* <UseCallBack /> */}
+      {/* <UseMemo /> */}
     </div>
   );
 }

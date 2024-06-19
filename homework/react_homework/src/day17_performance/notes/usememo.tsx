@@ -4,9 +4,16 @@ export default function UseMemo() {
   const [number, setNumber] = useState<number>(0);
   const [dark, setDark] = useState<boolean>(false);
 
+  // const doubleNumber = useMemo(() => {
+  //   return slowFunction(number);
+  // }, [number]);
+
   const doubleNumber = useMemo(() => {
-    return slowFunction(number);
+    const res = slowFunction(number);
+    return res;
   }, [number]);
+  // const doubleNumber = slowFunction(number);
+
   // use usememo to memorize the slowfunction result, so that whenever it re-render, if no change for the dependency number, the function won't run again
 
   const themeStyles = useMemo(() => {

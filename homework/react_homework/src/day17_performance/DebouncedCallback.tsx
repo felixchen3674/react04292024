@@ -1,3 +1,4 @@
+import React from "react";
 import { ChangeEvent, useCallback, useEffect, useState } from "react";
 
 function debounce<F extends (...args: any[]) => any>(func: F, wait: number): F {
@@ -33,7 +34,8 @@ export default function DebouncedCallback() {
     // instead of using useDebounce hook, use debounce higher order function
     debouncedApiCall(e.target.value);
   };
-
+  // using usecallback to make sure the debounce function won't create everytime when the component rerender, it keep the time of debounce in this case;
+  // otherwise, it will keep starting new timer every rerendering.
   return (
     <div>
       <input

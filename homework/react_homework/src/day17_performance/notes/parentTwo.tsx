@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { PureComponent, useState } from "react";
 import { MemorizeChildTwo } from "./children";
 export default function ParentTwo() {
   const [count, setCount] = useState(0);
@@ -21,4 +21,12 @@ export default function ParentTwo() {
   );
 }
 // pureComponent will check the value of the state or the reference of state variable to decide if it is need to be re-render;
+// for creating pureComponent just simply use class components to extend the pureComponent instead of components
+
+
+// export class pureComponent extends PureComponent{
+
+// }
+
+
 // if no change, it won't re-render;
